@@ -20,7 +20,7 @@ import Vue from 'vue'
 import Util from 'vue-convenia-util'
 
 Vue.use(Util, {
-  format: true,
+  formaters: true,
   formatFilters: true
 })
 
@@ -41,6 +41,5 @@ new Vue({
       cash() {
         return this.$format.toMoney(this.user.cash)
       }
-.gitignore
     }
 ```
