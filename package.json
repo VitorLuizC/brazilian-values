@@ -1,0 +1,41 @@
+{
+  "name": "vue-convenia-util",
+  "version": "0.1.0",
+  "description": "Plugin com validações, formatações e filtros para projetos Vue.",
+  "keywords": [
+    "convenia",
+    "vue",
+    "vue-plugin",
+    "validation",
+    "format"
+  ],
+  "author": {
+    "name": "Vitor Cavalcanti",
+    "url": "https://vitorluizc.github.io/",
+    "email": "vitorluizc@outlook.com"
+  },
+  "license": "MIT",
+  "main": "./dist/vue-convenia-util.common.js",
+  "module": "./dist/vue-convenia-util.es.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "npm run lint && poi ./test/index.js",
+    "build": "bili ./src/index.js --format es --format cjs --exports named"
+  },
+  "devDependencies": {
+    "bili": "^0.17.4",
+    "moment": "^2.18.1",
+    "poi": "^9.2.4",
+    "standard": "^10.0.3",
+    "vue": "^2.4.2"
+  },
+  "peerDependencies": {
+    "moment": "2.x"
+  },
+  "standard": {
+    "ignore": [
+      "dist/vue-convenia-util.common.js",
+      "dist/vue-convenia-util.es.js"
+    ]
+  }
+}
