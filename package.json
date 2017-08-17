@@ -21,7 +21,7 @@
     "test": "standard ./ && ava ./test/*.test.js",
     "test:watch": "ava ./test/*.test.js --verbose --watch",
     "build": "bili ./src/index.js --format es --format cjs --exports named",
-    "prepublish": "npm run build && npm run test"
+    "prepare": "npm run build && npm run test"
   },
   "devDependencies": {
     "ava": "^0.22.0",
