@@ -1,5 +1,7 @@
 # Vue Convenia Util
 
+[![Build Status][0]][1]
+
 Plugin com validações, formatações e filtros para projetos Vue.
 
 ## Instalação
@@ -43,3 +45,6 @@ new Vue({
       }
     }
 ```
+
+[0]: https://travis-ci.org/convenia/vue-convenia-util.svg?branch=master
+[1]: https://travis-ci.org/convenia/vue-convenia-util

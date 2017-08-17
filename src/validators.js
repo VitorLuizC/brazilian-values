@@ -1,7 +1,23 @@
 import moment from 'moment'
-import { getDateFormat } from './helpers'
+import { getDateFormat, getConstructor } from './helpers'
 
-export const isCPF = cpf => {
+/**
+ * Valida se o construtor do valor é o especificado.
+ * @example ```
+ * (12, 'Number') => true
+ * ({ name: 'Lucas' }, 'Object') => true
+ * ([2, 3], 'Set') => false
+ * ```
+ * @param {*} value
+ * @param {String} constructor
+ * @returns {Boolean}
+ */
+export const is = (value, constructor) => {
+  const isEquals = constructor === getConstructor(value)
+  return isEquals
+}
+
+export const isCPF = (cpf) => {
   const isInvalid = (cpf, rest, pos) => rest !== parseInt(cpf.substring(pos, pos + 1))
 
   const sumDigit = (cpf, digit) => 11 - (cpf.substring(0, digit).split('').reduce((acc, curr, index) => {
@@ -10,6 +26,8 @@ export const isCPF = cpf => {
   }, 0) % 11)
 
   const getRest = sum => sum > 9 ? 0 : sum
+
+  if (!is(cpf, 'String')) return false
 
   cpf = cpf.replace(/[\D]/gi, '')
 
