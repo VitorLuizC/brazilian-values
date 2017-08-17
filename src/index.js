@@ -1,16 +1,16 @@
 import * as $format from './formatters'
-import * as $validation from './validations'
+import * as $validate from './validators'
 
 export { $format as format }
 
-export { $validation as validation }
+export { $validate as validate }
 
 /**
  * Opções do plugin.
  * @typedef {Object} Options
  * @property {Boolean} formatters
  * @property {Boolean} formatFilters
- * @property {Boolean} validations
+ * @property {Boolean} validators
  */
 
 /**
@@ -31,8 +31,8 @@ const install = (Vue, options = {}) => {
     })
   }
 
-  if (options.validations) {
-    Vue.prototype.$validation = $validation
+  if (options.validators) {
+    Vue.prototype.$validate = $validate
   }
 }
 
