@@ -20,7 +20,7 @@ import Vue from 'vue'
 import Util from 'vue-convenia-util'
 
 Vue.use(Util, {
-  formaters: true,
+  formatters: true,
   formatFilters: true
 })
 
