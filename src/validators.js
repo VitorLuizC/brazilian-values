@@ -57,6 +57,6 @@ export const isCPF = (cpf) => {
  */
 export const isDate = (date, format = null) => {
   const from = format || getDateFormat(date)
-  const isValid = from ? moment(date, format).isValid() : false
+  const isValid = from ? moment(date, from).isValid() : false
   return isValid
 }
