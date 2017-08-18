@@ -74,8 +74,10 @@ export const toMoney = (number) => {
  * @returns {Number}
  */
 export const toYears = (date) => {
-  const from = moment(toDate(date), 'DD/MM/YYYY')
-  const years = moment().diff(from, 'years')
+  const format = getDateFormat(date)
+  const from = format ? moment(date, format) : null
+  const diff = from ? moment().diff(from, 'years') : null
+  const years = is(diff, 'Number') && !isNaN(diff) ? diff : null
   return years
 }
 
