@@ -58,7 +58,7 @@ var isDate = function (date, format) {
   if ( format === void 0 ) format = null;
 
   var from = format || getDateFormat(date);
-  var isValid = from ? moment(date, format).isValid() : false;
+  var isValid = from ? moment(date, from).isValid() : false;
   return isValid
 };
 
@@ -182,7 +182,7 @@ var toRG = function (rg) {
  */
 var toMoney = function (number) {
   var isValid = is(number, 'Number') || (is(number, 'String') && !isNaN(number));
-  var formatted = !isValid ? null : 'R$ ' + replace(+(number).toFixed(2), [
+  var formatted = !isValid ? null : 'R$ ' + replace((+number).toFixed(2), [
     ['.', ','],
     [/(\d)(?=(\d{3})+(?!\d))/g, '$1.']
   ]);
@@ -200,8 +200,10 @@ var toMoney = function (number) {
  * @returns {Number}
  */
 var toYears = function (date) {
-  var from = moment(toDate(date), 'DD/MM/YYYY');
-  var years = moment().diff(from, 'years');
+  var format = getDateFormat(date);
+  var from = format ? moment(date, format) : null;
+  var diff = from ? moment().diff(from, 'years') : null;
+  var years = is(diff, 'Number') && !isNaN(diff) ? diff : null;
   return years
 };
 
@@ -224,7 +226,7 @@ var toDate = function (date, toDatabase) {
   if ( toDatabase === void 0 ) toDatabase = false;
 
   var from = getDateFormat(date);
-  var isValid = !!from;
+  var isValid = from ? isDate(date, from) : null;
   var to = toDatabase ? 'YYYY-MM-DD' : 'DD/MM/YYYY';
   var formatted = !isValid ? null : moment(date, from).format(to);
   return formatted
