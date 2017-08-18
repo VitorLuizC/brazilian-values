@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { getDateFormat, replace } from './helpers'
-import { is } from './validators'
+import { is, isDate } from './validators'
 
 /**
  * Transforma um valor para a formatação de CPF.
@@ -98,7 +98,7 @@ export const toYears = (date) => {
  */
 export const toDate = (date, toDatabase = false) => {
   const from = getDateFormat(date)
-  const isValid = !!from
+  const isValid = from ? isDate(date, from) : null
   const to = toDatabase ? 'YYYY-MM-DD' : 'DD/MM/YYYY'
   const formatted = !isValid ? null : moment(date, from).format(to)
   return formatted
