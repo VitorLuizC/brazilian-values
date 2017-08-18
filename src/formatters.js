@@ -56,7 +56,7 @@ export const toRG = (rg) => {
  */
 export const toMoney = (number) => {
   const isValid = is(number, 'Number') || (is(number, 'String') && !isNaN(number))
-  const formatted = !isValid ? null : 'R$ ' + replace(+(number).toFixed(2), [
+  const formatted = !isValid ? null : 'R$ ' + replace((+number).toFixed(2), [
     ['.', ','],
     [/(\d)(?=(\d{3})+(?!\d))/g, '$1.']
   ])
