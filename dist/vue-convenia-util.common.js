@@ -189,7 +189,7 @@ var replace = function (text, args) { return chain(text, function (text) { retur
  * @returns {String}
  */
 var toCPF = function (cpf) {
-  var isValid = is(cpf, 'String') && /\d/.test(cpf);
+  var isValid = is(cpf, 'String');
   var formatted = !isValid ? null : replace(cpf, [
     [/\D/g, ''],
     [/(\d{3})(\d)/, '$1.$2'],
@@ -210,7 +210,7 @@ var toCPF = function (cpf) {
  * @returns {String}
  */
 var toRG = function (rg) {
-  var isValid = is(rg, 'String') && /\d/.test(rg);
+  var isValid = is(rg, 'String');
   var formatted = !isValid ? null : replace(rg, [
     [/[^\d|A|B|X]/g, ''],
     [/(\d{2})(\d)/, '$1.$2'],
@@ -301,7 +301,7 @@ var toEmpty = function (value, char) {
  * @returns {String}
  */
 var toPhone = function (value) {
-  var isValid = is(value, 'String') && /\d/.test(value);
+  var isValid = is(value, 'String');
   var formatted = !isValid ? null : replace(value, [
     [/\D/g, ''],
     [/(\d{1,2})/, '($1'],
@@ -355,6 +355,20 @@ var toSlug = function (value) {
   return formatted
 };
 
+/**
+ * Formata um valor para CEP.
+ * @param {String} value
+ * @returns {Boolean}
+ */
+var toCEP = function (value) {
+  var isValid = is(value, 'String');
+  var formatted = !isValid ? null : replace(value, [
+    [/\D/g, ''],
+    [/(\d{5})(\d{1,3})/, '$1-$2']
+  ]);
+  return formatted
+};
+
 
 var $format = Object.freeze({
 	toCPF: toCPF,
@@ -365,7 +379,8 @@ var $format = Object.freeze({
 	toEmpty: toEmpty,
 	toPhone: toPhone,
 	toClean: toClean,
-	toSlug: toSlug
+	toSlug: toSlug,
+	toCEP: toCEP
 });
 
 /**

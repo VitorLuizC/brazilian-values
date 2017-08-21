@@ -8,7 +8,6 @@ test('toCPF: Formata um valor, ou parte dele para CPF', (context) => {
 })
 
 test('toCPF: Não formata valores inválidos', (context) => {
-  context.is(format.toCPF('Abacaxi'), null)
   context.is(format.toCPF(undefined), null)
   context.is(format.toCPF(null), null)
 })
@@ -19,7 +18,6 @@ test('toRG: Formata um valor, ou parte dele, para RG', (context) => {
 })
 
 test('toRG: Não formata valores inválidos', (context) => {
-  context.is(format.toRG('Abacaxi'), null)
   context.is(format.toRG(undefined), null)
   context.is(format.toRG(null), null)
 })
@@ -33,7 +31,6 @@ test('toMoney: Formata um valor para moeda', (context) => {
 test('toMoney: Não formata valores inválidos', (context) => {
   context.is(format.toMoney(null), null)
   context.is(format.toMoney(undefined), null)
-  context.is(format.toMoney('XXI'), null)
   context.is(format.toMoney([]), null)
 })
 
@@ -86,7 +83,6 @@ test('toPhone: Formata um valor para telefone', (context) => {
 test('toPhone: Não formata valores inválidos', (context) => {
   context.is(format.toPhone(null), null)
   context.is(format.toPhone(undefined), null)
-  context.is(format.toPhone(''), null)
   context.is(format.toPhone(198928192), null)
 })
 
@@ -108,4 +104,15 @@ test('toSlug: Formata um texto para "kebab-case"', (context) => {
 test('toSlug: Não formata valores inválidos', (context) => {
   context.is(format.toSlug(null), null)
   context.is(format.toSlug(undefined), null)
+})
+
+test('toCEP: Formata um texto para CEP', (context) => {
+  context.is(format.toCEP('15998030'), '15998-030')
+  context.is(format.toCEP('159980'), '15998-0')
+})
+
+test('toCEP: Não formata valores inválidos', (context) => {
+  context.is(format.toCEP(null), null)
+  context.is(format.toCEP(undefined), null)
+  context.is(format.toCEP(15998030), null)
 })

@@ -13,7 +13,7 @@ import { is, isDate } from './validators'
  * @returns {String}
  */
 export const toCPF = (cpf) => {
-  const isValid = is(cpf, 'String') && /\d/.test(cpf)
+  const isValid = is(cpf, 'String')
   const formatted = !isValid ? null : replace(cpf, [
     [/\D/g, ''],
     [/(\d{3})(\d)/, '$1.$2'],
@@ -34,7 +34,7 @@ export const toCPF = (cpf) => {
  * @returns {String}
  */
 export const toRG = (rg) => {
-  const isValid = is(rg, 'String') && /\d/.test(rg)
+  const isValid = is(rg, 'String')
   const formatted = !isValid ? null : replace(rg, [
     [/[^\d|A|B|X]/g, ''],
     [/(\d{2})(\d)/, '$1.$2'],
@@ -119,7 +119,7 @@ export const toEmpty = (value, char = '-') => value || char
  * @returns {String}
  */
 export const toPhone = (value) => {
-  const isValid = is(value, 'String') && /\d/.test(value)
+  const isValid = is(value, 'String')
   const formatted = !isValid ? null : replace(value, [
     [/\D/g, ''],
     [/(\d{1,2})/, '($1'],
@@ -169,6 +169,20 @@ export const toSlug = (value) => {
     [/--+/g, '-'],
     [/^-+/, ''],
     [/-+$/, '']
+  ])
+  return formatted
+}
+
+/**
+ * Formata um valor para CEP.
+ * @param {String} value
+ * @returns {Boolean}
+ */
+export const toCEP = (value) => {
+  const isValid = is(value, 'String')
+  const formatted = !isValid ? null : replace(value, [
+    [/\D/g, ''],
+    [/(\d{5})(\d{1,3})/, '$1-$2']
   ])
   return formatted
 }
