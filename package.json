@@ -41,7 +41,6 @@
     "moment": "2.x"
   },
   "standard": {
-    "env": "mocha",
     "ignore": [
       "dist/vue-convenia-util.common.js",
       "dist/vue-convenia-util.es.js"

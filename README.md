@@ -1,6 +1,7 @@
 # Vue Convenia Util
 
-[![Build Status][0]][1]
+[![Build Status][badge-0]][link-0]
+[![JavaScript Style Guide][badge-1]][link-1]
 
 Plugin com validações, formatações e filtros para projetos Vue. Validação e
 formatação de CPF, CNPJ, datas, dinheiro (R$) etc.
@@ -67,5 +68,10 @@ Util.integrate('vee-validate', Validator, {
 })
 ```
 
-[0]: https://travis-ci.org/convenia/vue-convenia-util.svg?branch=master
-[1]: https://travis-ci.org/convenia/vue-convenia-util
+<!-- Badges -->
+[badge-0]: https://travis-ci.org/convenia/vue-convenia-util.svg?branch=master
+[badge-1]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+
+<!-- Links -->
+[link-0]: https://travis-ci.org/convenia/vue-convenia-util
+[link-1]: https://standardjs.com
