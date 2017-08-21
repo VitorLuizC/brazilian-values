@@ -129,3 +129,46 @@ export const toPhone = (value) => {
   ])
   return formatted
 }
+
+/**
+ * Formata o texto removendo seus acentos.
+ * @example ```
+ * ('Vítor') => 'Vitor'
+ * ('Olá, tudo bem com você?') => 'Ola, tudo bem com voce?'
+ * ```
+ * @param {String} value
+ * @returns {String}
+ */
+export const toClean = (value) => {
+  const isValid = is(value, 'String')
+  const chars = [
+    'àáäâãèéëêìíïîòóöôõùúüûçÀÁÄÂÃÈÉËÊÌÍÏÎÒÓÖÔÕÙÚÜÛÇ',
+    'aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC'
+  ]
+  const hasSpecial = new RegExp(chars[0].split('').join('|'), 'g')
+  const formatted = !isValid ? null : value.replace(hasSpecial, (char) => {
+    const index = chars[0].indexOf(char)
+    const clean = chars[1][index]
+    return clean
+  })
+  return formatted
+}
+
+/**
+ * Formata um texto o transformando em _kebab-case_.
+ * @param {String} value
+ * @returns {String}
+ */
+export const toSlug = (value) => {
+  const isValid = is(value, 'String')
+  const clean = isValid ? toClean(value.toLowerCase()) : null
+  const formatted = !isValid ? null : replace(clean, [
+    [/\\|ß|·|\/|_|,|:|;|\s/g, '-'],
+    [/&/g, '-e-'],
+    [/[^\w-]+/g, ''],
+    [/--+/g, '-'],
+    [/^-+/, ''],
+    [/-+$/, '']
+  ])
+  return formatted
+}

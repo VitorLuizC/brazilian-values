@@ -74,12 +74,14 @@ var isDate = function (date, format) {
  * @returns {Boolean}
  */
 var isCNPJ = function (value) {
-  if (!is(value, 'String'))
-    { return false }
+  if (!is(value, 'String')) {
+    return false
+  }
 
   var digits = value.replace(/[\D]/gi, '');
 
-  var dig1 = 0, dig2 = 0;
+  var dig1 = 0;
+  var dig2 = 0;
 
   var validation = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
@@ -310,6 +312,49 @@ var toPhone = function (value) {
   return formatted
 };
 
+/**
+ * Formata o texto removendo seus acentos.
+ * @example ```
+ * ('Vítor') => 'Vitor'
+ * ('Olá, tudo bem com você?') => 'Ola, tudo bem com voce?'
+ * ```
+ * @param {String} value
+ * @returns {String}
+ */
+var toClean = function (value) {
+  var isValid = is(value, 'String');
+  var chars = [
+    'àáäâãèéëêìíïîòóöôõùúüûçÀÁÄÂÃÈÉËÊÌÍÏÎÒÓÖÔÕÙÚÜÛÇ',
+    'aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC'
+  ];
+  var hasSpecial = new RegExp(chars[0].split('').join('|'), 'g');
+  var formatted = !isValid ? null : value.replace(hasSpecial, function (char) {
+    var index = chars[0].indexOf(char);
+    var clean = chars[1][index];
+    return clean
+  });
+  return formatted
+};
+
+/**
+ * Formata um texto o transformando em _kebab-case_.
+ * @param {String} value
+ * @returns {String}
+ */
+var toSlug = function (value) {
+  var isValid = is(value, 'String');
+  var clean = isValid ? toClean(value.toLowerCase()) : null;
+  var formatted = !isValid ? null : replace(clean, [
+    [/\\|ß|·|\/|_|,|:|;|\s/g, '-'],
+    [/&/g, '-e-'],
+    [/[^\w-]+/g, ''],
+    [/--+/g, '-'],
+    [/^-+/, ''],
+    [/-+$/, '']
+  ]);
+  return formatted
+};
+
 
 var $format = Object.freeze({
 	toCPF: toCPF,
@@ -318,7 +363,9 @@ var $format = Object.freeze({
 	toYears: toYears,
 	toDate: toDate,
 	toEmpty: toEmpty,
-	toPhone: toPhone
+	toPhone: toPhone,
+	toClean: toClean,
+	toSlug: toSlug
 });
 
 /**

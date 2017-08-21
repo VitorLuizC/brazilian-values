@@ -89,3 +89,23 @@ test('toPhone: Não formata valores inválidos', (context) => {
   context.is(format.toPhone(''), null)
   context.is(format.toPhone(198928192), null)
 })
+
+test('toClean: Formata um texto removendo seus acentos', (context) => {
+  context.is(format.toClean('Olá, tudo bem com você?'), 'Ola, tudo bem com voce?')
+  context.is(format.toClean('São Paulo - SP'), 'Sao Paulo - SP')
+})
+
+test('toClean: Não formata valores inválidos', (context) => {
+  context.is(format.toClean(null), null)
+  context.is(format.toClean(undefined), null)
+})
+
+test('toSlug: Formata um texto para "kebab-case"', (context) => {
+  context.is(format.toSlug('Olá, tudo bem com você?'), 'ola-tudo-bem-com-voce')
+  context.is(format.toSlug('São Paulo - SP'), 'sao-paulo-sp')
+})
+
+test('toSlug: Não formata valores inválidos', (context) => {
+  context.is(format.toSlug(null), null)
+  context.is(format.toSlug(undefined), null)
+})
