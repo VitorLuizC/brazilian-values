@@ -105,7 +105,7 @@ var isEmail = function (value) {
 };
 
 
-var $validate = Object.freeze({
+var validate = Object.freeze({
 	is: is,
 	isCPF: isCPF,
 	isDate: isDate,
@@ -378,6 +378,41 @@ var $format = Object.freeze({
 });
 
 /**
+ * Integra automaticamente as funções de validação ao vee-validade.
+ * @param {vee-validate.Validator} Validator
+ * @param {Object.<String, { name: String, getMessage: Function }>} options
+ */
+var VeeValidateIntegration = function (Validator, options) {
+  var defaultOptions = {
+    isCPF: {
+      name: 'cpf',
+      getMessage: function () { return 'CPF inválido.'; }
+    },
+    isCNPJ: {
+      name: 'cnpj',
+      getMessage: function () { return 'CNPJ inválido.'; }
+    },
+    isDate: {
+      name: 'date',
+      getMessage: function () { return 'Data inválida.'; }
+    }
+  };
+
+  var rules = Object.assign({}, defaultOptions, options);
+
+  Object.keys(rules)
+    .map(function (key) { return Object.assign({}, rules[key], { validate: validate[key] }); })
+    .filter(function (rule) { return is(rules, 'Object'); })
+    .forEach(function (rule) { return Validator.extend(rule.name, rule); });
+
+  return true
+};
+
+var integrations = {
+  'vee-validate': VeeValidateIntegration
+};
+
+/**
  * Opções do plugin.
  * @typedef {Object} Options
  * @property {Boolean} formatters
@@ -406,8 +441,35 @@ var install = function (Vue, options) {
   }
 
   if (options.validators) {
-    Vue.prototype.$validate = $validate;
+    Vue.prototype.$validate = validate;
   }
 };
 
-export { $format as format, $validate as validate };export default install;
+/**
+ * Integra-se a lib definida usando o object/função de integração e as opções da
+ * integração.
+ * @example ```
+ * import { Validator } from 'vee-validate'
+ * import Util from 'vue-convenia-util'
+ *
+ * Util.integrate('vee-validate', Validator)
+ * ```
+ * @param {String} lib
+ * @param {(Object|Function)} integrator
+ * @param {Object} options
+ * @returns {Boolean}
+ */
+var integrate = function (lib, integrator, options) {
+  if ( options === void 0 ) options = {};
+
+  var integration = integrations.hasOwnProperty(lib) ? integrations[lib] : null;
+  var success = integration ? integration(integrator, options) : false;
+  return success
+};
+
+var index = {
+  install: install,
+  integrate: integrate
+};
+
+export { $format as format, validate };export default index;

@@ -1,5 +1,6 @@
 import * as $format from './formatters'
 import * as $validate from './validators'
+import integrations from './integrations'
 
 export { $format as format }
 
@@ -36,4 +37,27 @@ const install = (Vue, options = {}) => {
   }
 }
 
-export default install
+/**
+ * Integra-se a lib definida usando o object/função de integração e as opções da
+ * integração.
+ * @example ```
+ * import { Validator } from 'vee-validate'
+ * import Util from 'vue-convenia-util'
+ *
+ * Util.integrate('vee-validate', Validator)
+ * ```
+ * @param {String} lib
+ * @param {(Object|Function)} integrator
+ * @param {Object} options
+ * @returns {Boolean}
+ */
+const integrate = (lib, integrator, options = {}) => {
+  const integration = integrations.hasOwnProperty(lib) ? integrations[lib] : null
+  const success = integration ? integration(integrator, options) : false
+  return success
+}
+
+export default {
+  install,
+  integrate
+}
