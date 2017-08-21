@@ -17,9 +17,13 @@
   "license": "MIT",
   "main": "./dist/vue-convenia-util.common.js",
   "module": "./dist/vue-convenia-util.es.js",
+  "watch": {
+    "build": "src/*.js",
+    "test": "{src,test}/*.js"
+  },
   "scripts": {
+    "start": "npm-watch",
     "test": "standard ./ && ava ./test/*.test.js",
-    "test:watch": "ava ./test/*.test.js --verbose --watch",
     "build": "bili ./src/index.js --format es --format cjs --exports named",
     "prepare": "npm run build && npm run test"
   },
@@ -27,6 +31,7 @@
     "ava": "^0.22.0",
     "bili": "^0.17.4",
     "moment": "^2.18.1",
+    "npm-watch": "^0.2.0",
     "poi": "^9.2.4",
     "sinon": "^3.2.1",
     "standard": "^10.0.3",

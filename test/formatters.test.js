@@ -75,3 +75,17 @@ test('toEmpty: Retorna um caractere vazio para um dado vazio', (context) => {
   context.is(format.toEmpty(''), '-')
   context.is(format.toEmpty(NaN), '-')
 })
+
+test('toPhone: Formata um valor para telefone', (context) => {
+  context.is(format.toPhone('11'), '(11')
+  context.is(format.toPhone('11971626'), '(11) 9716-26')
+  context.is(format.toPhone('1197162679'), '(11) 9716-2679')
+  context.is(format.toPhone('11971626799'), '(11) 97162-6799')
+})
+
+test('toPhone: Não formata valores inválidos', (context) => {
+  context.is(format.toPhone(null), null)
+  context.is(format.toPhone(undefined), null)
+  context.is(format.toPhone(''), null)
+  context.is(format.toPhone(198928192), null)
+})

@@ -251,6 +251,23 @@ var toEmpty = function (value, char) {
   return value || char;
 };
 
+/**
+ * Formata um valor para o formato de telefone.
+ * @param {String} value
+ * @returns {String}
+ */
+var toPhone = function (value) {
+  var isValid = is(value, 'String') && /\d/.test(value);
+  var formatted = !isValid ? null : replace(value, [
+    [/\D/g, ''],
+    [/(\d{1,2})/, '($1'],
+    [/(\(\d{2})(\d{1,4})/, '$1) $2'],
+    [/( \d{4})(\d{1,4})/, '$1-$2'],
+    [/( \d{4})(?:-)(\d{1})(\d{4})/, '$1$2-$3']
+  ]);
+  return formatted
+};
+
 
 var $format = Object.freeze({
 	toCPF: toCPF,
@@ -258,7 +275,8 @@ var $format = Object.freeze({
 	toMoney: toMoney,
 	toYears: toYears,
 	toDate: toDate,
-	toEmpty: toEmpty
+	toEmpty: toEmpty,
+	toPhone: toPhone
 });
 
 /**
