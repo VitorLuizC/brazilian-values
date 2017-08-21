@@ -67,12 +67,14 @@ export const isDate = (date, format = null) => {
  * @returns {Boolean}
  */
 export const isCNPJ = (value) => {
-  if (!is(value, 'String'))
+  if (!is(value, 'String')) {
     return false
+  }
 
   const digits = value.replace(/[\D]/gi, '')
 
-  let dig1 = 0, dig2 = 0
+  let dig1 = 0
+  let dig2 = 0
 
   const validation = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 

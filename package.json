@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "npm-watch",
-    "test": "standard ./ && ava ./test/*.test.js",
+    "test": "standard ./**/*.js && ava ./test/*.test.js",
     "build": "bili ./src/index.js --format es --format cjs --exports named",
     "prepare": "npm run build && npm run test"
   },
