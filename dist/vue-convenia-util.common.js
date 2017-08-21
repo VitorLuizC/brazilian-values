@@ -98,12 +98,23 @@ var isCNPJ = function (value) {
   return (((dig1 * 10) + dig2) === digito)
 };
 
+/**
+ * Valida, de forma simples*, se o valor é um email válido.
+ * @param {String} value
+ * @returns {Boolean}
+ */
+var isEmail = function (value) {
+  var isValid = is(value, 'String') && /^.+@.+\..+$/.test(value);
+  return isValid
+};
+
 
 var $validate = Object.freeze({
 	is: is,
 	isCPF: isCPF,
 	isDate: isDate,
-	isCNPJ: isCNPJ
+	isCNPJ: isCNPJ,
+	isEmail: isEmail
 });
 
 /**

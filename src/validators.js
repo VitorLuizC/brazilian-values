@@ -90,3 +90,13 @@ export const isCNPJ = (value) => {
 
   return (((dig1 * 10) + dig2) === digito)
 }
+
+/**
+ * Valida, de forma simples*, se o valor é um email válido.
+ * @param {String} value
+ * @returns {Boolean}
+ */
+export const isEmail = (value) => {
+  const isValid = is(value, 'String') && /^.+@.+\..+$/.test(value)
+  return isValid
+}

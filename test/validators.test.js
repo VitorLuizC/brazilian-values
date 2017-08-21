@@ -67,3 +67,15 @@ test('isCNPJ: Falso para dados que não sejam "string"', (context) => {
   context.is(validate.isCNPJ(null), false)
   context.is(validate.isCNPJ(41142260000189), false)
 })
+
+test('isEmail: Verdadeiro para um possível email', (context) => {
+  context.is(validate.isEmail('example@example.com'), true)
+  context.is(validate.isEmail('@example.com'), false)
+  context.is(validate.isEmail('example.com.br'), false)
+})
+
+test('isEmail: Falso para dados que não sejam "string"', (context) => {
+  context.is(validate.isEmail(undefined), false)
+  context.is(validate.isEmail(null), false)
+  context.is(validate.isEmail(41142260000189), false)
+})
