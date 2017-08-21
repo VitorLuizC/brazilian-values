@@ -2,14 +2,15 @@
 
 [![Build Status][0]][1]
 
-Plugin com validações, formatações e filtros para projetos Vue.
+Plugin com validações, formatações e filtros para projetos Vue. Validação e
+formatação de CPF, CNPJ, datas, dinheiro (R$) etc.
 
 ## Instalação
 
 Instale a dependência publicada no NPM.
 
 ```shell
-npm i vue-convenia-util
+yarn add vue-convenia-util
 ```
 
 ### Instalação global
@@ -44,6 +45,26 @@ new Vue({
         return this.$format.toMoney(this.user.cash)
       }
     }
+```
+
+### Integração com o [`vee-validate`](https://github.com/baianat/vee-validate)
+
+O Util disponibiliza a função `integrate` que serve basicamente para o integrar
+em outras libs. Com o vee-validade, e por enquanto só com ele mesmo, basta usar
+essa função.
+
+```js
+import Util from 'vue-convenia-util'
+import VeeValidate, { Validator } from 'vee-validate'
+
+// Util.integrate(nome da lib, objeto de integração, opções opcionais)
+
+Util.integrate('vee-validate', Validator, {
+  isEmail: {        // Por padrão apenas o isEmail é a única função que não é
+    name: 'email',  // injetada no Validator e essa é a forma de faze-lo.
+    getMessage: () => 'Email inválido.'
+  }
+})
 ```
 
 [0]: https://travis-ci.org/convenia/vue-convenia-util.svg?branch=master
