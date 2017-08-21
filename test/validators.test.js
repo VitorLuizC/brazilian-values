@@ -4,9 +4,9 @@ import { validate } from '../'
 test('is: Verdadeiro para a comparação de um valor com seu construtor', (context) => {
   context.is(validate.is(null, 'Null'), true)
   context.is(validate.is(undefined, 'Undefined'), true)
-  context.is(validate.is(1200, 'Number'), true)
+  context.is(validate.is(1200, 'String'), false)
   context.is(validate.is('R$ 120,20', 'String'), true)
-  context.is(validate.is([0, 1, 2, 3], 'Array'), true)
+  context.is(validate.is([0, 1, 2, 3], 'Object'), false)
   context.is(validate.is({ name: 'Convenia' }, 'Object'), true)
 })
 
@@ -49,10 +49,21 @@ test('isDate: Valida usando o formato especificado ao invés de um dinâmico', (
   context.is(validate.isDate('28 02', 'DD MM'), true)
 })
 
-test('isCPF: Falso para dados que não sejam "string"', (context) => {
-  // Teste que valida a correção do issue #5
-  // Link: https://github.com/convenia/vue-convenia-util/issues/5
+test('isDate: Falso para dados que não sejam "string"', (context) => {
   context.is(validate.isDate(undefined), false)
   context.is(validate.isDate(null), false)
   context.is(validate.isDate(36641876870), false)
+})
+
+test('isCNPJ: Verdadeiro para um CNPJ válido', (context) => {
+  context.is(validate.isCNPJ('41142260000189'), true)
+  context.is(validate.isCNPJ('45.723.174/0001-10'), true)
+  context.is(validate.isCNPJ('41142260007182'), false)
+  context.is(validate.isCNPJ('19.981.127/0001-10'), false)
+})
+
+test('isCNPJ: Falso para dados que não sejam "string"', (context) => {
+  context.is(validate.isCNPJ(undefined), false)
+  context.is(validate.isCNPJ(null), false)
+  context.is(validate.isCNPJ(41142260000189), false)
 })

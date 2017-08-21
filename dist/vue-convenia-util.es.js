@@ -62,11 +62,42 @@ var isDate = function (date, format) {
   return isValid
 };
 
+/**
+ * Valida se o valor é um CPNJ válido.
+ * @param {String} value
+ * @returns {Boolean}
+ */
+var isCNPJ = function (value) {
+  if (!is(value, 'String'))
+    { return false }
+
+  var digits = value.replace(/[\D]/gi, '');
+
+  var dig1 = 0, dig2 = 0;
+
+  var validation = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+
+  var digito = parseInt(digits.charAt(12) + digits.charAt(13));
+
+  var getRest = function (dig) { return (((dig % 11) < 2) ? 0 : (11 - (dig % 11))); };
+
+  validation.map(function (v, i) {
+    dig1 += (i > 0 ? (digits.charAt(i - 1) * v) : 0);
+    dig2 += digits.charAt(i) * v;
+  });
+
+  dig1 = getRest(dig1);
+  dig2 = getRest(dig2);
+
+  return (((dig1 * 10) + dig2) === digito)
+};
+
 
 var $validate = Object.freeze({
 	is: is,
 	isCPF: isCPF,
-	isDate: isDate
+	isDate: isDate,
+	isCNPJ: isCNPJ
 });
 
 /**
