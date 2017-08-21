@@ -1,6 +1,6 @@
 {
   "name": "vue-convenia-util",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Plugin com validações, formatações e filtros para projetos Vue.",
   "keywords": [
     "convenia",
