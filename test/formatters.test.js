@@ -56,7 +56,9 @@ test('toDate: Formata uma data (DD-MM-YYYY | YYYY-MM-DD) para DD/MM/YYYY', (cont
 test('toDate: Com o toDatabase formata (DD-MM-YYYY | DD/MM/YYYY) para YYYY-MM-DD', (context) => {
   context.is(format.toDate('21/08/2002', true), '2002-08-21')
   context.is(format.toDate('21-08-2002', true), '2002-08-21')
+  context.is(format.toDate('21-08-2002 14:25:00', true), '2002-08-21')
   context.is(format.toDate('2002-08-21', true), '2002-08-21')
+  context.is(format.toDate('2002-08-21 22:15:28', true), '2002-08-21')
 })
 
 test('toDate: Não formata valores inválidos', (context) => {
