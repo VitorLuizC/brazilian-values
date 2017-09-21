@@ -268,15 +268,15 @@ var toYears = function (date) {
  * ('2006/12/21') => null
  * ```
  * @param {String} date
- * @param {Boolean} [toDatabase] Força o formato 'YYYY-MM-DD'.
+ * @param {{ from: String, to: String }} [options]
  * @returns {String}
  */
-var toDate = function (date, toDatabase) {
-  if ( toDatabase === void 0 ) toDatabase = false;
+var toDate = function (date, options) {
+  if ( options === void 0 ) options = {};
 
-  var from = getDateFormat(date);
-  var isValid = from ? isDate(date, from) : null;
-  var to = toDatabase ? 'YYYY-MM-DD' : 'DD/MM/YYYY';
+  var from = options.from || getDateFormat(date);
+  var to = options.to || 'DD/MM/YYYY';
+  var isValid = from && isDate(date, from);
   var formatted = !isValid ? null : moment(date, from).format(to);
   return formatted
 };

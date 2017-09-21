@@ -93,13 +93,13 @@ export const toYears = (date) => {
  * ('2006/12/21') => null
  * ```
  * @param {String} date
- * @param {Boolean} [toDatabase] Força o formato 'YYYY-MM-DD'.
+ * @param {{ from: String, to: String }} [options]
  * @returns {String}
  */
-export const toDate = (date, toDatabase = false) => {
-  const from = getDateFormat(date)
-  const isValid = from ? isDate(date, from) : null
-  const to = toDatabase ? 'YYYY-MM-DD' : 'DD/MM/YYYY'
+export const toDate = (date, options = {}) => {
+  const from = options.from || getDateFormat(date)
+  const to = options.to || 'DD/MM/YYYY'
+  const isValid = from && isDate(date, from)
   const formatted = !isValid ? null : moment(date, from).format(to)
   return formatted
 }
