@@ -398,7 +398,7 @@ var Loadable = function (action) {
     mounted: function mounted () {
       var this$1 = this;
 
-      action || Promise.resolve()
+      (action(this) || Promise.resolve())
         .then(function () {
           this$1.isLoading = false;
         });

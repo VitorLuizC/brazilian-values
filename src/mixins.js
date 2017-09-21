@@ -12,7 +12,7 @@ export const Loadable = (action) => {
       }
     },
     mounted () {
-      action || Promise.resolve()
+      (action(this) || Promise.resolve())
         .then(() => {
           this.isLoading = false
         })
