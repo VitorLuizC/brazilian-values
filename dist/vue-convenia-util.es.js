@@ -502,4 +502,5 @@ var index = {
   integrate: integrate
 };
 
-export { $format as format, validate, mixins };export default index;
+export { $format as format, validate, mixins };
+export default index;
