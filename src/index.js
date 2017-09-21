@@ -1,9 +1,9 @@
 import * as $format from './formatters'
 import * as $validate from './validators'
-import * as mixins from './mixins'
+import * as $mixins from './mixins'
 import integrations from './integrations'
 
-export { $format as format, $validate as validate, mixins }
+export { $format as format, $validate as validate, $mixins as mixin }
 
 /**
  * Opções do plugin.

@@ -510,5 +510,5 @@ var index = {
 
 exports.format = $format;
 exports.validate = validate;
-exports.mixins = mixins;
+exports.mixin = mixins;
 exports['default'] = index;
