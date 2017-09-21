@@ -383,6 +383,37 @@ var $format = Object.freeze({
 });
 
 /**
+ * Adiciona o dado isLoading com true, que assim que o componente é montado e a
+ * action é executada ele passa a ser false.
+ * @param {function(Vue): Promise} action
+ * @returns {{ data: function():{ isLoading: Boolean } mounted: function}}
+ */
+var Loadable = function (action) {
+  var Loadable = {
+    data: function data () {
+      return {
+        isLoading: true
+      }
+    },
+    mounted: function mounted () {
+      var this$1 = this;
+
+      action || Promise.resolve()
+        .then(function () {
+          this$1.isLoading = false;
+        });
+    }
+  };
+
+  return Loadable
+};
+
+
+var mixins = Object.freeze({
+	Loadable: Loadable
+});
+
+/**
  * Integra automaticamente as funções de validação ao vee-validade.
  * @param {vee-validate.Validator} Validator
  * @param {Object.<String, { name: String, getMessage: Function }>} options
@@ -479,4 +510,5 @@ var index = {
 
 exports.format = $format;
 exports.validate = validate;
+exports.mixins = mixins;
 exports['default'] = index;
