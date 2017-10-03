@@ -45,6 +45,16 @@ test('toYears: Não formata valores inválidos', (context) => {
   context.is(format.toYears('21/15/2017'), null)
 })
 
+test('toDays: Formata um número para sua quantidade em dias', (context) => {
+  context.is(format.toDays(null), '0 dias')
+  context.is(format.toDays(undefined), '0 dias')
+  context.is(format.toDays('quatro'), '0 dias')
+  context.is(format.toDays(0), '0 dias')
+  context.is(format.toDays(4.5), '4 dias')
+  context.is(format.toDays(1), '1 dia')
+  context.is(format.toDays(2), '2 dias')
+})
+
 test('toDate: Formata uma data (DD-MM-YYYY | YYYY-MM-DD) para DD/MM/YYYY', (context) => {
   context.is(format.toDate('21/08/2002'), '21/08/2002')
   context.is(format.toDate('21-08-2002'), '21/08/2002')

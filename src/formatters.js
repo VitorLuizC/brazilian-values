@@ -82,6 +82,22 @@ export const toYears = (date) => {
 }
 
 /**
+ * Formata para o formato de dias.
+ * @example ```
+ * (2) => '2 dias'
+ * (1) => '1 dia'
+ * (0) => '0 dias'
+ * ```
+ * @param {Number} quantity
+ * @returns {String}
+ */
+export const toDays = (quantity) => {
+  const isValid = is(quantity, 'Number') && Number.isFinite(quantity)
+  const days = (quantity === 1) ? '1 dia' : `${isValid ? ~~(quantity) : 0} dias`
+  return days
+}
+
+/**
  * Formata uma data 'YYYY-MM-DD' ou 'DD-MM-YYYY' em 'DD/MM/YYYY'. Transforma
  * a data em 'YYYY-MM-DD' caso o segundo parâmetro seja "true".
  * @example ```

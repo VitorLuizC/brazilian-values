@@ -251,6 +251,22 @@ var toYears = function (date) {
 };
 
 /**
+ * Formata para o formato de dias.
+ * @example ```
+ * (2) => '2 dias'
+ * (1) => '1 dia'
+ * (0) => '0 dias'
+ * ```
+ * @param {Number} quantity
+ * @returns {String}
+ */
+var toDays = function (quantity) {
+  var isValid = is(quantity, 'Number') && Number.isFinite(quantity);
+  var days = (quantity === 1) ? '1 dia' : ((isValid ? ~~(quantity) : 0) + " dias");
+  return days
+};
+
+/**
  * Formata uma data 'YYYY-MM-DD' ou 'DD-MM-YYYY' em 'DD/MM/YYYY'. Transforma
  * a data em 'YYYY-MM-DD' caso o segundo parâmetro seja "true".
  * @example ```
@@ -368,6 +384,7 @@ var $format = Object.freeze({
 	toRG: toRG,
 	toMoney: toMoney,
 	toYears: toYears,
+	toDays: toDays,
 	toDate: toDate,
 	toEmpty: toEmpty,
 	toPhone: toPhone,
@@ -380,31 +397,63 @@ var $format = Object.freeze({
  * Adiciona o dado isLoading com true, que assim que o componente é montado e a
  * action é executada ele passa a ser false.
  * @param {function(Vue): Promise} action
- * @returns {{ data: function():{ isLoading: Boolean } mounted: function}}
  */
-var Loadable = function (action) {
-  var Loadable = {
-    data: function data () {
-      return {
-        isLoading: true
-      }
-    },
-    mounted: function mounted () {
-      var this$1 = this;
-
-      (action(this) || Promise.resolve())
-        .then(function () {
-          this$1.isLoading = false;
-        });
+var Loadable = function (action) { return ({
+  data: function data () {
+    return {
+      isLoading: true
     }
-  };
+  },
+  mounted: function mounted () {
+    var this$1 = this;
 
-  return Loadable
+    (action ? action(this) : Promise.resolve())
+      .then(function () {
+        this$1.isLoading = false;
+      });
+  }
+}); };
+
+/**
+ * Resolve o problema das propriedades não inicializadas que não poderiam ser
+ * observadas.
+ * @param {{}} template
+ */
+var ObservableFix = function (template) {
+  if ( template === void 0 ) template = {};
+
+  return ({
+  props: {
+    data: {
+      type: Object,
+      default: function () { return Object.assign({}, template); }
+    }
+  },
+  data: function data () {
+    return {
+      selected: Object.assign({}, template)
+    }
+  },
+  watch: {
+    data: function data () {
+      this.cloneData();
+    }
+  },
+  methods: {
+    cloneData: function cloneData () {
+      this.selected = Object.assign({}, template, this.data);
+    }
+  },
+  mounted: function mounted () {
+    this.cloneData();
+  }
+});
 };
 
 
 var mixins = Object.freeze({
-	Loadable: Loadable
+	Loadable: Loadable,
+	ObservableFix: ObservableFix
 });
 
 /**
