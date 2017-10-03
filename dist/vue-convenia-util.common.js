@@ -298,6 +298,24 @@ var toDate = function (date, options) {
 };
 
 /**
+ * Usa a formatação de datas para retornar um intervalo.
+ * @example ```
+ * ({ start: '21-12-2006', end: '31-12-2006' }) => '21/12/2006 a 31/12/2006'
+ * ```
+ * @param {{ start: String, end: String }} dates
+ * @param {{ from: String, to: String }} [options]
+ * @returns {String}
+ */
+var toInterval = function (dates, options) {
+  if ( options === void 0 ) options = {};
+
+  var start = dates.start;
+  var end = dates.end;
+  var interval = (toDate(start, options)) + " a " + (toDate(end, options));
+  return interval
+};
+
+/**
  * Faz uma verificação simples e coloca o caractere para vazio caso o valor seja
  * vazio (null, undefined, '').
  * @param {*} value
@@ -392,6 +410,7 @@ var $format = Object.freeze({
 	toYears: toYears,
 	toDays: toDays,
 	toDate: toDate,
+	toInterval: toInterval,
 	toEmpty: toEmpty,
 	toPhone: toPhone,
 	toClean: toClean,

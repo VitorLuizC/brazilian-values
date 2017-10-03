@@ -1,5 +1,6 @@
 import test from 'ava'
 import { format } from '../'
+import 'moment/locale/pt-br'
 
 test('toCPF: Formata um valor, ou parte dele para CPF', (context) => {
   context.is(format.toCPF('00000000000'), '000.000.000-00')
@@ -74,6 +75,11 @@ test('toDate: Não formata valores inválidos', (context) => {
   context.is(format.toDate(undefined), null)
   context.is(format.toDate('21/08/01'), null)
   context.is(format.toDate('21/30/2001'), null)
+})
+
+test('toInterval: Formata o intervalo de datas', (context) => {
+  context.is(format.toInterval({ start: '21-03-2006', end: '20-04-2006' }), '21/03/2006 a 20/04/2006')
+  context.is(format.toInterval({ start: '21-03-2006', end: '20-04-2006' }, { to: 'MMMM' }), 'Março a Abril')
 })
 
 test('toEmpty: Retorna um caractere vazio para um dado vazio', (context) => {
