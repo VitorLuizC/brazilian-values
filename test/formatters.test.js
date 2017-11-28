@@ -15,6 +15,9 @@ test('toCPF: Não formata valores inválidos', (context) => {
 
 test('toRG: Formata um valor, ou parte dele, para RG', (context) => {
   context.is(format.toRG('000000000'), '00.000.000-0')
+  context.is(format.toRG('00000000a'), '00.000.000-A')
+  context.is(format.toRG('00000000B'), '00.000.000-B')
+  context.is(format.toRG('00000000x'), '00.000.000-X')
   context.is(format.toRG('000000'), '00.000.0')
 })
 

@@ -210,11 +210,11 @@ var toCPF = function (cpf) {
  */
 var toRG = function (rg) {
   var isValid = is(rg, 'String');
-  var formatted = !isValid ? null : replace(rg, [
+  var formatted = !isValid ? null : replace(rg.toUpperCase(), [
     [/[^\d|A|B|X]/g, ''],
     [/(\d{2})(\d)/, '$1.$2'],
     [/(\d{3})(\d)/, '$1.$2'],
-    [/(\d{3})(\d{1})$/, '$1-$2']
+    [/(\d{3})([\d|A|B|X]{1})$/, '$1-$2']
   ]);
   return formatted
 };

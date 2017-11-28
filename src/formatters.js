@@ -35,11 +35,11 @@ export const toCPF = (cpf) => {
  */
 export const toRG = (rg) => {
   const isValid = is(rg, 'String')
-  const formatted = !isValid ? null : replace(rg, [
+  const formatted = !isValid ? null : replace(rg.toUpperCase(), [
     [/[^\d|A|B|X]/g, ''],
     [/(\d{2})(\d)/, '$1.$2'],
     [/(\d{3})(\d)/, '$1.$2'],
-    [/(\d{3})(\d{1})$/, '$1-$2']
+    [/(\d{3})([\d|A|B|X]{1})$/, '$1-$2']
   ])
   return formatted
 }
