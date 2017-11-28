@@ -82,7 +82,7 @@ test('toDate: Não formata valores inválidos', (context) => {
 
 test('toInterval: Formata o intervalo de datas', (context) => {
   context.is(format.toInterval({ start: '21-03-2006', end: '20-04-2006' }), '21/03/2006 a 20/04/2006')
-  context.is(format.toInterval({ start: '21-03-2006', end: '20-04-2006' }, { to: 'MMMM' }), 'Março a Abril')
+  context.is(format.toInterval({ start: '21-03-2006', end: '20-04-2006' }, { to: 'MMMM' }), 'março a abril')
 })
 
 test('toEmpty: Retorna um caractere vazio para um dado vazio', (context) => {

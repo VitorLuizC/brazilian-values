@@ -28,14 +28,14 @@
     "prepare": "npm run build && npm run test"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "bili": "^0.18.1",
-    "moment": "^2.18.1",
+    "ava": "^0.24.0",
+    "bili": "^0.19.0",
+    "moment": "^2.19.2",
     "npm-watch": "^0.3.0",
-    "poi": "^9.3.8",
-    "sinon": "^4.0.0",
+    "poi": "^9.5.4",
+    "sinon": "^4.1.2",
     "standard": "^10.0.3",
-    "vue": "^2.4.4"
+    "vue": "^2.5.9"
   },
   "peerDependencies": {
     "moment": "2.x"
