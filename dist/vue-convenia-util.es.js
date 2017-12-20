@@ -278,16 +278,21 @@ var toDays = function (quantity) {
  * ('2006/12/21') => null
  * ```
  * @param {String} date
- * @param {{ from: String, to: String }} [options]
+ * @param {{ from: String, to: String, UTC: Boolean }} [options]
  * @returns {String}
  */
-var toDate = function (date, options) {
-  if ( options === void 0 ) options = {};
+var toDate = function (date, ref) {
+  if ( ref === void 0 ) ref = {};
+  var to = ref.to; if ( to === void 0 ) to = 'DD/MM/YYYY';
+  var from = ref.from; if ( from === void 0 ) from = getDateFormat(date);
+  var isUTC = ref.UTC; if ( isUTC === void 0 ) isUTC = false;
 
-  var from = options.from || getDateFormat(date);
-  var to = options.to || 'DD/MM/YYYY';
   var isValid = from && isDate(date, from);
-  var formatted = !isValid ? null : moment(date, from).format(to);
+  if (!isValid) {
+    return null
+  }
+  var formatter = isUTC ? moment.utc : moment;
+  var formatted = formatter(date, from).format(to);
   return formatted
 };
 
@@ -397,7 +402,7 @@ var toCEP = function (value) {
 };
 
 
-var $format = Object.freeze({
+var format = Object.freeze({
 	toCPF: toCPF,
 	toRG: toRG,
 	toMoney: toMoney,
@@ -470,7 +475,7 @@ var ObservableFix = function (template) {
 };
 
 
-var mixins = Object.freeze({
+var mixin = Object.freeze({
 	Loadable: Loadable,
 	ObservableFix: ObservableFix
 });
@@ -528,12 +533,12 @@ var install = function (Vue, options) {
   if ( options === void 0 ) options = {};
 
   if (options.formatters) {
-    Vue.prototype.$format = $format;
+    Vue.prototype.$format = format;
   }
 
   if (options.formatFilters) {
-    Object.keys($format).forEach(function (name) {
-      var handler = $format[name];
+    Object.keys(format).forEach(function (name) {
+      var handler = format[name];
       Vue.filter(name, handler);
     });
   }
@@ -567,8 +572,11 @@ var integrate = function (lib, integrator, options) {
 
 var index = {
   install: install,
-  integrate: integrate
+  integrate: integrate,
+  validate: validate,
+  format: format,
+  mixin: mixin
 };
 
-export { $format as format, validate, mixins as mixin };
+export { format, validate, mixin };
 export default index;

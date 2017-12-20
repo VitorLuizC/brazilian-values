@@ -1,9 +1,9 @@
-import * as $format from './formatters'
-import * as $validate from './validators'
-import * as $mixins from './mixins'
+import * as format from './formatters'
+import * as validate from './validators'
+import * as mixin from './mixins'
 import integrations from './integrations'
 
-export { $format as format, $validate as validate, $mixins as mixin }
+export { format, validate, mixin }
 
 /**
  * Opções do plugin.
@@ -21,18 +21,18 @@ export { $format as format, $validate as validate, $mixins as mixin }
  */
 const install = (Vue, options = {}) => {
   if (options.formatters) {
-    Vue.prototype.$format = $format
+    Vue.prototype.$format = format
   }
 
   if (options.formatFilters) {
-    Object.keys($format).forEach(name => {
-      const handler = $format[name]
+    Object.keys(format).forEach(name => {
+      const handler = format[name]
       Vue.filter(name, handler)
     })
   }
 
   if (options.validators) {
-    Vue.prototype.$validate = $validate
+    Vue.prototype.$validate = validate
   }
 }
 
@@ -58,5 +58,8 @@ const integrate = (lib, integrator, options = {}) => {
 
 export default {
   install,
-  integrate
+  integrate,
+  validate,
+  format,
+  mixin
 }

@@ -109,14 +109,16 @@ export const toDays = (quantity) => {
  * ('2006/12/21') => null
  * ```
  * @param {String} date
- * @param {{ from: String, to: String }} [options]
+ * @param {{ from: String, to: String, UTC: Boolean }} [options]
  * @returns {String}
  */
-export const toDate = (date, options = {}) => {
-  const from = options.from || getDateFormat(date)
-  const to = options.to || 'DD/MM/YYYY'
+export const toDate = (date, { to = 'DD/MM/YYYY', from = getDateFormat(date), UTC: isUTC = false } = {}) => {
   const isValid = from && isDate(date, from)
-  const formatted = !isValid ? null : moment(date, from).format(to)
+  if (!isValid) {
+    return null
+  }
+  const formatter = isUTC ? moment.utc : moment
+  const formatted = formatter(date, from).format(to)
   return formatted
 }
 
