@@ -77,7 +77,6 @@ test('toDate: Usando as opções é possível escolher usar UTC ao invés da tim
   context.is(format.toDate(1513791107947, { from: 'x', to: 'DD/MM/YYYY HH:mm', UTC: true }), '20/12/2017 17:31')
   context.is(format.toDate(1513791107947, { from: 'x', to: 'DD/MM/YYYY HH:mm', UTC: false }), '20/12/2017 15:31')
   context.is(format.toDate(1513791107947, { from: 'x', to: 'DD/MM/YYYY HH:mm' }), '20/12/2017 15:31')
-  context.not(format.toDate(1513791107947, { from: 'x', to: 'DD/MM/YYYY HH:mm', UTC: true }), '20/12/2017 15:31')
 })
 
 test('toDate: Não formata valores inválidos', (context) => {
