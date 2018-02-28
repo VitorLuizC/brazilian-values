@@ -1,4 +1,5 @@
 import moment from 'moment'
+import normalize, { normalizeDiacritics } from 'normalize-text'
 import { getDateFormat, replace } from './helpers'
 import { is, isDate } from './validators'
 
@@ -174,16 +175,7 @@ export const toPhone = (value) => {
  */
 export const toClean = (value) => {
   const isValid = is(value, 'String')
-  const chars = [
-    'àáäâãèéëêìíïîòóöôõùúüûçÀÁÄÂÃÈÉËÊÌÍÏÎÒÓÖÔÕÙÚÜÛÇ',
-    'aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC'
-  ]
-  const hasSpecial = new RegExp(chars[0].split('').join('|'), 'g')
-  const formatted = !isValid ? null : value.replace(hasSpecial, (char) => {
-    const index = chars[0].indexOf(char)
-    const clean = chars[1][index]
-    return clean
-  })
+  const formatted = !isValid ? null : normalizeDiacritics(value)
   return formatted
 }
 
@@ -193,15 +185,14 @@ export const toClean = (value) => {
  * @returns {String}
  */
 export const toSlug = (value) => {
-  const isValid = is(value, 'String')
-  const clean = isValid ? toClean(value.toLowerCase()) : null
-  const formatted = !isValid ? null : replace(clean, [
-    [/\\|ß|·|\/|_|,|:|;|\s/g, '-'],
+  if (!is(value, 'String')) { // Short-circuit to handle all non-string values
+    return null               // and return null.
+  }
+  const formatted = replace(normalize(value), [
     [/&/g, '-e-'],
-    [/[^\w-]+/g, ''],
+    [/\W/g, '-'],
     [/--+/g, '-'],
-    [/^-+/, ''],
-    [/-+$/, '']
+    [/(^-+)|(-+$)/, '']
   ])
   return formatted
 }

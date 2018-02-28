@@ -45,5 +45,8 @@
       "dist/vue-convenia-util.common.js",
       "dist/vue-convenia-util.es.js"
     ]
+  },
+  "dependencies": {
+    "normalize-text": "^0.2.0"
   }
 }

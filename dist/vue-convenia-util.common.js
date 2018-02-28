@@ -5,6 +5,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var moment = _interopDefault(require('moment'));
+var normalize = require('normalize-text');
+var normalize__default = _interopDefault(normalize);
 
 /**
  * Valida se o construtor do valor é o especificado.
@@ -361,16 +363,7 @@ var toPhone = function (value) {
  */
 var toClean = function (value) {
   var isValid = is(value, 'String');
-  var chars = [
-    'àáäâãèéëêìíïîòóöôõùúüûçÀÁÄÂÃÈÉËÊÌÍÏÎÒÓÖÔÕÙÚÜÛÇ',
-    'aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC'
-  ];
-  var hasSpecial = new RegExp(chars[0].split('').join('|'), 'g');
-  var formatted = !isValid ? null : value.replace(hasSpecial, function (char) {
-    var index = chars[0].indexOf(char);
-    var clean = chars[1][index];
-    return clean
-  });
+  var formatted = !isValid ? null : normalize.normalizeDiacritics(value);
   return formatted
 };
 
@@ -380,15 +373,14 @@ var toClean = function (value) {
  * @returns {String}
  */
 var toSlug = function (value) {
-  var isValid = is(value, 'String');
-  var clean = isValid ? toClean(value.toLowerCase()) : null;
-  var formatted = !isValid ? null : replace(clean, [
-    [/\\|ß|·|\/|_|,|:|;|\s/g, '-'],
+  if (!is(value, 'String')) { // Short-circuit to handle all non-string values
+    return null               // and return null.
+  }
+  var formatted = replace(normalize__default(value), [
     [/&/g, '-e-'],
-    [/[^\w-]+/g, ''],
+    [/\W/g, '-'],
     [/--+/g, '-'],
-    [/^-+/, ''],
-    [/-+$/, '']
+    [/(^-+)|(-+$)/, '']
   ]);
   return formatted
 };
