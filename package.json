@@ -35,10 +35,7 @@
     "bili": "^0.19.0",
     "moment": "^2.19.2",
     "npm-watch": "^0.3.0",
-    "poi": "^9.5.4",
-    "sinon": "^4.1.2",
-    "standard": "^10.0.3",
-    "vue": "^2.5.9"
+    "standard": "^10.0.3"
   },
   "peerDependencies": {
     "moment": "2.x"

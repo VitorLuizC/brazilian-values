@@ -113,7 +113,7 @@ var isEmail = function (value) {
 };
 
 
-var validate = Object.freeze({
+var validators = Object.freeze({
 	is: is,
 	isCPF: isCPF,
 	isDate: isDate,
@@ -400,7 +400,7 @@ var toCEP = function (value) {
 };
 
 
-var format = Object.freeze({
+var formatters = Object.freeze({
 	toCPF: toCPF,
 	toRG: toRG,
 	toMoney: toMoney,
@@ -415,168 +415,5 @@ var format = Object.freeze({
 	toCEP: toCEP
 });
 
-/**
- * Adiciona o dado isLoading com true, que assim que o componente é montado e a
- * action é executada ele passa a ser false.
- * @param {function(Vue): Promise} action
- */
-var Loadable = function (action) { return ({
-  data: function data () {
-    return {
-      isLoading: true
-    }
-  },
-  mounted: function mounted () {
-    var this$1 = this;
-
-    (action ? action(this) : Promise.resolve())
-      .then(function () {
-        this$1.isLoading = false;
-      });
-  }
-}); };
-
-/**
- * Resolve o problema das propriedades não inicializadas que não poderiam ser
- * observadas.
- * @param {{}} template
- */
-var ObservableFix = function (template) {
-  if ( template === void 0 ) template = {};
-
-  return ({
-  props: {
-    data: {
-      type: Object,
-      default: function () { return Object.assign({}, template); }
-    }
-  },
-  data: function data () {
-    return {
-      selected: Object.assign({}, template)
-    }
-  },
-  watch: {
-    data: function data () {
-      this.cloneData();
-    }
-  },
-  methods: {
-    cloneData: function cloneData () {
-      this.selected = Object.assign({}, template, this.data);
-    }
-  },
-  mounted: function mounted () {
-    this.cloneData();
-  }
-});
-};
-
-
-var mixin = Object.freeze({
-	Loadable: Loadable,
-	ObservableFix: ObservableFix
-});
-
-/**
- * Integra automaticamente as funções de validação ao vee-validade.
- * @param {vee-validate.Validator} Validator
- * @param {Object.<String, { name: String, getMessage: Function }>} options
- */
-var VeeValidateIntegration = function (Validator, options) {
-  var defaultOptions = {
-    isCPF: {
-      name: 'cpf',
-      getMessage: function () { return 'CPF inválido.'; }
-    },
-    isCNPJ: {
-      name: 'cnpj',
-      getMessage: function () { return 'CNPJ inválido.'; }
-    },
-    isDate: {
-      name: 'date',
-      getMessage: function () { return 'Data inválida.'; }
-    }
-  };
-
-  var rules = Object.assign({}, defaultOptions, options);
-
-  Object.keys(rules)
-    .map(function (key) { return Object.assign({}, rules[key], { validate: validate[key] }); })
-    .filter(function (rule) { return is(rules, 'Object'); })
-    .forEach(function (rule) { return Validator.extend(rule.name, rule); });
-
-  return true
-};
-
-var integrations = {
-  'vee-validate': VeeValidateIntegration
-};
-
-/**
- * Opções do plugin.
- * @typedef {Object} Options
- * @property {Boolean} formatters
- * @property {Boolean} formatFilters
- * @property {Boolean} validators
- */
-
-/**
- * Adiciona as funções auxiliares definidas no protótipo do Vue, e
- * consequentemente aos componentes.
- * @param {Vue} Vue
- * @param {Options} options
- */
-var install = function (Vue, options) {
-  if ( options === void 0 ) options = {};
-
-  if (options.formatters) {
-    Vue.prototype.$format = format;
-  }
-
-  if (options.formatFilters) {
-    Object.keys(format).forEach(function (name) {
-      var handler = format[name];
-      Vue.filter(name, handler);
-    });
-  }
-
-  if (options.validators) {
-    Vue.prototype.$validate = validate;
-  }
-};
-
-/**
- * Integra-se a lib definida usando o object/função de integração e as opções da
- * integração.
- * @example ```
- * import { Validator } from 'vee-validate'
- * import Util from 'vue-convenia-util'
- *
- * Util.integrate('vee-validate', Validator)
- * ```
- * @param {String} lib
- * @param {(Object|Function)} integrator
- * @param {Object} options
- * @returns {Boolean}
- */
-var integrate = function (lib, integrator, options) {
-  if ( options === void 0 ) options = {};
-
-  var integration = integrations.hasOwnProperty(lib) ? integrations[lib] : null;
-  var success = integration ? integration(integrator, options) : false;
-  return success
-};
-
-var index = {
-  install: install,
-  integrate: integrate,
-  validate: validate,
-  format: format,
-  mixin: mixin
-};
-
-exports.format = format;
-exports.validate = validate;
-exports.mixin = mixin;
-exports['default'] = index;
+exports.format = formatters;
+exports.validate = validators;
