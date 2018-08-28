@@ -1,22 +1,25 @@
 {
-  "name": "vue-convenia-util",
-  "version": "0.7.1",
-  "description": "Plugin com validações, formatações e filtros para projetos Vue.",
+  "name": "brazilian-values",
+  "version": "0.0.0",
+  "description": "Validates and formats brazilian values, like money (BRL), CPF, CNPJ, dates etc.",
   "keywords": [
-    "convenia",
-    "vue",
-    "vue-plugin",
-    "validation",
-    "format"
+    "brazilian",
+    "formatters",
+    "validators",
+    "RG",
+    "CPF",
+    "CNPJ",
+    "real",
+    "BRL"
   ],
   "author": {
-    "name": "Vitor Cavalcanti",
+    "name": "Vitor Luiz Cavalcanti",
     "url": "https://vitorluizc.github.io/",
     "email": "vitorluizc@outlook.com"
   },
   "license": "MIT",
-  "main": "./dist/vue-convenia-util.common.js",
-  "module": "./dist/vue-convenia-util.es.js",
+  "main": "./dist/brazilian-values.common.js",
+  "module": "./dist/brazilian-values.es.js",
   "watch": {
     "build": "src/*.js",
     "test": "{src,test}/*.js"
@@ -42,8 +45,8 @@
   },
   "standard": {
     "ignore": [
-      "dist/vue-convenia-util.common.js",
-      "dist/vue-convenia-util.es.js"
+      "dist/brazilian-values.common.js",
+      "dist/brazilian-values.es.js"
     ]
   },
   "dependencies": {
