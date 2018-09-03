@@ -12,6 +12,9 @@
     "real",
     "BRL"
   ],
+  "files": [
+    "dist/"
+  ],
   "author": {
     "name": "Vitor Luiz Cavalcanti",
     "url": "https://vitorluizc.github.io/",

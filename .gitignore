@@ -7,3 +7,6 @@ node_modules/
 # Arquivos de Logs.
 *.log
 *.log.*
+
+# Arquivos de distribuição.
+dist/
