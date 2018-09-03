@@ -12,6 +12,14 @@ export const mapToNumbers = (
 ): Array<number> => value.match(numbers).map(Number);
 
 /**
+ * Check if items are same, if their values are repeated.
+ * @param items - An array.
+ */
+export const isRepeatedArray = <T> (
+  items: Array<T>
+): boolean => items.every(item => item === items[0]);
+
+/**
  * Checkers used to validate a document or something with numbers.
  */
 type Checkers = [ number, number ];

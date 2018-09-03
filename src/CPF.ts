@@ -1,4 +1,9 @@
-import { generateCheckers, getRemaining, mapToNumbers } from './helpers';
+import {
+  generateCheckers,
+  getRemaining,
+  isRepeatedArray,
+  mapToNumbers
+} from './helpers';
 
 /**
  * Check if value is a valid CPF.
@@ -14,7 +19,7 @@ export const validate = (
   value: string,
 ): boolean => {
   const numbers = mapToNumbers(value);
-  if (numbers.length !== 11)
+  if (numbers.length !== 11 || isRepeatedArray(numbers))
     return false;
   const validators = [ 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 ];
   const checkers = generateCheckers(numbers, validators);
