@@ -1,2 +1,9 @@
+# Arquivos de configuração do Finder (Mac).
+.DS_Store
+
 # Dependências do Node.js
-node_modules
+node_modules/
+
+# Arquivos de Logs.
+*.log
+*.log.*
