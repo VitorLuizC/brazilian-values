@@ -30,17 +30,24 @@ export const validate = (
 };
 
 /**
- * Format value into CNPJ `string`.
+ * Formats step-by-step a `string` value into a CPF.
  * @example ```js
  * CNPJ.format('78531861000193')
  * //=> '78.531.861/0001-93'
  * CNPJ.format('3228498100')
  * //=> '32.284.981/00'
+ * CNPJ.format('Abacate')
+ * //=> ''
  * ```
- * @param value
+ * @param value - A `string` value of a CNPJ.
  */
 export const format = (
   value: string,
-): string => {
-
-};
+): string => (
+  value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1/$2')
+    .replace(/(\d{4})(\d{1,2})$/, '$1-$2')
+);

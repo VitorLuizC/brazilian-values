@@ -4,27 +4,6 @@ import { getDateFormat, replace } from './helpers'
 import { is, isDate } from './validators'
 
 /**
- * Transforma um valor para a formatação de CPF.
- * @example ```
- * ('00000000000') => '000.000.000-00'
- * ('12345678') => '123.456.78'
- * ('Abacaxi') => null
- * ```
- * @param {String} cpf
- * @returns {String}
- */
-export const toCPF = (cpf) => {
-  const isValid = is(cpf, 'String')
-  const formatted = !isValid ? null : replace(cpf, [
-    [/\D/g, ''],
-    [/(\d{3})(\d)/, '$1.$2'],
-    [/(\d{3})(\d)/, '$1.$2'],
-    [/(\d{3})(\d{1,2})$/, '$1-$2']
-  ])
-  return formatted
-}
-
-/**
  * Transforma um valor para a formatação de RG.
  * @example ```
  * ('000000000') => '00.000.000-0'

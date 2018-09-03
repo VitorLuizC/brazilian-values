@@ -16,7 +16,7 @@ export const mapToNumbers = (
  * @param items - An array.
  */
 export const isRepeatedArray = <T> (
-  items: Array<T>
+  items: Array<T>,
 ): boolean => items.every(item => item === items[0]);
 
 /**
