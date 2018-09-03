@@ -14,10 +14,8 @@ export const validate = (
   value: string,
 ): boolean => {
   const numbers = mapToNumbers(value);
-
   if (numbers.length !== 14)
     return false;
-
   const validators = [ 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 ];
   const checkers = generateCheckers(numbers, validators);
   return (
