@@ -4,27 +4,6 @@ import { getDateFormat, replace } from './helpers'
 import { is, isDate } from './validators'
 
 /**
- * Transforma um valor para a formatação de RG.
- * @example ```
- * ('000000000') => '00.000.000-0'
- * ('12345678') => '123.456.78'
- * ('Abacaxi') => null
- * ```
- * @param {String} rg
- * @returns {String}
- */
-export const toRG = (rg) => {
-  const isValid = is(rg, 'String')
-  const formatted = !isValid ? null : replace(rg.toUpperCase(), [
-    [/[^\d|A|B|X]/g, ''],
-    [/(\d{2})(\d)/, '$1.$2'],
-    [/(\d{3})(\d)/, '$1.$2'],
-    [/(\d{3})([\d|A|B|X]{1})$/, '$1-$2']
-  ])
-  return formatted
-}
-
-/**
  * Formata um valor para a formatação de moeda.
  * @example ```
  * ('1200') => 'R$ 1.200,00'
