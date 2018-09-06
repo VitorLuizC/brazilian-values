@@ -23,12 +23,7 @@
   "license": "MIT",
   "main": "./dist/brazilian-values.common.js",
   "module": "./dist/brazilian-values.es.js",
-  "watch": {
-    "build": "src/*.js",
-    "test": "{src,test}/*.js"
-  },
   "scripts": {
-    "start": "npm-watch",
     "test": "ava ./test/*.test.js",
     "build": "bili ./src/index.js --format es --format cjs --exports named",
     "prepare": "npm run build && npm run test"
@@ -36,8 +31,7 @@
   "devDependencies": {
     "ava": "^0.24.0",
     "bili": "^0.19.0",
-    "moment": "^2.19.2",
-    "npm-watch": "^0.3.0"
+    "moment": "^2.19.2"
   },
   "peerDependencies": {
     "moment": "2.x"
