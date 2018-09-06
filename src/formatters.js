@@ -130,17 +130,3 @@ export const toSlug = (value) => {
   ])
   return formatted
 }
-
-/**
- * Formata um valor para CEP.
- * @param {String} value
- * @returns {Boolean}
- */
-export const toCEP = (value) => {
-  const isValid = is(value, 'String')
-  const formatted = !isValid ? null : replace(value, [
-    [/\D/g, ''],
-    [/(\d{5})(\d{1,3})/, '$1-$2']
-  ])
-  return formatted
-}
