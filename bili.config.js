@@ -7,7 +7,7 @@ module.exports = {
   // TypeScript 2 settings
   'typescript2': {
     clean: true,
-    cacheRoot: '.cache/',
+    check: false,
     useTsconfigDeclarationDir: true
   }
 };
