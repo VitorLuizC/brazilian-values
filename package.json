@@ -24,19 +24,16 @@
   "main": "./dist/brazilian-values.common.js",
   "module": "./dist/brazilian-values.es.js",
   "scripts": {
-    "test": "ava ./test/*.test.js",
-    "build": "bili ./src/index.js --format es --format cjs --exports named",
+    "test": "ava-ts test/",
+    "build": "bili",
     "prepare": "npm run build && npm run test"
   },
   "devDependencies": {
-    "ava": "^0.24.0",
-    "bili": "^0.19.0",
-    "moment": "^2.19.2"
-  },
-  "peerDependencies": {
-    "moment": "2.x"
-  },
-  "dependencies": {
-    "normalize-text": "^0.2.0"
+    "ava": "^0.25.0",
+    "ava-ts": "^0.25.1",
+    "bili": "^3.1.2",
+    "rollup-plugin-typescript2": "^0.17.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
   }
 }

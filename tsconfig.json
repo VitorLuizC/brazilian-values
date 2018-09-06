@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [ "es2018" ],
+
+    // Module configuration
+    "module": "es2015",
+    "moduleResolution": "node",
+
+    // Declaration configuration
+    "declaration": true,
+    "declarationDir": "types/"
+  },
+  "exclude": [
+    "test/",
+    "dist/",
+    "types/",
+    "node_modules/"
+  ]
+}
