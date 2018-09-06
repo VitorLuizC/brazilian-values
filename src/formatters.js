@@ -63,23 +63,6 @@ export const toInterval = (dates, options = {}) => {
 export const toEmpty = (value, char = '-') => value || char
 
 /**
- * Formata um valor para o formato de telefone.
- * @param {String} value
- * @returns {String}
- */
-export const toPhone = (value) => {
-  const isValid = is(value, 'String')
-  const formatted = !isValid ? null : replace(value, [
-    [/\D/g, ''],
-    [/(\d{1,2})/, '($1'],
-    [/(\(\d{2})(\d{1,4})/, '$1) $2'],
-    [/( \d{4})(\d{1,4})/, '$1-$2'],
-    [/( \d{4})(?:-)(\d{1})(\d{4})/, '$1$2-$3']
-  ])
-  return formatted
-}
-
-/**
  * Formata o texto removendo seus acentos.
  * @example ```
  * ('Vítor') => 'Vitor'
