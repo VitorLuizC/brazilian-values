@@ -10,3 +10,7 @@ node_modules/
 
 # Arquivos de distribuição.
 dist/
+types/
+
+# Bili's TypeScript cache.
+.cache/

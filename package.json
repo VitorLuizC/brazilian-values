@@ -13,7 +13,8 @@
     "BRL"
   ],
   "files": [
-    "dist/"
+    "dist/",
+    "types/"
   ],
   "author": {
     "name": "Vitor Luiz Cavalcanti",
@@ -21,10 +22,15 @@
     "email": "vitorluizc@outlook.com"
   },
   "license": "MIT",
-  "main": "./dist/brazilian-values.common.js",
-  "module": "./dist/brazilian-values.es.js",
+  "cdn": "dist/brazilian-values.js",
+  "main": "dist/brazilian-values.cjs.js",
+  "types": "types/index.d.ts",
+  "unpkg": "dist/brazilian-values.js",
+  "module": "dist/brazilian-values.es.js",
+  "jsdelivr": "dist/brazilian-values.js",
+  "umd:main": "dist/brazilian-values.js",
   "scripts": {
-    "test": "ava-ts test/",
+    "test": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ava-ts test/",
     "build": "bili",
     "prepare": "npm run build && npm run test"
   },
