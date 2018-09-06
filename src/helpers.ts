@@ -53,3 +53,18 @@ export const getRemaining = (
   divider: number,
   lowerValue: number,
 ): number => (value % divider) < lowerValue ? 0 : divider - (value % divider);
+
+/**
+ * Fills a number with zeros.
+ * @param value - A number value.
+ * @param length - Number of characters to be filled with zeros.
+ */
+export const fillWithZeros = (
+  value: number,
+  length: number,
+): string => {
+  let string = value.toString(10);
+  while (string.length < length)
+    string = '0' + string;
+  return string;
+};

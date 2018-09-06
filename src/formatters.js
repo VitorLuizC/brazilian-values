@@ -56,30 +56,6 @@ export const toDays = (quantity) => {
   return days
 }
 
-/**
- * Formata uma data 'YYYY-MM-DD' ou 'DD-MM-YYYY' em 'DD/MM/YYYY'. Transforma
- * a data em 'YYYY-MM-DD' caso o segundo parâmetro seja "true".
- * @example ```
- * ('21-12-2006') => '21/12/2006'
- * ('2006-12-21') => '21/12/2006'
- * ('21/12/2006') => '21/12/2006'
- * ('21/12/2006', true) => '2006-12-21'
- * ('2006-12-21', true) => '2006-12-21'
- * ('2006/12/21') => null
- * ```
- * @param {String} date
- * @param {{ from: String, to: String, UTC: Boolean }} [options]
- * @returns {String}
- */
-export const toDate = (date, { to = 'DD/MM/YYYY', from = getDateFormat(date), UTC: isUTC = false } = {}) => {
-  const isValid = from && isDate(date, from)
-  if (!isValid) {
-    return null
-  }
-  const formatter = isUTC ? moment.utc : moment
-  const formatted = formatter(date, from).format(to)
-  return formatted
-}
 
 /**
  * Usa a formatação de datas para retornar um intervalo.
