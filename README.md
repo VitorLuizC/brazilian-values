@@ -1,5 +1,7 @@
 # Brazilian Values
 
+[![Build Status](https://travis-ci.org/VitorLuizC/brazilian-values.svg?branch=master)](https://travis-ci.org/VitorLuizC/brazilian-values)
+
 Validates and formats brazilian values, like money (BRL), CPF, CNPJ, dates etc.
 
 ## Install

@@ -30,9 +30,9 @@
   "jsdelivr": "dist/brazilian-values.js",
   "umd:main": "dist/brazilian-values.js",
   "scripts": {
+    "pretest": "yarn build",
     "test": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ava-ts test/",
-    "build": "tsc && bili src/index.js --banner --formats es,cjs,umd",
-    "prepare": "npm run build && npm run test"
+    "build": "tsc && bili src/index.js --banner --formats es,cjs,umd"
   },
   "devDependencies": {
     "ava": "^0.25.0",
