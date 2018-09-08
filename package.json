@@ -31,14 +31,13 @@
   "umd:main": "dist/brazilian-values.js",
   "scripts": {
     "test": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ava-ts test/",
-    "build": "bili",
+    "build": "tsc && bili src/index.js --banner --formats es,cjs,umd",
     "prepare": "npm run build && npm run test"
   },
   "devDependencies": {
     "ava": "^0.25.0",
     "ava-ts": "^0.25.1",
     "bili": "^3.1.2",
-    "rollup-plugin-typescript2": "^0.17.0",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
   }

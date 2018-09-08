@@ -1,13 +1,14 @@
-# Arquivos de configuração do Finder (Mac).
+# Finder configuration files (Mac).
 .DS_Store
 
-# Dependências do Node.js
+# Node.js dependencies.
 node_modules/
 
-# Arquivos de Logs.
+# Log files.
 *.log
 *.log.*
 
-# Arquivos de distribuição.
+# Generated sources & type definitions.
+src/**/*.js
 dist/
 types/
