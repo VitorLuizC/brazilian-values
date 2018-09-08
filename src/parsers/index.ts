@@ -1,1 +1,1 @@
-import { default as parseToDate } from './parseToDate';
+export { default as parseToDate } from './parseToDate';

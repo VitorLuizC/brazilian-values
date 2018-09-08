@@ -1,4 +1,4 @@
-import { default as isCNPJ } from './isCNPJ';
-import { default as isCPF } from './isCPF';
-import { default as isDate } from './isDate';
-import { default as isDatePattern } from './isDatePattern';
+export { default as isCNPJ } from './isCNPJ';
+export { default as isCPF } from './isCPF';
+export { default as isDate } from './isDate';
+export { default as isDatePattern } from './isDatePattern';
