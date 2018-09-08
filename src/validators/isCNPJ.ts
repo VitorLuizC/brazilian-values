@@ -1,7 +1,7 @@
-import generateCheckSums from './helpers/generateCheckSums';
-import getRemaining from './helpers/getRemainig';
-import isRepeatedArray from './helpers/isRepeatedValue';
-import mapToNumbers from './helpers/mapToNumbers';
+import generateCheckSums from '../helpers/generateCheckSums';
+import getRemaining from '../helpers/getRemainig';
+import isRepeatedArray from '../helpers/isRepeatedValue';
+import mapToNumbers from '../helpers/mapToNumbers';
 
 /**
  * Check if value is a valid CNPJ.
@@ -10,10 +10,12 @@ import mapToNumbers from './helpers/mapToNumbers';
  * //=> true
  * CNPJ.validate('32.284.981/0001-44')
  * //=> false
+ * CNPJ.validate('00.000.000/0000-00')
+ * //=> false
  * ```
- * @param value - A string containing a CNPJ.
+ * @param value - A text containing a CNPJ.
  */
-export const validate = (
+const isCNPJ = (
   value: string,
 ): boolean => {
   const numbers = mapToNumbers(value);
@@ -26,3 +28,5 @@ export const validate = (
     numbers[13] === getRemaining(checkers[1])
   );
 };
+
+export default isCNPJ;

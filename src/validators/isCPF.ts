@@ -1,7 +1,7 @@
-import generateCheckSums from './helpers/generateCheckSums';
-import getRemaining from './helpers/getRemainig';
-import isRepeatedArray from './helpers/isRepeatedValue';
-import mapToNumbers from './helpers/mapToNumbers';
+import generateCheckSums from '../helpers/generateCheckSums';
+import getRemaining from '../helpers/getRemainig';
+import isRepeatedArray from '../helpers/isRepeatedValue';
+import mapToNumbers from '../helpers/mapToNumbers';
 
 /**
  * Check if value is a valid CPF.
@@ -11,9 +11,9 @@ import mapToNumbers from './helpers/mapToNumbers';
  * CPF.validate('472.239.983-76')
  * //=> false
  * ```
- * @param value - A string containing a CPF.
+ * @param value - A text containing a CPF.
  */
-export const validate = (
+const isCPF = (
   value: string,
 ): boolean => {
   const numbers = mapToNumbers(value);
@@ -26,3 +26,5 @@ export const validate = (
     numbers[13] === getRemaining(checkers[1])
   );
 };
+
+export default isCPF;
