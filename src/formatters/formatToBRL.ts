@@ -1,10 +1,14 @@
 /**
  * Formats a number into money (BRL) format.
  * @example ```js
- * BRL.format(1928.93)
+ * formatBRL(1928.93)
  * //=> 'R$ 1.928,93'
- * BRL.format(9211928.18203)
+ *
+ * formatToBRL('9211928.18203')
  * //=> 'R$ 9.211.928,18'
+ *
+ * formatToBRL(-18.49)
+ * //=> 'R$ -18,49'
  * ```
  * @param value BRL value.
  */

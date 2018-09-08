@@ -3,12 +3,14 @@ import mapToNumeric from '../helpers/mapToNumeric';
 /**
  * Formats step-by-step a `string` value into a CPF.
  * @example ```js
- * CNPJ.format('78531861000193')
- * //=> '78.531.861/0001-93'
- * CNPJ.format('3228498100')
- * //=> '32.284.981/00'
- * CNPJ.format('Abacate')
- * //=> ''
+ * formatToCNPJ('128781')
+ * //=> '12.878.1'
+ *
+ * formatToCNPJ('32284981000138')
+ * //=> '32.284.981/0001-38'
+ *
+ * formatToCNPJ('00.0.000.00.00--00-00')
+ * //=> '00.000.000/0000-00'
  * ```
  * @param value - A `string` value of a CNPJ.
  */

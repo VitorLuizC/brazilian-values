@@ -3,10 +3,14 @@ import mapToNumeric from '../helpers/mapToNumeric';
 /**
  * Formats a phone value into brazilian common phone formats.
  * @example ```js
- * Phone.format('1982891031')
- * //=> '(19) 8289-1031'
- * Phone.format('11988563629')
- * //=> '(11) 9 8856-3629'
+ * formatToPhone('11')
+ * //=> '(11'
+ *
+ * formatToPhone('11971626')
+ * //=> '(11) 9716-26'
+ *
+ * formatToPhone('11971626799')
+ * //=> '(11) 9 7162-6799'
  * ```
  * @param value
  */

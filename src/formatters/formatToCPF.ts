@@ -3,12 +3,14 @@ import mapToNumeric from '../helpers/mapToNumeric';
 /**
  * Formats step-by-step a `string` value into a CPF.
  * @example ```js
- * CPF.format('00000000000')
+ * formatToCPF('00000000')
+ * //=> '000.000.00'
+ *
+ * formatToCPF('00000000000')
  * //=> '000.000.000-00'
- * CPF.format('12345678')
- * //=> '123.456.78'
- * CPF.format('Abacaxi')
- * //=> ''
+ *
+ * formatToCPF('366.418.768-70')
+ * //=> '366.418.768-70'
  * ```
  * @param value - A `string` value of a CPF.
  */

@@ -1,12 +1,14 @@
 /**
  * Progressively formats a `string` into a RG.
  * @example ```js
- * RG.format('234897231', 'SP')
- * //=> '23.489.723-1'
- * RG.format('50833198x', 'RJ')
- * //=> '50.833.198-X'
- * RG.format('MG-128.140')
- * //=> 'MG-128.140'
+ * formatToRG('00000000A', 'SP')
+ * //=> '00.000.000-A'
+ *
+ * formatToRG('00.00.0000-0', 'RJ')
+ * //=> '00.000.000-0'
+ *
+ * formatToRG('MG-14.808.688', 'MG')
+ * //=> 'MG-14.808.688'
  * ```
  * @param value - A `string` representing an RG.
  * @param state - Brazilian state which defines RG format.
