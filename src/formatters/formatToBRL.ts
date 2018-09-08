@@ -8,11 +8,13 @@
  * ```
  * @param value BRL value.
  */
-export const format = (
-  value: number,
+const formatToBRL = (
+  value: number | string,
 ): string => 'R$ ' + (
-  value
+  Number(value)
     .toFixed(2)
     .replace('.', ',')
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
 );
+
+export default formatToBRL;

@@ -74,15 +74,3 @@ export const parse = (
     throw new Error(`Value "${value}" is an invalid date.`);
   return instance;
 };
-
-/**
- * Formats a Date instance to brazilian format, DD/MM/YYYY.
- * @param value - A Date instance.
- */
-export const format = (
-  value: Date,
-): string => (
-  fillWithZeros(value.getDate(), 2) + '/' +
-  fillWithZeros(value.getMonth(), 2) + '/' +
-  fillWithZeros(value.getFullYear(), 4)
-);

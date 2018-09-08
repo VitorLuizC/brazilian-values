@@ -11,10 +11,10 @@
  * @param value - A `string` representing an RG.
  * @param state - Brazilian state which defines RG format.
  */
-export const format = (
+const formatToRG = (
   value: string,
   state?: string,
-): string => state !== 'RJ' && state !== 'SP' ? value : (
+): string => (state !== 'RJ' && state !== 'SP') ? value : (
   value
     .toUpperCase()
     .replace(/[^\d|A|B|X]/g, '')
@@ -22,3 +22,5 @@ export const format = (
     .replace(/(\d{3})(\d)/, '$1.$2')
     .replace(/(\d{3})([\d|A|B|X]{1})$/, '$1-$2')
 );
+
+export default formatToRG;

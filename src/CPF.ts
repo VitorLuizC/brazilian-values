@@ -2,7 +2,6 @@ import generateCheckSums from './helpers/generateCheckSums';
 import getRemaining from './helpers/getRemainig';
 import isRepeatedArray from './helpers/isRepeatedValue';
 import mapToNumbers from './helpers/mapToNumbers';
-import mapToNumeric from './helpers/mapToNumeric';
 
 /**
  * Check if value is a valid CPF.
@@ -27,24 +26,3 @@ export const validate = (
     numbers[13] === getRemaining(checkers[1])
   );
 };
-
-/**
- * Formats step-by-step a `string` value into a CPF.
- * @example ```js
- * CPF.format('00000000000')
- * //=> '000.000.000-00'
- * CPF.format('12345678')
- * //=> '123.456.78'
- * CPF.format('Abacaxi')
- * //=> ''
- * ```
- * @param value - A `string` value of a CPF.
- */
-export const format = (
-  value: string,
-): string => (
-  mapToNumeric(value)
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d{1,2})$/, '$1-$2')
-);
