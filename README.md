@@ -136,6 +136,22 @@ formatToRG('MG-14.808.688', 'MG')
 //=> 'MG-14.808.688'
 ```
 
+### Parsers
+
+#### `parseToDate`
+
+Parses a brazilian formated date to a Date instance.
+
+> Throws an error if value does not match brazilian date format and if value is an invalid date.
+
+```js
+parseToDate('28/03/1996')
+//=> '1996-03-28T03:00:00.000Z'
+
+parseToDate('31/02/2018')
+//=> throws Error('Value "31/02/2018" is an invalid date.')
+```
+
 ### Validators
 
 #### `isCNPJ`
