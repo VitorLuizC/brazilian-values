@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [ "es2018" ],
+    "lib": [ "es2018", "dom" ],
 
     // Module configuration
     "module": "es2015",
