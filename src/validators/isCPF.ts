@@ -22,8 +22,8 @@ const isCPF = (
   const validators = [ 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 ];
   const checkers = generateCheckSums(numbers, validators);
   return (
-    numbers[12] === getRemaining(checkers[0]) &&
-    numbers[13] === getRemaining(checkers[1])
+    numbers[9] === getRemaining(checkers[0]) &&
+    numbers[10] === getRemaining(checkers[1])
   );
 };
 
