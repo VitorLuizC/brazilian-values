@@ -6,9 +6,19 @@ import mapToNumbers from '../helpers/mapToNumbers';
 /**
  * Check if value is a valid CPF.
  * @example ```js
- * CPF.validate('676.711.521-53')
+ * isCPF('366.418.768-70')
  * //=> true
- * CPF.validate('472.239.983-76')
+ *
+ * isCPF('36641876870')
+ * //=> true
+ *
+ * isCPF('213.198.013-20')
+ * //=> false
+ *
+ * isCPF('2131201872781')
+ * //=> false
+ *
+ * isCPF('11111111111')
  * //=> false
  * ```
  * @param value - A text containing a CPF.

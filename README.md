@@ -136,6 +136,83 @@ formatToRG('MG-14.808.688', 'MG')
 //=> 'MG-14.808.688'
 ```
 
+### Validators
+
+#### `isCNPJ`
+
+Validates if value is a CNPJ.
+
+```js
+isCNPJ('41142260000189')
+//=> true
+
+isCNPJ('45.723.174/0001-10')
+//=> true
+
+isCNPJ('411407182')
+//=> false
+
+isCNPJ('11.111.111/1111-11')
+//=> false
+```
+
+#### `isCPF`
+
+Validates if values is a CPF.
+
+```js
+isCPF('366.418.768-70')
+//=> true
+
+isCPF('36641876870')
+//=> true
+
+isCPF('213.198.013-20')
+//=> false
+
+isCPF('2131201872781')
+//=> false
+
+isCPF('11111111111')
+//=> false
+```
+
+#### `isDate`
+
+Validates if value matches brazilian date format and is a valid date.
+
+```js
+isDate('03/08/2017')
+//=> true
+
+isDate('28/13/2017')
+//=> false
+
+isDate('03-08-2017')
+//=> false
+
+isDate('31/03/18')
+//=> false
+```
+
+#### `isDatePattern`
+
+Validates if value matches brazilian date format.
+
+```js
+isDatePattern('28/03/2017')
+//=> true
+
+isDatePattern('31/13/2017')
+//=> true
+
+isDatePattern('28-03-2017')
+//=> false
+
+isDatePattern('28/03/18')
+//=> false
+```
+
 ## License
 
 Released under [MIT license](./LICENSE).

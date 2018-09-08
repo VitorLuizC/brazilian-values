@@ -6,11 +6,16 @@ import mapToNumbers from '../helpers/mapToNumbers';
 /**
  * Check if value is a valid CNPJ.
  * @example ```js
- * CNPJ.validate('78.531.861/0001-93')
+ * isCNPJ('41142260000189')
  * //=> true
- * CNPJ.validate('32.284.981/0001-44')
+ *
+ * isCNPJ('45.723.174/0001-10')
+ * //=> true
+ *
+ * isCNPJ('411407182')
  * //=> false
- * CNPJ.validate('00.000.000/0000-00')
+ *
+ * isCNPJ('11.111.111/1111-11')
  * //=> false
  * ```
  * @param value - A text containing a CNPJ.
