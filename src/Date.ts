@@ -1,4 +1,4 @@
-import { fillWithZeros } from "./helpers";
+import fillWithZeros from './helpers/fillWithZeros';
 
 /**
  * Pieces of a date (date, month and year).

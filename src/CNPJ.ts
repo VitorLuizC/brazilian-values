@@ -1,9 +1,8 @@
-import {
-  generateCheckers,
-  getRemaining,
-  isRepeatedArray,
-  mapToNumbers
-} from './helpers';
+import generateCheckSums from './helpers/generateCheckSums';
+import getRemaining from './helpers/getRemainig';
+import isRepeatedArray from './helpers/isRepeatedValue';
+import mapToNumbers from './helpers/mapToNumbers';
+import mapToNumeric from './helpers/mapToNumeric';
 
 /**
  * Check if value is a valid CNPJ.
@@ -22,10 +21,10 @@ export const validate = (
   if (numbers.length !== 14 || isRepeatedArray(numbers))
     return false;
   const validators = [ 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 ];
-  const checkers = generateCheckers(numbers, validators);
+  const checkers = generateCheckSums(numbers, validators);
   return (
-    numbers[12] === getRemaining(checkers[0], 11, 2) &&
-    numbers[13] === getRemaining(checkers[1], 11, 2)
+    numbers[12] === getRemaining(checkers[0]) &&
+    numbers[13] === getRemaining(checkers[1])
   );
 };
 
@@ -44,8 +43,7 @@ export const validate = (
 export const format = (
   value: string,
 ): string => (
-  value
-    .replace(/\D/g, '')
+  mapToNumeric(value)
     .replace(/(\d{2})(\d)/, '$1.$2')
     .replace(/(\d{3})(\d)/, '$1.$2')
     .replace(/(\d{3})(\d)/, '$1/$2')

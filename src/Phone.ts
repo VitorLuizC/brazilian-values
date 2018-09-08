@@ -1,3 +1,5 @@
+import mapToNumeric from './helpers/mapToNumeric';
+
 /**
  * Formats a phone value into brazilian common phone formats.
  * @example ```js
@@ -11,8 +13,7 @@
 export const format = (
   value: string,
 ): string => (
-  value
-    .replace(/\D/g, '')
+  mapToNumeric(value)
     .replace(/(\d{1,2})/, '($1')
     .replace(/(\(\d{2})(\d{1,4})/, '$1) $2')
     .replace(/( \d{4})(\d{1,4})/, '$1-$2')
