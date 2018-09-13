@@ -8,7 +8,7 @@ const mapToPieces = (
   value: string,
 ): DatePieces => {
   const expression = /^(\d{2})\/(\d{2})\/(\d{4})$/;
-  const [ , DD, MM, YYYY ] = expression.exec(value);
+  const [ , DD, MM, YYYY ] = expression.exec(value)!;
   return {
     date: parseInt(DD, 10),
     year: parseInt(YYYY, 10),
