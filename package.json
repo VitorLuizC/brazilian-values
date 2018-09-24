@@ -34,6 +34,14 @@
     "test": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ava-ts test/",
     "build": "tsc && bili src/index.js --banner --format es,cjs,umd --js buble"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorLuizC/brazilian-values.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VitorLuizC/brazilian-values/issues"
+  },
+  "homepage": "https://github.com/VitorLuizC/brazilian-values#readme",
   "devDependencies": {
     "ava": "^0.25.0",
     "ava-ts": "^0.25.1",
