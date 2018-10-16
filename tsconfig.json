@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es5",
     "lib": [ "es2015", "dom" ],
 
     // Module configuration
-    "module": "es2015",
     "moduleResolution": "node",
 
     // Declaration configuration
@@ -20,11 +19,5 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "forceConsistentCasingInFileNames": true,
-  },
-  "exclude": [
-    "test/",
-    "dist/",
-    "types/",
-    "node_modules/"
-  ]
+  }
 }

@@ -9,6 +9,5 @@ node_modules/
 *.log.*
 
 # Generated sources & type definitions.
-src/**/*.js
 dist/
 types/
