@@ -1,5 +1,5 @@
 import comparePiecesToDate from '../helpers/comparePiecesToDate';
-import isDatePattern from './isDatePattern';
+import isDatePattern from '../helpers/isDatePattern';
 import mapToPieces from '../helpers/mapToPieces';
 
 /**

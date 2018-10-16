@@ -1,7 +1,7 @@
 import comparePiecesToDate from '../helpers/comparePiecesToDate';
 import mapToPieces from '../helpers/mapToPieces';
 import parsePiecesToDate from '../helpers/parsePiecesToDate';
-import isDatePattern from '../validators/isDatePattern';
+import isDatePattern from '../helpers/isDatePattern';
 
 /**
  * Parses a brazilian formatted date into a Date instance.

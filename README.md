@@ -123,7 +123,7 @@ formatToPhone('11971626799')
 Formats a text containing numbers to RG, specifying the state.
 
 > Today, `brazilian-values` supports only **SP** and **RJ** formats.
-> Other values are just scaped to input.
+> Other values are just escaped to input.
 
 ```js
 formatToRG('00000000A', 'SP')
@@ -146,7 +146,7 @@ Parses a brazilian formated date to a Date instance.
 
 ```js
 parseToDate('28/03/1996')
-//=> '1996-03-28T03:00:00.000Z'
+//=> Date('1996-03-28T03:00:00.000Z')
 
 parseToDate('31/02/2018')
 //=> throws Error('Value "31/02/2018" is an invalid date.')
@@ -208,24 +208,6 @@ isDate('03-08-2017')
 //=> false
 
 isDate('31/03/18')
-//=> false
-```
-
-#### `isDatePattern`
-
-Validates if value matches brazilian date format.
-
-```js
-isDatePattern('28/03/2017')
-//=> true
-
-isDatePattern('31/13/2017')
-//=> true
-
-isDatePattern('28-03-2017')
-//=> false
-
-isDatePattern('28/03/18')
 //=> false
 ```
 

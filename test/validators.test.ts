@@ -2,8 +2,7 @@ import test from 'ava';
 import {
   isCNPJ,
   isCPF,
-  isDate,
-  isDatePattern,
+  isDate
 } from '../';
 
 test('isCNPJ', (context) => {
@@ -29,11 +28,4 @@ test('isDate', (context) => {
   context.is(isDate('28/13/9017'), false);
   context.is(isDate('00/00/0000'), false);
   context.is(isDate('31/02/2018'), false);
-});
-
-test('isDate', (context) => {
-  context.is(isDatePattern('28/03/2017'), true);
-  context.is(isDatePattern('28-03-2017'), false);
-  context.is(isDatePattern('2017-03-28'), false);
-  context.is(isDatePattern('31/02/2017'), true);
 });
