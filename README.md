@@ -39,7 +39,7 @@ const document = formatToCNPJ(value);
 Formats numbers or texts containing numbers to brazilian currency (BRL).
 
 ```js
-formatBRL(1928.93)
+formatToBRL(1928.93)
 //=> 'R$ 1.928,93'
 
 formatToBRL('9211928.18203')
