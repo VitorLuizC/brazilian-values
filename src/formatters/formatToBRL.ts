@@ -1,7 +1,7 @@
 /**
  * Formats a number into money (BRL) format.
  * @example ```js
- * formatBRL(1928.93)
+ * formatToBRL(1928.93)
  * //=> 'R$ 1.928,93'
  *
  * formatToBRL('9211928.18203')
