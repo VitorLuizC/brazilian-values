@@ -138,6 +138,24 @@ formatToRG('MG-14.808.688', 'MG')
 
 ### Parsers
 
+#### `parseToArray`
+
+Parses a brazilian formatted list into an Array.
+
+```js
+parseToArray('')
+//=> []
+
+parseToArray('1')
+//=> ['1']
+
+parseToArray('1 e 2')
+//=> ['1', '2']
+
+parseToArray('Fernanda, Luana e Ana Carolina')
+//=> ['Fernanda', 'Luana', 'Ana Carolina']
+```
+
 #### `parseToDate`
 
 Parses a brazilian formated date to a Date instance.
