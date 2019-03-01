@@ -176,7 +176,7 @@ parseToArray('Fernanda, Luana e Ana Carolina')
 
 #### `parseToDate`
 
-Parses a brazilian formated date to a Date instance.
+Parses a brazilian formatted date to a Date instance.
 
 > Throws an error if value does not match brazilian date format and if value is an invalid date.
 
@@ -186,6 +186,24 @@ parseToDate('28/03/1996')
 
 parseToDate('31/02/2018')
 //=> throws Error('Value "31/02/2018" is an invalid date.')
+```
+
+#### `parseToNumber`
+
+Parses a brazilian formatted number to a number.
+
+```js
+parseToNumber('10')
+//=> 10
+
+parseToNumber('-1.299')
+//=> -1299
+
+parseToNumber('0,981')
+//=> 0.981
+
+parseToNumber('19.898,1298')
+//=> 19898.1298
 ```
 
 ### Validators
