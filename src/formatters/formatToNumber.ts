@@ -4,13 +4,13 @@ import addPeriods from '../helpers/addPeriods';
  * Formats a number to brazilian formatted number.
  * @example
  * formatToNumber(0)
- * //=> 0
+ * //=> '0'
  * formatToNumber(-1299)
- * //=> -1.299
+ * //=> '-1.299'
  * formatToNumber(.981)
- * //=> 0.981
+ * //=> '0,981'
  * formatToNumber('19898.1298')
- * //=> 19.898,1298
+ * //=> '19.898,1298'
  * @param value - Number value to be formatted.
  */
 const formatToNumber = (

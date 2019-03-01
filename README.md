@@ -103,6 +103,24 @@ formatToDate(new Date())
 //=> '08/09/2018'
 ```
 
+#### `formatToDate`
+
+Formats a number to brazilian formatted number.
+
+```js
+formatToNumber(0)
+//=> '0'
+
+formatToNumber(-1299)
+//=> '-1.299'
+
+formatToNumber(.981)
+//=> '0,981'
+
+formatToNumber('19898.1298')
+//=> '19.898,1298'
+```
+
 #### `formatToPhone`
 
 Formats a text containing numbers to common brazilian phone.
