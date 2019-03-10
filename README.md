@@ -103,6 +103,24 @@ formatToDate(new Date())
 //=> '08/09/2018'
 ```
 
+#### `formatToDate`
+
+Formats a number to brazilian formatted number.
+
+```js
+formatToNumber(0)
+//=> '0'
+
+formatToNumber(-1299)
+//=> '-1.299'
+
+formatToNumber(.981)
+//=> '0,981'
+
+formatToNumber('19898.1298')
+//=> '19.898,1298'
+```
+
 #### `formatToPhone`
 
 Formats a text containing numbers to common brazilian phone.
@@ -138,9 +156,27 @@ formatToRG('MG-14.808.688', 'MG')
 
 ### Parsers
 
+#### `parseToArray`
+
+Parses a brazilian formatted list into an Array.
+
+```js
+parseToArray('')
+//=> []
+
+parseToArray('1')
+//=> ['1']
+
+parseToArray('1 e 2')
+//=> ['1', '2']
+
+parseToArray('Fernanda, Luana e Ana Carolina')
+//=> ['Fernanda', 'Luana', 'Ana Carolina']
+```
+
 #### `parseToDate`
 
-Parses a brazilian formated date to a Date instance.
+Parses a brazilian formatted date to a Date instance.
 
 > Throws an error if value does not match brazilian date format and if value is an invalid date.
 
@@ -150,6 +186,24 @@ parseToDate('28/03/1996')
 
 parseToDate('31/02/2018')
 //=> throws Error('Value "31/02/2018" is an invalid date.')
+```
+
+#### `parseToNumber`
+
+Parses a brazilian formatted number to a number.
+
+```js
+parseToNumber('10')
+//=> 10
+
+parseToNumber('-1.299')
+//=> -1299
+
+parseToNumber('0,981')
+//=> 0.981
+
+parseToNumber('19.898,1298')
+//=> 19898.1298
 ```
 
 ### Validators

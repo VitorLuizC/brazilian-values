@@ -5,6 +5,7 @@ import {
   formatToCNPJ,
   formatToCPF,
   formatToDate,
+  formatToNumber,
   formatToPhone,
   formatToRG,
 } from '../';
@@ -41,6 +42,13 @@ test('formatToPhone', (context) => {
   context.is(formatToPhone('11971626'), '(11) 9716-26');
   context.is(formatToPhone('1197162679'), '(11) 9716-2679');
   context.is(formatToPhone('11971626799'), '(11) 9 7162-6799');
+});
+
+test('formatToNumber', (context) => {
+  context.is(formatToNumber(0),'0')
+  context.is(formatToNumber(-1299),'-1.299')
+  context.is(formatToNumber(.981),'0,981')
+  context.is(formatToNumber('19898.1298'),'19.898,1298')
 });
 
 test('formatToRG', (context) => {

@@ -1,3 +1,5 @@
+import addPeriods from "../helpers/addPeriods";
+
 /**
  * Formats a number into money (BRL) format.
  * @example ```js
@@ -14,11 +16,9 @@
  */
 const formatToBRL = (
   value: number | string,
-): string => 'R$ ' + (
-  Number(value)
-    .toFixed(2)
-    .replace('.', ',')
-    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
-);
+): string => {
+  const number = Number(value).toFixed(2).replace('.', ',');
+  return 'R$ ' + addPeriods(number);
+};
 
 export default formatToBRL;
