@@ -5,6 +5,7 @@ import {
   formatToCNPJ,
   formatToCPF,
   formatToDate,
+  formatToList,
   formatToNumber,
   formatToPhone,
   formatToRG,
@@ -37,11 +38,11 @@ test('formatToDate', (context) => {
   context.is(formatToDate(new Date(2002, 7, 21)), '21/08/2002');
 });
 
-test('formatToPhone', (context) => {
-  context.is(formatToPhone('11'), '(11');
-  context.is(formatToPhone('11971626'), '(11) 9716-26');
-  context.is(formatToPhone('1197162679'), '(11) 9716-2679');
-  context.is(formatToPhone('11971626799'), '(11) 9 7162-6799');
+test('formatToList', (context) => {
+  context.is(formatToList(['Vitor', 'William', 'Fernando']), 'Vitor, William e Fernando');
+  context.is(formatToList([]), '');
+  context.is(formatToList(['1', '2']), '1 e 2');
+  context.is(formatToList(['Direito Civil']), 'Direito Civil');
 });
 
 test('formatToNumber', (context) => {
@@ -49,6 +50,13 @@ test('formatToNumber', (context) => {
   context.is(formatToNumber(-1299),'-1.299')
   context.is(formatToNumber(.981),'0,981')
   context.is(formatToNumber('19898.1298'),'19.898,1298')
+});
+
+test('formatToPhone', (context) => {
+  context.is(formatToPhone('11'), '(11');
+  context.is(formatToPhone('11971626'), '(11) 9716-26');
+  context.is(formatToPhone('1197162679'), '(11) 9716-2679');
+  context.is(formatToPhone('11971626799'), '(11) 9 7162-6799');
 });
 
 test('formatToRG', (context) => {
