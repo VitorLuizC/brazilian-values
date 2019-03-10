@@ -1,3 +1,5 @@
+import splitOnLast from '../helpers/splitOnLast';
+
 /**
  * Formats an Array into brazilian formatted list.
  * @example
@@ -17,19 +19,12 @@
 const formatToList = (
   value: string[],
 ): string => {
-  let str = "";
-  let arrSize = value.length;
-
-  value.map((item, i) => {
-    if (i === 0) {
-      return (str += `${item}`);
-    } else if (i + 1 === arrSize) {
-      return (str += ` e ${item}`);
-    }
-    return (str += `, ${item}`);
-  });
-
-  return str;
+  if (value.length === 0)
+    return '';
+  if (value.length === 1)
+    return value[0];
+  const [everyButLast, last] = splitOnLast(value);
+  return everyButLast.join(', ') + ' e ' + last;
 };
 
 export default formatToList;
