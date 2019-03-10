@@ -103,7 +103,25 @@ formatToDate(new Date())
 //=> '08/09/2018'
 ```
 
-#### `formatToDate`
+#### `formatToList`
+
+Formats an `Array` of `string` values into brazilian formatted list.
+
+```js
+formatToList(['Vitor', 'William', 'Fernando'])
+//=> 'Vitor, William e Fernando'
+
+formatToList([])
+// => ''
+
+formatToList(['1', '2'])
+// => '1 e 2'
+
+formatToList(['Direito Civil'])
+//=> 'Direito Civil'
+```
+
+#### `formatToNumber`
 
 Formats a number to brazilian formatted number.
 

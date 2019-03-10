@@ -1,5 +1,17 @@
 /**
  * Formats an Array into brazilian formatted list.
+ * @example
+ * formatToList(['Vitor', 'William', 'Fernando'])
+ * //=> 'Vitor, William e Fernando'
+ *
+ * formatToList([])
+ * // => ''
+ *
+ * formatToList(['1', '2'])
+ * // => '1 e 2'
+ *
+ * formatToList(['Direito Civil'])
+ * //=> 'Direito Civil'
  * @param value - An array of string values.
  */
 const formatToList = (
