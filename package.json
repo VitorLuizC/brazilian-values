@@ -22,17 +22,18 @@
     "email": "vitorluizc@outlook.com"
   },
   "license": "MIT",
-  "cdn": "dist/brazilian-values.min.js",
-  "main": "dist/brazilian-values.cjs.js",
-  "types": "types/index.d.ts",
-  "unpkg": "dist/brazilian-values.min.js",
-  "module": "dist/brazilian-values.es.js",
-  "jsdelivr": "dist/brazilian-values.min.js",
-  "umd:main": "dist/brazilian-values.js",
+  "cdn": "dist/brazilian-values.umd.js",
+  "main": "dist/brazilian-values.js",
+  "types": "types/brazilian-values.d.ts",
+  "unpkg": "dist/brazilian-values.umd.js",
+  "module": "dist/brazilian-values.mjs",
+  "jsdelivr": "dist/brazilian-values.umd.js",
+  "umd:main": "dist/brazilian-values.umd.js",
   "scripts": {
     "pretest": "yarn build",
     "test": "ava test/",
-    "build": "bili"
+    "build": "bili",
+    "prepare": "yarn test"
   },
   "repository": {
     "type": "git",
@@ -43,11 +44,11 @@
   },
   "homepage": "https://github.com/VitorLuizC/brazilian-values#readme",
   "devDependencies": {
-    "ava": "^1.2.0",
-    "bili": "^3.4.2",
-    "rollup-plugin-typescript2": "^0.19.2",
-    "ts-node": "^8.0.2",
-    "typescript": "^3.2.4"
+    "ava": "^1.3.1",
+    "bili": "^4.4.0",
+    "rollup-plugin-typescript2": "^0.19.3",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.3333"
   },
   "ava": {
     "require": [
@@ -57,19 +58,5 @@
       "ts"
     ],
     "compileEnhancements": false
-  },
-  "bili": {
-    "input": "src/index.ts",
-    "banner": true,
-    "format": [
-      "es",
-      "cjs",
-      "umd",
-      "umd-min"
-    ],
-    "typescript2": {
-      "clean": true,
-      "useTsconfigDeclarationDir": true
-    }
   }
 }
