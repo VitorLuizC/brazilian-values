@@ -1,26 +1,27 @@
 # Brazilian Values
 
-[🇺🇸 Switch to english version](./README.en.md)
+[🇧🇷 Trocar para a versão em português](./README.md)
 
 [![Build Status](https://travis-ci.org/VitorLuizC/brazilian-values.svg?branch=master)](https://travis-ci.org/VitorLuizC/brazilian-values)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values?ref=badge_shield)
 
-Validar e formatar valores brasileiros como dinheiro (BRL), CPF, CNPJ, datas etc.
+Validates and formats brazilian values, like money (BRL), CPF, CNPJ, dates etc.
 
-## Instalação
+Read this in other language: [Brazilian portuguese](https://github.com/g1llz/brazilian-values/blob/master/README.br.md)
+## Install
 
-Este módulo é publicado sob o registro NPM, então você pode instalar usando qualquer gerenciador de pacotes Node.js.
+This module is published under NPM registry, so you can install using any Node.js package manager.
 
 ```sh
 npm install brazilian-values --save
 
-# Para o Yarn, use o comando abaixo.
+# For Yarn use the command below.
 yarn add brazilian-values
 ```
 
-## Como usar
+## Usage
 
-`brazilian-values` fornece funções para lidar com formatação, validação e conversão de valores brasileiros. Todas essas funções podem ser importadas do pacote.
+`brazilian-values` provides functions to deal with formatting, validating and parsing brazilian values. All those functions could be imported from package.
 
 ```js
 import { isCNPJ, formatToCNPJ } from 'brazilian-values';
@@ -35,11 +36,11 @@ const document = formatToCNPJ(value);
 
 ## API
 
-### Formatação
+### Formatters
 
 #### `formatToBRL`
 
-Formata números ou `string` que contém números para a moeda brasileira (BRL).
+Formats numbers or texts containing numbers to brazilian currency (BRL).
 
 ```js
 formatToBRL(1928.93)
@@ -54,7 +55,7 @@ formatToBRL(-18.49)
 
 #### `formatToCEP`
 
-Formata uma `string` que contém números em CEP.
+Formats a text containing numbers to CEP.
 
 ```js
 formatToCEP('15998030')
@@ -66,7 +67,7 @@ formatToCEP('02999')
 
 #### `formatToCNPJ`
 
-Formata uma `string` que contém números em CNPJ.
+Formats a text containing numbers to CNPJ.
 
 ```js
 formatToCNPJ('128781')
@@ -81,7 +82,7 @@ formatToCNPJ('00.0.000.00.00--00-00')
 
 #### `formatToCPF`
 
-Formata uma `string` que contém números em CPF.
+Formats a text containing numbers to CPF.
 
 ```js
 formatToCPF('00000000')
@@ -96,7 +97,7 @@ formatToCPF('366.418.768-70')
 
 #### `formatToDate`
 
-Formata uma instância de `Date` para o estilo brasileiro.
+Formats a `Date` instance to brazilian formatted date.
 
 ```js
 formatToDate(new Date(2002, 7, 21))
@@ -108,7 +109,7 @@ formatToDate(new Date())
 
 #### `formatToList`
 
-Formata os valores de um `Array` de `string` no estilo brasileiro.
+Formats an `Array` of `string` values into brazilian formatted list.
 
 ```js
 formatToList(['Vitor', 'William', 'Fernando'])
@@ -126,7 +127,7 @@ formatToList(['Direito Civil'])
 
 #### `formatToNumber`
 
-Formata um número para o estilo brasileiro.
+Formats a number to brazilian formatted number.
 
 ```js
 formatToNumber(0)
@@ -144,7 +145,7 @@ formatToNumber('19898.1298')
 
 #### `formatToPhone`
 
-Formata uma `string` contendo números para o estilo do número de telefone brasileiro.
+Formats a text containing numbers to common brazilian phone.
 
 ```js
 formatToPhone('11')
@@ -159,10 +160,10 @@ formatToPhone('11971626799')
 
 #### `formatToRG`
 
-Formata uma `string` contendo números para RG.
+Formats a text containing numbers to RG, specifying the state.
 
-> Hoje, `brazilian-values` suporta apenas os formatos de **SP** e **RJ**.<br/>
-> Outros valores serão apenas "escapados" no `input`.
+> Today, `brazilian-values` supports only **SP** and **RJ** formats.
+> Other values are just escaped to input.
 
 ```js
 formatToRG('00000000A', 'SP')
@@ -175,11 +176,11 @@ formatToRG('MG-14.808.688', 'MG')
 //=> 'MG-14.808.688'
 ```
 
-### Conversores
+### Parsers
 
 #### `parseToArray`
 
-Converte uma lista no formato brasileiro para um `Array` de `string`.
+Parses a brazilian formatted list into an Array.
 
 ```js
 parseToArray('')
@@ -197,9 +198,9 @@ parseToArray('Fernanda, Luana e Ana Carolina')
 
 #### `parseToDate`
 
-Converte a data no formato brasileiro para uma instância de `Date`.
+Parses a brazilian formatted date to a Date instance.
 
-> Lança um erro se o valor for inválido ou não corresponder a o formato de data brasileiro.
+> Throws an error if value does not match brazilian date format and if value is an invalid date.
 
 ```js
 parseToDate('28/03/1996')
@@ -211,7 +212,7 @@ parseToDate('31/02/2018')
 
 #### `parseToNumber`
 
-Converte o número no estilo brasileiro para um número.
+Parses a brazilian formatted number to a number.
 
 ```js
 parseToNumber('10')
@@ -227,11 +228,11 @@ parseToNumber('19.898,1298')
 //=> 19898.1298
 ```
 
-### Validadores
+### Validators
 
 #### `isCNPJ`
 
-Verifica se é um CNPJ válido.
+Validates if value is a CNPJ.
 
 ```js
 isCNPJ('41142260000189')
@@ -249,7 +250,7 @@ isCNPJ('11.111.111/1111-11')
 
 #### `isCPF`
 
-Verifica se é um CPF válido.
+Validates if values is a CPF.
 
 ```js
 isCPF('366.418.768-70')
@@ -270,7 +271,7 @@ isCPF('11111111111')
 
 #### `isDate`
 
-Verifica se é uma data válida e se corresponde ao formato brasileiro.
+Validates if value matches brazilian date format and is a valid date.
 
 ```js
 isDate('03/08/2017')
@@ -286,8 +287,8 @@ isDate('31/03/18')
 //=> false
 ```
 
-## Licença
+## License
 
-Lançado sob a licença [MIT](./LICENSE).
+Released under [MIT license](./LICENSE).
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values?ref=badge_large)
