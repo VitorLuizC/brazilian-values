@@ -6,7 +6,7 @@ import {
   isDate
 } from '../';
 
-test('isCNPJ', (context) => {
+test('isCEP', (context) => {
  context.true(isCEP('02998-050'))
  context.true(isCEP('00000000'))
  context.false(isCEP('0'))
