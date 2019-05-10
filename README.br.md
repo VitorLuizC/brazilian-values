@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/VitorLuizC/brazilian-values.svg?branch=master)](https://travis-ci.org/VitorLuizC/brazilian-values)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values?ref=badge_shield)
 
-Validar e formatar valores brasileiros, como dinheiro (BRL), CPF, CNPJ, datas etc.
+Validar e formatar valores brasileiros como dinheiro (BRL), CPF, CNPJ, datas etc.
 
 ## Instalação
 
@@ -159,7 +159,7 @@ formatToPhone('11971626799')
 
 Formata uma `string` contendo números para RG.
 
-> Hoje, `brazilian-values` suporta apenas os formatos de **SP** e **RJ**.
+> Hoje, `brazilian-values` suporta apenas os formatos de **SP** e **RJ**.<br/>
 > Outros valores serão apenas "escapados" no `input`.
 
 ```js
