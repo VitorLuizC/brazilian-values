@@ -251,6 +251,24 @@ parseToNumber('19.898,1298')
 
 ### Validadores
 
+#### `isCEP`
+
+Verifica se é um CEP válido.
+
+```js
+isCEP('02998-050')
+//=> true
+
+isCEP('00000000')
+//=> true
+
+isCEP('0')
+//=> false
+
+isCEP('1982891928981982198')
+//=> false
+```
+
 #### `isCNPJ`
 
 Verifica se é um CNPJ válido.
