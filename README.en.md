@@ -119,7 +119,7 @@ formatToCPF('366.418.768-70')
 
 #### `formatToDate`
 
-Formats a `Date` instance to brazilian formatted date.
+Formats a `Date` instance to brazilian formatted date, **`DD/MM/YYYY`**.
 
 ```js
 formatToDate(new Date(2002, 7, 21))
@@ -127,6 +127,16 @@ formatToDate(new Date(2002, 7, 21))
 
 formatToDate(new Date())
 //=> '08/09/2018'
+```
+
+
+#### `formatToDateTime`
+
+Formats a `Date` instance to brazilian formatted date and time, **`DD/MM/YYYY HH:mm`**.
+
+```js
+formatToDate(new Date(2002, 7, 21, 18, 30))
+//=> '21/08/2002 18:30'
 ```
 
 #### `formatToList`

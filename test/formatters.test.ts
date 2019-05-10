@@ -5,6 +5,7 @@ import {
   formatToCNPJ,
   formatToCPF,
   formatToDate,
+  formatToDateTime,
   formatToList,
   formatToNumber,
   formatToPhone,
@@ -36,6 +37,10 @@ test('formatToCPF', (context) => {
 
 test('formatToDate', (context) => {
   context.is(formatToDate(new Date(2002, 7, 21)), '21/08/2002');
+});
+
+test('formatToDateTime', (context) => {
+  context.is(formatToDateTime(new Date(2002, 7, 21, 18, 30)), '21/08/2002 18:30');
 });
 
 test('formatToList', (context) => {
