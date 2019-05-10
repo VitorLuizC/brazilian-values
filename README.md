@@ -9,13 +9,35 @@ Validar e formatar valores brasileiros como dinheiro (BRL), CPF, CNPJ, datas etc
 
 ## Instalação
 
-Este módulo é publicado sob o registro NPM, então você pode instalar usando qualquer gerenciador de pacotes Node.js.
+Este módulo está publicado no NPM, por isso você pode instalar usando qualquer gerenciador de pacotes Node.js.
 
 ```sh
 npm install brazilian-values --save
 
-# Para o Yarn, use o comando abaixo.
+# Use o comando abaixo para o Yarn.
 yarn add brazilian-values
+```
+
+### Instalação por CDN
+
+Os pacotes desse módulo também estão disponíveis nas CDNs [JSDelivr](https://www.jsdelivr.com/) e [UNPKG](https://unpkg.com/).
+
+> Em ambas você pode solicitar o pacote desejado ou usar o padrão, que é o UMD.
+
+```html
+<!-- Usando o pacote padrão com o JSDelivr -->
+<script src="https://cdn.jsdelivr.net/npm/brazilian-values"></script>
+
+<!-- Usando o pacote padrão com o UNPKG -->
+<script src="https://unpkg.com/brazilian-values"></script>
+
+<script>
+  /**
+   * O pacote UMD expõe o brazilian-values com o objeto `BrazilianValues`.
+   */
+  BrazilianValues.formatToBRL(100);
+  //=> 'R$ 100,00'
+</script>
 ```
 
 ## Como usar

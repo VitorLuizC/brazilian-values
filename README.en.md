@@ -19,6 +19,28 @@ npm install brazilian-values --save
 yarn add brazilian-values
 ```
 
+### Install from CDN
+
+The bundles of this module are also available on [JSDelivr](https://www.jsdelivr.com/) and [UNPKG](https://unpkg.com/) CDNs.
+
+> In both you can import just the _bundle_ you want or use default one, UMD.
+
+```html
+<!-- Using default bundle from JSDelivr -->
+<script src="https://cdn.jsdelivr.net/npm/brazilian-values"></script>
+
+<!-- Using default bundle from UNPKG -->
+<script src="https://unpkg.com/brazilian-values"></script>
+
+<script>
+  /**
+   * UMD bundle expose brazilian-values through `BrazilianValues` object.
+   */
+  BrazilianValues.formatToBRL(100);
+  //=> 'R$ 100,00'
+</script>
+```
+
 ## Usage
 
 `brazilian-values` provides functions to deal with formatting, validating and parsing brazilian values. All those functions could be imported from package.
