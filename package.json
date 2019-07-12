@@ -44,11 +44,11 @@
   },
   "homepage": "https://github.com/VitorLuizC/brazilian-values#readme",
   "devDependencies": {
-    "ava": "^1.4.1",
-    "bili": "^4.7.4",
-    "rollup-plugin-typescript2": "^0.21.0",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.4.5"
+    "ava": "^2.2.0",
+    "bili": "^4.8.0",
+    "rollup-plugin-typescript2": "^0.22.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
   },
   "ava": {
     "require": [
