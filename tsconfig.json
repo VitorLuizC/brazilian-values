@@ -18,12 +18,9 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "exclude": [
-    "test/",
-    "dist/",
-    "types/",
-    "node_modules/"
+  "files": [
+    "src/brazilian-values.ts"
   ]
 }
