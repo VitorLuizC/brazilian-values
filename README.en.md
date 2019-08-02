@@ -135,7 +135,7 @@ formatToDate(new Date())
 Formats a `Date` instance to brazilian formatted date and time, **`DD/MM/YYYY HH:mm`**.
 
 ```js
-formatToDate(new Date(2002, 7, 21, 18, 30))
+formatToDateTime(new Date(2002, 7, 21, 18, 30))
 //=> '21/08/2002 18:30'
 ```
 
