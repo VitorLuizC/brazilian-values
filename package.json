@@ -46,7 +46,7 @@
   "devDependencies": {
     "ava": "^2.2.0",
     "bili": "^4.8.1",
-    "rollup-plugin-typescript2": "^0.22.0",
+    "rollup-plugin-typescript2": "^0.22.1",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   }
