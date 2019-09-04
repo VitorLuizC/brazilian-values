@@ -7,11 +7,11 @@ import {
 } from '../';
 
 test('isCEP', (context) => {
- context.true(isCEP('02998-050'))
- context.true(isCEP('00000000'))
- context.false(isCEP('0'))
- context.false(isCEP('1982891928981982198'))
- context.false(isCEP('0299sansjads8-050'))
+ context.true(isCEP('02998-050'));
+ context.true(isCEP('00000000'));
+ context.false(isCEP('0'));
+ context.false(isCEP('1982891928981982198'));
+ context.false(isCEP('0299sansjads8-050'));
 });
 
 test('isCNPJ', (context) => {
@@ -35,8 +35,8 @@ test('isCPF', (context) => {
 });
 
 test('isDate', (context) => {
-  context.is(isDate('03/08/2017'), true);
-  context.is(isDate('28/13/9017'), false);
-  context.is(isDate('00/00/0000'), false);
-  context.is(isDate('31/02/2018'), false);
+  context.true(isDate('03/08/2017'));
+  context.false(isDate('28/13/9017'));
+  context.false(isDate('00/00/0000'));
+  context.false(isDate('31/02/2018'));
 });
