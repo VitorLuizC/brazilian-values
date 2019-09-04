@@ -7,6 +7,7 @@
 [![Licença](https://badgen.net/github/license/VitorLuizC/brazilian-values)](./LICENSE)
 [![Tamanho da biblioteca minificada](https://badgen.net/bundlephobia/min/brazilian-values)](https://bundlephobia.com/result?p=brazilian-values)
 [![Tamanho da biblioteca minificada + gzipada](https://badgen.net/bundlephobia/minzip/brazilian-values)](https://bundlephobia.com/result?p=brazilian-values)
+
 Validar e formatar valores brasileiros como dinheiro (BRL), CPF, CNPJ, datas etc.
 
 ## Instalação
