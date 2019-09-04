@@ -4,7 +4,9 @@
 
 [![Build Status](https://travis-ci.org/VitorLuizC/brazilian-values.svg?branch=master)](https://travis-ci.org/VitorLuizC/brazilian-values)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values?ref=badge_shield)
-
+[![Licença](https://badgen.net/github/license/VitorLuizC/brazilian-values)](./LICENSE)
+[![Tamanho da biblioteca minificada](https://badgen.net/bundlephobia/min/brazilian-values)](https://bundlephobia.com/result?p=brazilian-values)
+[![Tamanho da biblioteca minificada + gzipada](https://badgen.net/bundlephobia/minzip/brazilian-values)](https://bundlephobia.com/result?p=brazilian-values)
 Validar e formatar valores brasileiros como dinheiro (BRL), CPF, CNPJ, datas etc.
 
 ## Instalação

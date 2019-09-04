@@ -4,6 +4,9 @@
 
 [![Build Status](https://travis-ci.org/VitorLuizC/brazilian-values.svg?branch=master)](https://travis-ci.org/VitorLuizC/brazilian-values)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FVitorLuizC%2Fbrazilian-values?ref=badge_shield)
+[![License](https://badgen.net/github/license/VitorLuizC/brazilian-values)](./LICENSE)
+[![Library minified size](https://badgen.net/bundlephobia/min/brazilian-values)](https://bundlephobia.com/result?p=brazilian-values)
+[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/brazilian-values)](https://bundlephobia.com/result?p=brazilian-values)
 
 Validates and formats brazilian values, like money (BRL), CPF, CNPJ, dates etc.
 
