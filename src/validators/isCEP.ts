@@ -1,4 +1,7 @@
-import mapToNumeric from '../helpers/mapToNumeric';
+/**
+ * Brazilian CEP pattern.
+ */
+const CEP_PATTERN = /^(\d{8}|\d{5}\-\d{3})$/;
 
 /**
  * Check if value is a valid CEP.
@@ -19,9 +22,6 @@ import mapToNumeric from '../helpers/mapToNumeric';
  */
 const isCEP = (
   value: string,
-): boolean => {
-  const numbers = mapToNumeric(value);
-  return (numbers.length === 8);
-};
+): boolean => CEP_PATTERN.test(value);
 
 export default isCEP;

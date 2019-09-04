@@ -1,5 +1,6 @@
 import generateCheckSums from '../helpers/generateCheckSums';
 import getRemaining from '../helpers/getRemainig';
+import isCNPJPattern from '../helpers/isCNPJPattern';
 import isRepeatedArray from '../helpers/isRepeatedValue';
 import mapToNumbers from '../helpers/mapToNumbers';
 
@@ -23,8 +24,10 @@ import mapToNumbers from '../helpers/mapToNumbers';
 const isCNPJ = (
   value: string,
 ): boolean => {
+  if (!isCNPJPattern(value))
+    return false;
   const numbers = mapToNumbers(value);
-  if (numbers.length !== 14 || isRepeatedArray(numbers))
+  if (isRepeatedArray(numbers))
     return false;
   const validators = [ 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 ];
   const checkers = generateCheckSums(numbers, validators);

@@ -1,5 +1,6 @@
 import generateCheckSums from '../helpers/generateCheckSums';
 import getRemaining from '../helpers/getRemainig';
+import isCPFPattern from '../helpers/isCPFPattern';
 import isRepeatedArray from '../helpers/isRepeatedValue';
 import mapToNumbers from '../helpers/mapToNumbers';
 
@@ -26,8 +27,10 @@ import mapToNumbers from '../helpers/mapToNumbers';
 const isCPF = (
   value: string,
 ): boolean => {
+  if (!isCPFPattern(value))
+    return false;
   const numbers = mapToNumbers(value);
-  if (numbers.length !== 11 || isRepeatedArray(numbers))
+  if (isRepeatedArray(numbers))
     return false;
   const validators = [ 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 ];
   const checkers = generateCheckSums(numbers, validators);

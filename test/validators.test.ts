@@ -11,6 +11,7 @@ test('isCEP', (context) => {
  context.true(isCEP('00000000'))
  context.false(isCEP('0'))
  context.false(isCEP('1982891928981982198'))
+ context.false(isCEP('0299sansjads8-050'))
 });
 
 test('isCNPJ', (context) => {
@@ -18,6 +19,7 @@ test('isCNPJ', (context) => {
   context.true(isCNPJ('45.723.174/0001-10'));
   context.false(isCNPJ('41142260007182'));
   context.false(isCNPJ('19.981.127/0001-10'));
+  context.false(isCNPJ('64.637.agsvs009/0001-90'));
 });
 
 test('isCPF', (context) => {
@@ -29,6 +31,7 @@ test('isCPF', (context) => {
   context.false(isCPF('00000000000'));
   context.false(isCPF('111.111.111-11'));
   context.false(isCPF('UHASHUISIH910'));
+  context.false(isCPF('366.41askaosoa8.768-70'));
 });
 
 test('isDate', (context) => {
