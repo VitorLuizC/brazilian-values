@@ -3,7 +3,9 @@ import {
   isCEP,
   isCNPJ,
   isCPF,
-  isDate
+  isDate,
+  isDDD,
+  isPhone
 } from '../';
 
 test('isCEP', (context) => {
@@ -39,4 +41,19 @@ test('isDate', (context) => {
   context.false(isDate('28/13/9017'));
   context.false(isDate('00/00/0000'));
   context.false(isDate('31/02/2018'));
+});
+
+test('isDDD', (context) => {
+  context.true(isDDD('81'));
+  context.false(isDDD('10'));
+  context.false(isDDD('A#'));
+});
+
+test('isPhone', (context) => {
+  context.true(isPhone('+55 (11) 9 8273-1182'));
+  context.true(isPhone('11 9 8273 1182'));
+  context.true(isPhone('1139723768'));
+  context.false(isPhone('(23) 3972-3768'));
+  context.false(isPhone('(13) 6 5093-2093'));
+  context.false(isPhone('(81) 555 178'));
 });
