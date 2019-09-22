@@ -1,8 +1,12 @@
 import generateCheckSums from '../helpers/generateCheckSums';
 import getRemaining from '../helpers/getRemainig';
-import isCPFPattern from '../helpers/isCPFPattern';
 import isRepeatedArray from '../helpers/isRepeatedValue';
 import mapToNumbers from '../helpers/mapToNumbers';
+
+/**
+ * Pattern to match formatted CPF (999.999.999-99) or 11 numbers.
+ */
+const CPF_PATTERN = /^(\d{11}|\d{3}\.\d{3}\.\d{3}\-\d{2})$/;
 
 /**
  * Check if value is a valid CPF.
@@ -27,7 +31,7 @@ import mapToNumbers from '../helpers/mapToNumbers';
 const isCPF = (
   value: string,
 ): boolean => {
-  if (!isCPFPattern(value))
+  if (!CPF_PATTERN.test(value))
     return false;
   const numbers = mapToNumbers(value);
   if (isRepeatedArray(numbers))

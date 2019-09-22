@@ -1,7 +1,11 @@
 import comparePiecesToDate from '../helpers/comparePiecesToDate';
 import mapToPieces from '../helpers/mapToPieces';
 import parsePiecesToDate from '../helpers/parsePiecesToDate';
-import isDatePattern from '../helpers/isDatePattern';
+
+/**
+ * Pattern to match brazilian formatted dates (99/99/9999).
+ */
+const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}$/;
 
 /**
  * Parses a brazilian formatted date into a Date instance.
@@ -17,7 +21,7 @@ import isDatePattern from '../helpers/isDatePattern';
 const parseToDate = (
   value: string,
 ): Date => {
-  if (!isDatePattern(value))
+  if (!DATE_PATTERN.test(value))
     throw new Error(`Value "${value}" does not match format.`);
   const pieces = mapToPieces(value);
   const instance = parsePiecesToDate(pieces);

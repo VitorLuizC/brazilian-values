@@ -1,5 +1,5 @@
 /**
- * Brazilian CEP pattern.
+ * Pattern to match formatted CEP (99999-999) or 8 numbers.
  */
 const CEP_PATTERN = /^(\d{8}|\d{5}\-\d{3})$/;
 

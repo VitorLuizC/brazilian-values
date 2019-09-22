@@ -1,6 +1,10 @@
 import comparePiecesToDate from '../helpers/comparePiecesToDate';
-import isDatePattern from '../helpers/isDatePattern';
 import mapToPieces from '../helpers/mapToPieces';
+
+/**
+ * Pattern to match brazilian formatted dates (99/99/9999).
+ */
+const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}$/;
 
 /**
  * Check if a brazilian formatted date is valid.
@@ -21,6 +25,6 @@ import mapToPieces from '../helpers/mapToPieces';
  */
 const isDate = (
   value: string,
-): boolean => isDatePattern(value) && comparePiecesToDate(mapToPieces(value));
+): boolean => DATE_PATTERN.test(value) && comparePiecesToDate(mapToPieces(value));
 
 export default isDate;
