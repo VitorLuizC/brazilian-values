@@ -340,6 +340,47 @@ isDate('31/03/18')
 //=> false
 ```
 
+#### `isDDD`
+
+Validates if value is a brazilian valid DDD (direct dialing at a distance) code.
+
+> Based on [resolution No. 263 of June 8, 2001](https://www.anatel.gov.br/legislacao/resolucoes/16-2001/383-resolucao-263).
+
+```js
+isDDD('81')
+//=> true
+
+isDDD('10')
+//=> false
+
+isDDD('555')
+//=> false
+```
+
+#### `isPhone`
+
+Validates if value matches common brazilian phone number, optionally with DDI, DDD and the ninth digit. If DDD is defined it'll be validated with `isDDD`.
+
+```js
+isPhone('+55 (11) 9 8273-1182')
+//=> true
+
+isPhone('11 9 8273 1182')
+//=> true
+
+isPhone('1139723768')
+//=> true
+
+isPhone('(23) 3972-3768')
+//=> false
+
+isPhone('(13) 6 5093-2093')
+//=> false
+
+isPhone('(81) 555 178')
+//=> false
+```
+
 ## License
 
 Released under [MIT license](./LICENSE).

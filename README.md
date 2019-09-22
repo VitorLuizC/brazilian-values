@@ -338,6 +338,48 @@ isDate('31/03/18')
 //=> false
 ```
 
+#### `isDDD`
+
+Verifica se é um código DDD (discagem direta à distância) brasileiro válido.
+
+> Baseado na [resolução nº 263, de 8 de junho de 2001](https://www.anatel.gov.br/legislacao/resolucoes/16-2001/383-resolucao-263).
+
+```js
+isDDD('81')
+//=> true
+
+isDDD('10')
+//=> false
+
+isDDD('555')
+//=> false
+```
+
+#### `isPhone`
+
+Verifica se está em um formato comum de número de telefone brazileiro, opcionalmente com DDI, DDD e o nono dígito.
+Se o DDD estiver definido ele será verificado com `isDDD`.
+
+```js
+isPhone('+55 (11) 9 8273-1182')
+//=> true
+
+isPhone('11 9 8273 1182')
+//=> true
+
+isPhone('1139723768')
+//=> true
+
+isPhone('(23) 3972-3768')
+//=> false
+
+isPhone('(13) 6 5093-2093')
+//=> false
+
+isPhone('(81) 555 178')
+//=> false
+```
+
 ## Licença
 
 Lançado sob a licença [MIT](./LICENSE).
