@@ -8,3 +8,4 @@ export { default as formatToList } from './formatToList';
 export { default as formatToNumber } from './formatToNumber';
 export { default as formatToPhone } from './formatToPhone';
 export { default as formatToRG } from './formatToRG';
+export { default as formatToCapitalize } from './formatToCapitalize';
