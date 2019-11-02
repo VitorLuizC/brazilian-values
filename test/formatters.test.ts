@@ -3,6 +3,7 @@ import {
   formatToBRL,
   formatToCEP,
   formatToCNPJ,
+  formatToCapitalized,
   formatToCPF,
   formatToDate,
   formatToDateTime,
@@ -10,13 +11,30 @@ import {
   formatToNumber,
   formatToPhone,
   formatToRG,
-  formatToCapitalize,
 } from '../';
 
 test('formatToBRL', (context) => {
   context.is(formatToBRL(1200.504), 'R$ 1.200,50');
   context.is(formatToBRL(0), 'R$ 0,00');
   context.is(formatToBRL('-74.89'), 'R$ -74,89');
+});
+
+test('formatToCapitalized', (context) => {
+  context.is(formatToCapitalized('cnpj da empresa X'), 'CNPJ da Empresa X');
+  context.is(formatToCapitalized('JOAO ALVES DOS SANTOS FILHO'), 'Joao Alves dos Santos Filho');
+  context.is(formatToCapitalized('SERVIDOR PÚBLICO MUNICIPAL'), 'Servidor Público Municipal');
+  context.is(
+    formatToCapitalized('   os PrimEIROS  HOMens da tERra', {
+      wordsToKeepLowerCase: ['os', 'da']
+   }),
+   'Os Primeiros Homens da Terra'
+  );
+  context.is(
+    formatToCapitalized('nova tv foi lançada', {
+      wordsToKeepUpperCase: ['tv']
+    }),
+    'Nova TV Foi Lançada'
+  );
 });
 
 test('formatToCEP', (context) => {
@@ -71,19 +89,4 @@ test('formatToRG', (context) => {
   context.is(formatToRG('00.000.000-B', 'SP'), '00.000.000-B');
   context.is(formatToRG('00000000x', 'RJ'), '00.000.000-X');
   context.is(formatToRG('MG-14.808.688', 'MG'), 'MG-14.808.688');
-});
-
-test('formatToCapitalize', (context) => {
-  context.is(formatToCapitalize('A TRANSFORMAÇÃO CONTINUA'), 'A Transformação Continua');
-  context.is(formatToCapitalize('AIQUARA NO CAMINHO CERTO'), 'Aiquara no Caminho Certo');
-  context.is(formatToCapitalize('ARACAJU EM BOAS MÃOS'), 'Aracaju em Boas Mãos');
-  context.is(formatToCapitalize('CNPJ DA EMPRESA X'), 'CNPJ da Empresa X');
-  context.is(formatToCapitalize('DEFERIDO COM RECURSO'), 'Deferido com Recurso');
-  context.is(formatToCapitalize('ELEITO POR QP'), 'Eleito por QP');
-  context.is(formatToCapitalize('HELLO WORLD', ['world']), 'Hello world');
-  context.is(formatToCapitalize('HELLO WORLD', ['world'], ['hello']), 'HELLO world');
-  context.is(formatToCapitalize('JOAO ALVES DOS SANTOS FILHO'), 'Joao Alves dos Santos Filho');
-  context.is(formatToCapitalize('JOAO ALVES POVOAS FILHO'), 'Joao Alves Povoas Filho');
-  context.is(formatToCapitalize('PETROLINA DE GOIÁS'), 'Petrolina de Goiás');
-  context.is(formatToCapitalize('SERVIDOR PÚBLICO MUNICIPAL'), 'Servidor Público Municipal');
 });
