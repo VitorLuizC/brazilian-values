@@ -77,25 +77,25 @@ formatToBRL(-18.49)
 //=> 'R$ -18,49'
 ```
 
-#### `formatToCapitalize`
+#### `formatToCapitalized`
 
-Capitaliza uma `string`.
+Capitaliza as palavras de um texto, com exceção das palavras configuradas para serem deixadas em caixa-alta ou em caixa-baixa.
+
+> A primeira palavra do texto não será caixa-baixa mesmo se configurada como.
 
 ```js
-formatToCapitalize('SERVIDOR PÚBLICO MUNICIPAL')
+formatToCapitalized('SERVIDOR PÚBLICO MUNICIPAL')
 //=> 'Servidor Público Municipal'
 
-formatToCapitalize('PETROLINA DE GOIÁS')
-//=> 'Petrolina de Goiás'
+formatToCapitalized('   os PrimEIROS  HOMens da tERra', {
+  wordsToKeepLowerCase: ['os', 'da']
+})
+//=> 'Os Primeiros Homens da Terra'
 
-formatToCapitalize('ELEITO POR QP')
-//=> 'Eleito por QP'
-
-formatToCapitalize('HELLO WORLD', ['word'])
-//=> 'Hello world'
- 
-formatToCapitalize('HELLO WORLD', ['world'], ['hello'])
-//=> 'HELLO world'
+formatToCapitalized('nova tv foi lançada', {
+  wordsToKeepUpperCase: ['tv']
+})
+//=> 'Nova TV Foi Lançada'
 ```
 
 #### `formatToCEP`
