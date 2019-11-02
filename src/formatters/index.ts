@@ -1,4 +1,5 @@
 export { default as formatToBRL } from './formatToBRL';
+export { default as formatToCapitalized } from './formatToCapitalized';
 export { default as formatToCEP } from './formatToCEP';
 export { default as formatToCNPJ } from './formatToCNPJ';
 export { default as formatToCPF } from './formatToCPF';
@@ -8,4 +9,3 @@ export { default as formatToList } from './formatToList';
 export { default as formatToNumber } from './formatToNumber';
 export { default as formatToPhone } from './formatToPhone';
 export { default as formatToRG } from './formatToRG';
-export { default as formatToCapitalize } from './formatToCapitalize';
