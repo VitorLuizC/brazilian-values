@@ -77,6 +77,27 @@ formatToBRL(-18.49)
 //=> 'R$ -18,49'
 ```
 
+#### `formatToCapitalize`
+
+Capitaliza uma `string`.
+
+```js
+formatToCapitalize('SERVIDOR PÚBLICO MUNICIPAL')
+//=> 'Servidor Público Municipal'
+
+formatToCapitalize('PETROLINA DE GOIÁS')
+//=> 'Petrolina de Goiás'
+
+formatToCapitalize('ELEITO POR QP')
+//=> 'Eleito por QP'
+
+formatToCapitalize('HELLO WORLD', ['word'])
+//=> 'Hello world'
+ 
+formatToCapitalize('HELLO WORLD', ['world'], ['hello'])
+//=> 'HELLO world'
+```
+
 #### `formatToCEP`
 
 Formata uma `string` que contém números em CEP.
