@@ -60,9 +60,9 @@ const document = formatToCNPJ(value);
 ```
 ## Summary API
 
-- [Formatters](###Formatters)
-- [Parsers](###Parsers)
-- [Validators](###Validators)
+- [Formatters](#Formatters)
+- [Parsers](#Parsers)
+- [Validators](#Validators)
 
 ## API
 

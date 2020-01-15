@@ -59,9 +59,9 @@ const document = formatToCNPJ(value);
 ```
 ## Sumário API
 
-- [Formatação](###Formatação)
-- [Conversores](###Conversores)
-- [Validadores](###Validadores)
+- [Formatação](#Formatação)
+- [Conversores](#Conversores)
+- [Validadores](#Validadores)
 
 ## API
 
