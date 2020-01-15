@@ -57,6 +57,11 @@ if (!isCNPJ(value))
 const document = formatToCNPJ(value);
 //=> '12.727.442/0001-13'
 ```
+## Sumário API
+
+- [Formatação](###Formatação)
+- [Conversores](###Conversores)
+- [Validadores](###Validadores)
 
 ## API
 
