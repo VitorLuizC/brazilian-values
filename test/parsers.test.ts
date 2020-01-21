@@ -28,8 +28,16 @@ test('parseToDate: Parses a brazilian formatted date to a Date instance', (conte
 });
 
 test('parseToDate: Throws errors on invalid pattern or date.', (context) => {
-  context.throws(() => parseToDate('01-01-2001'), 'Value "01-01-2001" does not match format.');
-  context.throws(() => parseToDate('31/02/2001'), 'Value "31/02/2001" is an invalid date.');
+  context.throws(
+    () => parseToDate('01-01-2001'),
+    { instanceOf: Error },
+    'Value "01-01-2001" does not match format.'
+  );
+  context.throws(
+    () => parseToDate('31/02/2001'),
+    { instanceOf: Error },
+    'Value "31/02/2001" is an invalid date.'
+  );
 });
 
 test('parseToNumber: Parses a brazilian formatted number to number', (context) => {
