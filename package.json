@@ -1,6 +1,6 @@
 {
   "name": "brazilian-values",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "sideEffects": false,
   "description": "Validates and formats brazilian values, like money (BRL), CPF, CNPJ, dates etc.",
   "keywords": [
