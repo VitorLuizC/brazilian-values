@@ -1,14 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es2015", "dom"],
-
     // Module configuration
     "moduleResolution": "node",
-
-    // Declaration configuration
-    "declaration": true,
-    "declarationDir": "types/",
+    "esModuleInterop": true,
 
     // Type-check configuration
     "alwaysStrict": true,
@@ -19,8 +13,5 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "forceConsistentCasingInFileNames": true
-  },
-  "files": [
-    "src/brazilian-values.ts"
-  ]
+  }
 }

@@ -33,7 +33,7 @@
   "scripts": {
     "test": "yarn run test:types && yarn run test:unit",
     "test:unit": "ava",
-    "test:types": "tsc --noEmit",
+    "test:types": "tsc -p ./tsconfig.build.json --noEmit",
     "build": "bili",
     "prepublishOnly": "yarn run test && yarn run build"
   },

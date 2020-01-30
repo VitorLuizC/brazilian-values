@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "files": [
+    "src/brazilian-values.ts"
+  ],
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ES5"],
+
+    // Declaration configuration
+    "declaration": true,
+    "declarationDir": "types/",
+  }
+}

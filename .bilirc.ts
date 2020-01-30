@@ -15,6 +15,7 @@ const configuration: Configuration = {
   plugins: {
     'typescript2': {
       clean: true,
+      tsconfig: './tsconfig.build.json',
       useTsconfigDeclarationDir: true
     }
   }
