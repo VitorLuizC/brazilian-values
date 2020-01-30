@@ -1,7 +1,7 @@
 /**
  * Pattern to match formatted CEP (99999-999) or 8 numbers.
  */
-const CEP_PATTERN = /^(\d{8}|\d{5}\-\d{3})$/;
+const CEP_PATTERN = /^(\d{8}|\d{2}\.?\d{3}\-\d{3})$/;
 
 /**
  * Check if value is a valid CEP.
