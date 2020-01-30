@@ -4,7 +4,7 @@
     "src/brazilian-values.ts"
   ],
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES5",
     "lib": ["ES5"],
 
     // Declaration configuration
