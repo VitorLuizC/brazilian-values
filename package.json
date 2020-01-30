@@ -31,10 +31,11 @@
   "jsdelivr": "dist/brazilian-values.umd.js",
   "umd:main": "dist/brazilian-values.umd.js",
   "scripts": {
-    "pretest": "yarn build",
-    "test": "ava",
+    "test": "yarn run test:types && yarn run test:unit",
+    "test:unit": "ava",
+    "test:types": "tsc --noEmit",
     "build": "bili",
-    "prepublishOnly": "yarn test"
+    "prepublishOnly": "yarn run test && yarn run build"
   },
   "repository": {
     "type": "git",
@@ -45,7 +46,7 @@
   },
   "homepage": "https://github.com/VitorLuizC/brazilian-values#readme",
   "devDependencies": {
-    "ava": "^3.0.0",
+    "ava": "^3.1.0",
     "bili": "^4.8.1",
     "rollup-plugin-typescript2": "^0.25.3",
     "ts-node": "^8.6.2",
