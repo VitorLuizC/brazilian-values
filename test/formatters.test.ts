@@ -11,7 +11,7 @@ import {
   formatToNumber,
   formatToPhone,
   formatToRG,
-} from '../';
+} from '../src/brazilian-values';
 
 test('formatToBRL', (context) => {
   context.is(formatToBRL(1200.504), 'R$ 1.200,50');

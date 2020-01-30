@@ -3,7 +3,7 @@ import {
   parseToArray,
   parseToDate,
   parseToNumber,
-} from '../';
+} from '../src/brazilian-values';
 
 test('parseToArray: Parses a brazilian formatted list to an Array', (context) => {
   const value1 = parseToArray('');

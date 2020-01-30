@@ -6,7 +6,7 @@ import {
   isDate,
   isDDD,
   isPhone
-} from '../';
+} from '../src/brazilian-values';
 
 test('isCEP', (context) => {
  context.true(isCEP('50.833-000'));
