@@ -9,7 +9,7 @@ import {
 } from '../';
 
 test('isCEP', (context) => {
- context.true(isCEP('07.499-000'));
+ context.true(isCEP('50.833-000'));
  context.true(isCEP('02998-050'));
  context.true(isCEP('00000000'));
  context.false(isCEP('0'));

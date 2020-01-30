@@ -6,6 +6,9 @@ const CEP_PATTERN = /^(\d{8}|\d{2}\.?\d{3}\-\d{3})$/;
 /**
  * Check if value is a valid CEP.
  * @example ```js
+ * isCEP('50.833-000')
+ * //=> true
+ *
  * isCEP('02998-050')
  * //=> true
  *

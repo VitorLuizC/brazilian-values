@@ -296,6 +296,9 @@ parseToNumber('19.898,1298')
 Validates if valur is a CEP.
 
 ```js
+isCEP('50.833-000')
+//=> true
+
 isCEP('02998-050')
 //=> true
 
