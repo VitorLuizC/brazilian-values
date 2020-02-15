@@ -2,6 +2,7 @@ import test from 'ava';
 import {
   formatToBRL,
   formatToCEP,
+  formatToCPFOrCNPJ,
   formatToCNPJ,
   formatToCapitalized,
   formatToCPF,
@@ -11,7 +12,6 @@ import {
   formatToNumber,
   formatToPhone,
   formatToRG,
-  formatToCPFOrCNPJ,
 } from '../src/brazilian-values';
 
 test('formatToBRL', (context) => {

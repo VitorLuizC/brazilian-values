@@ -145,6 +145,25 @@ formatToCPF('366.418.768-70')
 //=> '366.418.768-70'
 ```
 
+#### `formatToCPFOrCNPJ`
+
+Formata uma `string` que contém números em CPF ou CNPJ dependendo da quantidade de caracteres.
+
+```js
+formatToCPFOrCNPJ('00000000')
+//=> '000.000.00'
+
+formatToCPFOrCNPJ('366.418.768-70')
+//=> '366.418.768-70'
+
+formatToCPFOrCNPJ('32284981000138')
+//=> '32.284.981/0001-38'
+
+formatToCPFOrCNPJ('00.0.000.00.00--00-00')
+//=> '00.000.000/0000-00'
+```
+
+
 #### `formatToDate`
 
 Formata uma instância de `Date` para o estilo brasileiro, **`DD/MM/YYYY`**.
