@@ -1,5 +1,6 @@
 import formatToCNPJ from "./formatToCNPJ";
 import formatToCPF from "./formatToCPF";
+import mapToNumeric from '../helpers/mapToNumeric';
 
 /**
  * Formats a `string` value into a CPF or CNPJ depending on the size of it
@@ -14,7 +15,7 @@ import formatToCPF from "./formatToCPF";
 const formatToCPFOrCNPJ = (
     value: string
 ) => {
-    if (value.length <= 11){
+    if (mapToNumeric(value).length <= 11){
         return formatToCPF(value);
     }
     return formatToCNPJ(value);
