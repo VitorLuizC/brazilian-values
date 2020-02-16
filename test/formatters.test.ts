@@ -12,6 +12,7 @@ import {
   formatToNumber,
   formatToPhone,
   formatToRG,
+  formatToGenericPhone
 } from '../src/brazilian-values';
 
 test('formatToBRL', (context) => {
@@ -98,4 +99,12 @@ test('formatToRG', (context) => {
   context.is(formatToRG('00.000.000-B', 'SP'), '00.000.000-B');
   context.is(formatToRG('00000000x', 'RJ'), '00.000.000-X');
   context.is(formatToRG('MG-14.808.688', 'MG'), 'MG-14.808.688');
+});
+
+test('formatToGenericPhone', (context) => {
+  context.is(formatToGenericPhone('23456789'), '2345-6789')
+  context.is(formatToGenericPhone('923456789'), '92345-6789')
+  context.is(formatToGenericPhone('21923456789'), '(21) 92345-6789')
+  context.is(formatToGenericPhone('021923456789'), '021 92345-6789')
+  context.is(formatToGenericPhone('5521923456789'), '+55 21 92345-6789')
 });
