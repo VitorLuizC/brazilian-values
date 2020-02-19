@@ -43,6 +43,27 @@ Os pacotes desse módulo também estão disponíveis nas CDNs [JSDelivr](https:/
 </script>
 ```
 
+### Docker
+
+Caso queira rodar em um ambiente isolado(container) você pode usar o [docker](https://www.docker.com/).
+
+Primeiro construa a imagem em sua maquina
+
+```
+docker build -t brazilian-values:latest .
+```
+
+Após isso rode o ambiente em modo interativo
+```
+docker run -it -v ${PWD}:/usr/src/app brazilian-values:latest bash
+```
+
+Você entrara em um container com o ambiente isolado da maquina. rode o yarn install e pode começar a usar todo o projeto`
+
+```
+yarn install
+```
+
 ## Como usar
 
 `brazilian-values` fornece funções para lidar com formatação, validação e conversão de valores brasileiros. Todas essas funções podem ser importadas do pacote.
