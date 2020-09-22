@@ -1,4 +1,5 @@
 import capitalizeWord from '../helpers/capitalizeWord';
+import normalizeWhiteSpaces from '../helpers/normalizeWhiteSpaces';
 import splitIntoWords from '../helpers/splitIntoWords';
 
 /**
@@ -7,6 +8,7 @@ import splitIntoWords from '../helpers/splitIntoWords';
 type Options = {
   wordsToKeepLowerCase?: string[];
   wordsToKeepUpperCase?: string[];
+  trimTrailingWhiteSpaces?: boolean;
 };
 
 /**
@@ -52,12 +54,12 @@ const DEFAULT_WORDS_TO_KEEP_LOWER_CASE = [
  * @example ```js
  * formatToCapitalized('SERVIDOR PÚBLICO MUNICIPAL')
  * //=> 'Servidor Público Municipal'
- * 
+ *
  * formatToCapitalized('   os PrimEIROS  HOMens da tERra', {
  *   wordsToKeepLowerCase: ['os', 'da']
  * })
  * //=> 'Os Primeiros Homens da Terra'
- * 
+ *
  * formatToCapitalized('nova tv foi lançada', {
  *   wordsToKeepUpperCase: ['tv']
  * })
@@ -70,9 +72,10 @@ const formatToCapitalized = (
   {
     wordsToKeepLowerCase = DEFAULT_WORDS_TO_KEEP_LOWER_CASE,
     wordsToKeepUpperCase = DEFAULT_WORDS_TO_KEEP_UPPER_CASE,
+    trimTrailingWhiteSpaces: trimTrailingWhitespaces = true,
   }: Options = {}
 ): string => (
-  splitIntoWords(value)
+  splitIntoWords(trimTrailingWhitespaces ? normalizeWhiteSpaces(value) : value)
     .map((word, index) => {
       const lowerCaseWord = word.toLocaleLowerCase();
       if (index > 0 && wordsToKeepLowerCase.indexOf(lowerCaseWord) !== -1)

@@ -4,6 +4,8 @@
  */
 const capitalizeWord = (
   word: string,
-): string => word[0].toLocaleUpperCase() + word.substr(1).toLocaleLowerCase();
+): string => (
+  word.charAt(0).toLocaleUpperCase() + word.substr(1).toLocaleLowerCase()
+);
 
 export default capitalizeWord;
