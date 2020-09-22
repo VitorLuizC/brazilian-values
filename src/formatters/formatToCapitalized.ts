@@ -76,11 +76,12 @@ const formatToCapitalized = (
   }: Options = {}
 ): string => (
   splitIntoWords(trimTrailingWhitespaces ? normalizeWhiteSpaces(value) : value)
-    .map((word, index) => {
-      const lowerCaseWord = word.toLocaleLowerCase();
-      if (index > 0 && wordsToKeepLowerCase.indexOf(lowerCaseWord) !== -1)
-        return lowerCaseWord;
-      if (wordsToKeepUpperCase.indexOf(lowerCaseWord) !== -1)
+    .map((word, index, words) => {
+      const isFirstWord = (word && index === 0) || (!words[0] && index === 1);
+      const wordInLowerCase = word.toLocaleLowerCase();
+      if (!isFirstWord && wordsToKeepLowerCase.indexOf(wordInLowerCase) !== -1)
+        return wordInLowerCase;
+      if (wordsToKeepUpperCase.indexOf(wordInLowerCase) !== -1)
         return word.toLocaleUpperCase();
       return capitalizeWord(word);
     })

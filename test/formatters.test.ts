@@ -39,26 +39,30 @@ test('formatToCapitalized', (context) => {
   );
 });
 
-test('formatToCapitalized don\'t trim whitespaces when `trimTrailingWhitespaces` is false', (context) => {
+test('formatToCapitalized don\'t trim whitespaces when `trimTrailingWhiteSpaces` is false', (context) => {
   context.is(
-    formatToCapitalized('   william junior', {
-      trimTrailingWhiteSpaces: false,
+    formatToCapitalized('   COM Espaços ANTES E DEPOIS \n\r', {
+      wordsToKeepLowerCase: ['e'],
+      trimTrailingWhiteSpaces: false
     }),
-    ' William Junior'
+    ' Com Espaços Antes e Depois '
   );
+});
+
+test('formatToCapitalized don\'t transform first word to lower-case', (context) => {
   context.is(
-    formatToCapitalized('   os PrimEIROS  HOMens da tERra', {
-      wordsToKeepLowerCase: ['da'],
-      trimTrailingWhiteSpaces: false,
+    formatToCapitalized('a primeira palavra é capitalizada', {
+      wordsToKeepLowerCase: ['a', 'é']
     }),
-    ' Os Primeiros Homens da Terra'
+    'A Primeira Palavra é Capitalizada'
   );
+
   context.is(
-    formatToCapitalized('nova tv foi lançada', {
-      wordsToKeepUpperCase: ['tv'],
+    formatToCapitalized(' a primeira palavra é capitalizada mesmo com espaços ', {
       trimTrailingWhiteSpaces: false,
+      wordsToKeepLowerCase: ['a', 'é', 'com']
     }),
-    'Nova TV Foi Lançada'
+    ' A Primeira Palavra é Capitalizada Mesmo com Espaços '
   );
 });
 
