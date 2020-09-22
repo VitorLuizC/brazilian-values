@@ -39,6 +39,29 @@ test('formatToCapitalized', (context) => {
   );
 });
 
+test('formatToCapitalized don\'t trim whitespaces when `trimTrailingWhitespaces` is false', (context) => {
+  context.is(
+    formatToCapitalized('   william junior', {
+      trimTrailingWhiteSpaces: false,
+    }),
+    ' William Junior'
+  );
+  context.is(
+    formatToCapitalized('   os PrimEIROS  HOMens da tERra', {
+      wordsToKeepLowerCase: ['da'],
+      trimTrailingWhiteSpaces: false,
+    }),
+    ' Os Primeiros Homens da Terra'
+  );
+  context.is(
+    formatToCapitalized('nova tv foi lançada', {
+      wordsToKeepUpperCase: ['tv'],
+      trimTrailingWhiteSpaces: false,
+    }),
+    'Nova TV Foi Lançada'
+  );
+});
+
 test('formatToCEP', (context) => {
   context.is(formatToCEP('15998030'), '15998-030');
   context.is(formatToCEP('159980'), '15998-0');
