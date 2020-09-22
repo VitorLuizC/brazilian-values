@@ -1,7 +1,6 @@
 import { Config as Configuration } from 'bili';
 
 const configuration: Configuration = {
-  banner: true,
   input: 'src/brazilian-values.ts',
   output: {
     format: [
