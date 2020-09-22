@@ -77,10 +77,10 @@ const formatToCapitalized = (
   {
     wordsToKeepLowerCase = DEFAULT_WORDS_TO_KEEP_LOWER_CASE,
     wordsToKeepUpperCase = DEFAULT_WORDS_TO_KEEP_UPPER_CASE,
-    trimTrailingWhiteSpaces: trimTrailingWhitespaces = true,
+    trimTrailingWhiteSpaces = true,
   }: Options = {}
 ): string => (
-  splitIntoWords(trimTrailingWhitespaces ? normalizeWhiteSpaces(value) : value)
+  splitIntoWords(trimTrailingWhiteSpaces ? normalizeWhiteSpaces(value) : value)
     .map((word, index, words) => {
       const isFirstWord = (word && index === 0) || (!words[0] && index === 1);
       const wordInLowerCase = word.toLocaleLowerCase();
@@ -90,7 +90,7 @@ const formatToCapitalized = (
         return word.toLocaleUpperCase();
       return capitalizeWord(word);
     })
-    .join(' ')
+    .join(" ")
 );
 
 export default formatToCapitalized;
