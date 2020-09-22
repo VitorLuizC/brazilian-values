@@ -122,6 +122,11 @@ formatToCapitalized('nova tv foi lançada', {
   wordsToKeepUpperCase: ['tv']
 })
 //=> 'Nova TV Foi Lançada'
+
+formatToCapitalized(' com espaços antes e depois ', {
+  trimTrailingWhiteSpaces: false
+})
+//=> ' Com Espaços Antes e Depois '
 ```
 
 #### `formatToCEP`

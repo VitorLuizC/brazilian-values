@@ -64,6 +64,11 @@ const DEFAULT_WORDS_TO_KEEP_LOWER_CASE = [
  *   wordsToKeepUpperCase: ['tv']
  * })
  * //=> 'Nova TV Foi Lançada'
+ *
+ * formatToCapitalized(' com espaços antes e depois ', {
+ *   trimTrailingWhiteSpaces: false
+ * })
+ * //=> ' Com Espaços Antes e Depois '
  * ```
  * @param value - A `string` to capitalize
  */
