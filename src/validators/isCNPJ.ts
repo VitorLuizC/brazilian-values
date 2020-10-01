@@ -6,7 +6,7 @@ import mapToNumbers from '../helpers/mapToNumbers';
 /**
  * Pattern to match formatted CNPJ (99.999.999/9999-99) or 14 numbers.
  */
-const CNPJ_PATTERN = /^(\d{14}|\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2})$/;
+export const CNPJ_PATTERN = /^(\d{14}|\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2})$/;
 
 /**
  * Check if value is a valid CNPJ.

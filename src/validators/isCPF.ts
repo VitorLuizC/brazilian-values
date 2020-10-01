@@ -6,7 +6,7 @@ import mapToNumbers from '../helpers/mapToNumbers';
 /**
  * Pattern to match formatted CPF (999.999.999-99) or 11 numbers.
  */
-const CPF_PATTERN = /^(\d{11}|\d{3}\.\d{3}\.\d{3}\-\d{2})$/;
+export const CPF_PATTERN = /^(\d{11}|\d{3}\.\d{3}\.\d{3}\-\d{2})$/;
 
 /**
  * Check if value is a valid CPF.
