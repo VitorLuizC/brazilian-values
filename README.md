@@ -60,9 +60,42 @@ const document = formatToCNPJ(value);
 
 ## API
 
-- [Formatação](#Formatação)
-- [Conversores](#Conversores)
-- [Validadores](#Validadores)
+<details>
+  <summary>Formatadores</summary>
+
+- [`formatToBRL`](#formatToBRL)
+- [`formatToCapitalized`](#formatToCapitalized)
+- [`formatToCEP`](#formatToCEP)
+- [`formatToCNPJ`](#formatToCNPJ)
+- [`formatToCPF`](#formatToCPF)
+- [`formatToCPFOrCNPJ`](#formatToCPFOrCNPJ)
+- [`formatToDate`](#formatToDate)
+- [`formatToDateTime`](#formatToDateTime)
+- [`formatToList`](#formatToList)
+- [`formatToNumber`](#formatToNumber)
+- [`formatToPhone`](#formatToPhone)
+- [`formatToRG`](#formatToRG)
+</details>
+
+<details>
+  <summary>Conversores</summary>
+
+- [`parseToArray`](#parseToArray)
+- [`parseToDate`](#parseToDate)
+- [`parseToNumber`](#parseToNumber)
+</details>
+
+<details>
+  <summary>Validadores</summary>
+
+- [`isCEP`](#isCEP)
+- [`isCNPJ`](#isCNPJ)
+- [`isCPF`](#isCPF)
+- [`isCPFOrCNPJ`](#isCPFOrCNPJ)
+- [`isDate`](#isDate)
+- [`isDDD`](#isDDD)
+- [`isPhone`](#isPhone)
+</details>
 
 ### Formatação
 

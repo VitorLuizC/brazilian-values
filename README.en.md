@@ -58,13 +58,45 @@ if (!isCNPJ(value))
 const document = formatToCNPJ(value);
 //=> '12.727.442/0001-13'
 ```
-## Summary API
-
-- [Formatters](#Formatters)
-- [Parsers](#Parsers)
-- [Validators](#Validators)
 
 ## API
+
+<details>
+  <summary>Formatters</summary>
+
+- [`formatToBRL`](#formatToBRL)
+- [`formatToCapitalized`](#formatToCapitalized)
+- [`formatToCEP`](#formatToCEP)
+- [`formatToCNPJ`](#formatToCNPJ)
+- [`formatToCPF`](#formatToCPF)
+- [`formatToCPFOrCNPJ`](#formatToCPFOrCNPJ)
+- [`formatToDate`](#formatToDate)
+- [`formatToDateTime`](#formatToDateTime)
+- [`formatToList`](#formatToList)
+- [`formatToNumber`](#formatToNumber)
+- [`formatToPhone`](#formatToPhone)
+- [`formatToRG`](#formatToRG)
+</details>
+
+<details>
+  <summary>Parsers</summary>
+
+- [`parseToArray`](#parseToArray)
+- [`parseToDate`](#parseToDate)
+- [`parseToNumber`](#parseToNumber)
+</details>
+
+<details>
+  <summary>Validators</summary>
+
+- [`isCEP`](#isCEP)
+- [`isCNPJ`](#isCNPJ)
+- [`isCPF`](#isCPF)
+- [`isCPFOrCNPJ`](#isCPFOrCNPJ)
+- [`isDate`](#isDate)
+- [`isDDD`](#isDDD)
+- [`isPhone`](#isPhone)
+</details>
 
 ### Formatters
 
