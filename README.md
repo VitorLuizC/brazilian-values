@@ -43,27 +43,6 @@ Os pacotes desse módulo também estão disponíveis nas CDNs [JSDelivr](https:/
 </script>
 ```
 
-### Docker
-
-Caso queira rodar em um ambiente isolado(container) você pode usar o [docker](https://www.docker.com/).
-
-Primeiro construa a imagem em sua maquina
-
-```
-docker build -t brazilian-values:latest .
-```
-
-Após isso rode o ambiente em modo interativo
-```
-docker run -it -v ${PWD}:/usr/src/app brazilian-values:latest bash
-```
-
-Você entrara em um container com o ambiente isolado da maquina. rode o yarn install e pode começar a usar todo o projeto`
-
-```
-yarn install
-```
-
 ## Como usar
 
 `brazilian-values` fornece funções para lidar com formatação, validação e conversão de valores brasileiros. Todas essas funções podem ser importadas do pacote.
@@ -78,13 +57,12 @@ if (!isCNPJ(value))
 const document = formatToCNPJ(value);
 //=> '12.727.442/0001-13'
 ```
-## Sumário API
+
+## API
 
 - [Formatação](#Formatação)
 - [Conversores](#Conversores)
 - [Validadores](#Validadores)
-
-## API
 
 ### Formatação
 
@@ -359,6 +337,8 @@ isCEP('1982891928981982198')
 
 Verifica se é um CNPJ válido.
 
+> Relacionado: [`isCPFOrCNPJ`](#isCPFOrCNPJ).
+
 ```js
 isCNPJ('41142260000189')
 //=> true
@@ -377,6 +357,8 @@ isCNPJ('11.111.111/1111-11')
 
 Verifica se é um CPF válido.
 
+> Relacionado: [`isCPFOrCNPJ`](#isCPFOrCNPJ).
+
 ```js
 isCPF('366.418.768-70')
 //=> true
@@ -391,6 +373,41 @@ isCPF('2131201872781')
 //=> false
 
 isCPF('11111111111')
+//=> false
+```
+
+#### `isCPFOrCNPJ`
+
+Verifica se é um CPF ou um CNPJ válido.
+
+> Relacionado: [`isCPF`](#isCPF), [`isCNPJ`](#isCNPJ).
+
+```js
+isCPFOrCNPJ('366.418.768-70')
+//=> true
+
+isCPFOrCNPJ('36641876870')
+//=> true
+
+isCPFOrCNPJ('213.198.013-20')
+//=> false
+
+isCPFOrCNPJ('2131201872781')
+//=> false
+
+isCPFOrCNPJ('11111111111')
+//=> false
+
+isCPFOrCNPJ('41142260000189')
+//=> true
+
+isCPFOrCNPJ('45.723.174/0001-10')
+//=> true
+
+isCPFOrCNPJ('411407182')
+//=> false
+
+isCPFOrCNPJ('11.111.111/1111-11')
 //=> false
 ```
 
@@ -452,6 +469,29 @@ isPhone('(13) 6 5093-2093')
 
 isPhone('(81) 555 178')
 //=> false
+```
+
+## Contribuindo
+
+### Docker
+
+Caso queira rodar em um ambiente isolado(container) você pode usar o [docker](https://www.docker.com/).
+
+Primeiro construa a imagem em sua maquina
+
+```
+docker build -t brazilian-values:latest .
+```
+
+Após isso rode o ambiente em modo interativo
+```
+docker run -it -v ${PWD}:/usr/src/app brazilian-values:latest bash
+```
+
+Você entrara em um container com o ambiente isolado da maquina. rode o yarn install e pode começar a usar todo o projeto`
+
+```
+yarn install
 ```
 
 ## Licença

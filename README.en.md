@@ -339,6 +339,8 @@ isCEP('1982891928981982198')
 
 Validates if value is a CNPJ.
 
+> Related: [`isCPFOrCNPJ`](#isCPFOrCNPJ).
+
 ```js
 isCNPJ('41142260000189')
 //=> true
@@ -355,7 +357,9 @@ isCNPJ('11.111.111/1111-11')
 
 #### `isCPF`
 
-Validates if values is a CPF.
+Validates if value is a CPF.
+
+> Related: [`isCPFOrCNPJ`](#isCPFOrCNPJ).
 
 ```js
 isCPF('366.418.768-70')
@@ -371,6 +375,41 @@ isCPF('2131201872781')
 //=> false
 
 isCPF('11111111111')
+//=> false
+```
+
+#### `isCPFOrCNPJ`
+
+Validates if value is either a CPF or a CNPJ.
+
+> Related: [`isCPF`](#isCPF), [`isCNPJ`](#isCNPJ).
+
+```js
+isCPFOrCNPJ('366.418.768-70')
+//=> true
+
+isCPFOrCNPJ('36641876870')
+//=> true
+
+isCPFOrCNPJ('213.198.013-20')
+//=> false
+
+isCPFOrCNPJ('2131201872781')
+//=> false
+
+isCPFOrCNPJ('11111111111')
+//=> false
+
+isCPFOrCNPJ('41142260000189')
+//=> true
+
+isCPFOrCNPJ('45.723.174/0001-10')
+//=> true
+
+isCPFOrCNPJ('411407182')
+//=> false
+
+isCPFOrCNPJ('11.111.111/1111-11')
 //=> false
 ```
 
