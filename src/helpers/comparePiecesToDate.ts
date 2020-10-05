@@ -1,4 +1,5 @@
 import DatePieces from '../models/DatePieces';
+import TimePieces from '../models/TimePieces';
 import parsePiecesToDate from './parsePiecesToDate';
 
 /**
@@ -7,12 +8,15 @@ import parsePiecesToDate from './parsePiecesToDate';
  * @param instance - A Date instance.
  */
 const comparePiecesToDate = (
-  pieces: DatePieces,
+  pieces: DatePieces & TimePieces,
   instance: Date = parsePiecesToDate(pieces),
 ): boolean => (
   instance.getDate() === pieces.date &&
   instance.getMonth() === pieces.month &&
-  instance.getFullYear() === pieces.year
+  instance.getFullYear() === pieces.year &&
+  instance.getHours() === pieces.hours &&
+  instance.getMinutes() === pieces.minutes &&
+  instance.getSeconds() === pieces.seconds
 );
 
 export default comparePiecesToDate;

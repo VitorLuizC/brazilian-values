@@ -3,9 +3,9 @@ import mapToPieces from '../helpers/mapToPieces';
 import parsePiecesToDate from '../helpers/parsePiecesToDate';
 
 /**
- * Pattern to match brazilian formatted dates (99/99/9999).
+ * Pattern to match brazilian formatted datetimes (99/99/9999 99:99:99), where the time field is optional
  */
-const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}$/;
+const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}((\s)?(\d{2}:\d{2}:\d{2}))?$/;
 
 /**
  * Parses a brazilian formatted date into a Date instance.
