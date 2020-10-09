@@ -4,7 +4,7 @@ import mapToPieces from '../helpers/mapToPieces';
 /**
  * Pattern to match brazilian formatted dates (99/99/9999).
  */
-const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}$/;
+const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}((\s)?(\d{2}:\d{2}:\d{2}))?$/;
 
 /**
  * Check if a brazilian formatted date is valid.
