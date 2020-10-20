@@ -3,9 +3,12 @@ import mapToPieces from '../helpers/mapToPieces';
 import parsePiecesToDate from '../helpers/parsePiecesToDate';
 
 /**
- * Pattern to match brazilian formatted datetimes (99/99/9999 99:99:99), where the time field is optional
+ * A `RegExp` that matches common brazilian date and, optionally, time formats.
+ *
+ * In date and time the seconds are optional too. So the valid formats are:
+ * "DD/MM/YYYY", "DD/MM/YYYY HH:mm" and "DD/MM/YYYY HH:mm:ss".
  */
-const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}((\s)?(\d{2}:\d{2}:\d{2}))?$/;
+const DATE_TIME_PATTERN = /^\d{2}\/\d{2}\/\d{4}( \d{2}:\d{2}(:\d{2})?)?$/;
 
 /**
  * Parses a brazilian formatted date into a Date instance.
@@ -21,7 +24,7 @@ const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}((\s)?(\d{2}:\d{2}:\d{2}))?$/;
 const parseToDate = (
   value: string,
 ): Date => {
-  if (!DATE_PATTERN.test(value))
+  if (!DATE_TIME_PATTERN.test(value))
     throw new Error(`Value "${value}" does not match format.`);
   const pieces = mapToPieces(value);
   const instance = parsePiecesToDate(pieces);

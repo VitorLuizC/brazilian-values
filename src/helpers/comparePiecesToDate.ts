@@ -1,5 +1,4 @@
-import DatePieces from '../models/DatePieces';
-import TimePieces from '../models/TimePieces';
+import DateTimePieces from '../models/DateTimePieces';
 import parsePiecesToDate from './parsePiecesToDate';
 
 /**
@@ -8,7 +7,7 @@ import parsePiecesToDate from './parsePiecesToDate';
  * @param instance - A Date instance.
  */
 const comparePiecesToDate = (
-  pieces: DatePieces & TimePieces,
+  pieces: DateTimePieces,
   instance: Date = parsePiecesToDate(pieces),
 ): boolean => (
   instance.getDate() === pieces.date &&
