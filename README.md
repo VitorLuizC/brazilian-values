@@ -321,6 +321,12 @@ Converte a data no formato brasileiro para uma instância de `Date`.
 parseToDate('28/03/1996')
 //=> Date('1996-03-28T03:00:00.000Z')
 
+parseToDate('28/03/1996 20:00')
+//=> Date('1996-03-28T23:00:00.000Z')
+
+parseToDate('28/03/1996 20:00:00')
+//=> Date('1996-03-28T23:00:00.000Z')
+
 parseToDate('31/02/2018')
 //=> throws Error('Value "31/02/2018" is an invalid date.')
 ```
