@@ -4,7 +4,7 @@ const configuration: Configuration = {
   input: 'src/brazilian-values.ts',
   output: {
     format: [
-      'es',
+      'esm',
       'cjs',
       'umd',
       'umd-min'
