@@ -23,13 +23,23 @@
     "email": "vitorluizc@outlook.com"
   },
   "license": "MIT",
-  "cdn": "dist/brazilian-values.umd.js",
-  "main": "dist/brazilian-values.js",
-  "types": "types/brazilian-values.d.ts",
-  "unpkg": "dist/brazilian-values.umd.js",
-  "module": "dist/brazilian-values.esm.js",
-  "jsdelivr": "dist/brazilian-values.umd.js",
-  "umd:main": "dist/brazilian-values.umd.js",
+  "cdn": "./dist/brazilian-values.umd.min.js",
+  "main": "./dist/brazilian-values.js",
+  "types": "./types/brazilian-values.d.ts",
+  "unpkg": "./dist/brazilian-values.umd.min.js",
+  "module": "./dist/brazilian-values.esm.js",
+  "jsdelivr": "./dist/brazilian-values.umd.min.js",
+  "umd:main": "./dist/brazilian-values.umd.js",
+  "exports": {
+    ".": [
+      {
+        "import": "./dist/brazilian-values.mjs",
+        "require": "./dist/brazilian-values.cjs",
+        "default": "./dist/brazilian-values.js"
+      },
+      "./dist/brazilian-values.js"
+    ]
+  },
   "scripts": {
     "test": "yarn run test:types && yarn run test:unit",
     "test:unit": "ava",
