@@ -1,6 +1,6 @@
 {
   "name": "brazilian-values",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "sideEffects": false,
   "description": "Validates and formats brazilian values, like money (BRL), CPF, CNPJ, dates etc.",
   "keywords": [
@@ -14,8 +14,8 @@
     "BRL"
   ],
   "files": [
-    "dist/",
-    "types/"
+    "dist",
+    "types"
   ],
   "author": {
     "name": "Vitor Luiz Cavalcanti",
