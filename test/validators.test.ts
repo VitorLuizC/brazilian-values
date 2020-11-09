@@ -30,6 +30,7 @@ test('isCNPJ', (context) => {
 test('isCPF', (context) => {
   context.true(isCPF('366.418.768-70'));
   context.true(isCPF('36641876870'));
+  context.true(isCPF('1004218907'));
   context.false(isCPF('213.198.013-20'));
   context.false(isCPF('2131201872781'));
   context.false(isCPF('11111111111'));
