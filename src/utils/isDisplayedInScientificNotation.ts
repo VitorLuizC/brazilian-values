@@ -10,15 +10,6 @@ const MIN_NUMBER_NOT_DISPLAYED_IN_SCIENTIFIC_NOTATION = -MAX_NUMBER_NOT_DISPLAYE
 
 /**
  * Checks if the received value is displayed in scientific notation.
- * @example
- * isDisplayedInScientificNotation(1e21);
- * //=> false
- *
- * isDisplayedInScientificNotation(-999999999999999999999);
- * //=> false
- *
- * isDisplayedInScientificNotation(4319);
- * //=> true
  * @param {number} value
  * @returns {boolean}
  */
