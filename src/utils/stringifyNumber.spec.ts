@@ -1,5 +1,5 @@
 import test from 'ava';
-import stringifyNumber from './stringifyNumber';
+import stringifyNumber from './stringifyNumber.js';
 
 test('stringifies received number', (context) => {
   context.is(stringifyNumber(0), '0');
