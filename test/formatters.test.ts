@@ -14,6 +14,7 @@ import {
   formatToRG,
   formatToGenericPhone
 } from '../src/brazilian-values';
+import formatToCAEPF from '../src/formatters/formatToCAEPF';
 
 test('formatToBRL', (context) => {
   context.is(formatToBRL(1200.504), 'R$ 1.200,50');
@@ -135,3 +136,10 @@ test('formatToGenericPhone', (context) => {
   context.is(formatToGenericPhone('021923456789'), '021 92345-6789')
   context.is(formatToGenericPhone('5521923456789'), '+55 21 92345-6789')
 });
+
+test('formatToCAEPF', (context) => {
+  context.is(formatToCAEPF('1234567'), '123.456.7')
+  context.is(formatToCAEPF('12345678900199'), '123.456.789/001-99')
+  context.is(formatToCAEPF('00.000.0.0--0-0000.00'), '000.000.000/000-00')
+  context.is(formatToCAEPF('123.456.789/001-99'), '123.456.789/001-99')
+})
