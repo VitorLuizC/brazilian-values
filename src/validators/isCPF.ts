@@ -1,5 +1,5 @@
 import generateCheckSums from '../helpers/generateCheckSums';
-import getRemaining from '../helpers/getRemainig';
+import getRemaining from '../helpers/getRemaining';
 import isRepeatedArray from '../helpers/isRepeatedValue';
 import mapToNumbers from '../helpers/mapToNumbers';
 
