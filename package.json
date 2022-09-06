@@ -33,6 +33,7 @@
   "exports": {
     ".": [
       {
+        "types": "./types/brazilian-values.d.ts",
         "import": "./dist/brazilian-values.mjs",
         "require": "./dist/brazilian-values.cjs",
         "default": "./dist/brazilian-values.js"
