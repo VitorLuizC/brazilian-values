@@ -1,7 +1,7 @@
 import mapToNumeric from '../helpers/mapToNumeric';
 
 /**
- * Formats step-by-step a `string` value into a CPF.
+ * Formats step-by-step a `string` value into a CNPJ.
  * @example ```js
  * formatToCNPJ('128781')
  * //=> '12.878.1'
