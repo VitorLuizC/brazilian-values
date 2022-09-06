@@ -11,7 +11,7 @@ const generateCAEPFCheckSums = (
   numbers: Array<number>,
   validators: Array<number>,
 ): CheckSums => {
-  const value = [...numbers]
+  const value = numbers.slice()
   value[12] = (calculateCAEPFDigit(value.slice(0, 12), validators.slice(1, 13)))
   value[13] = (calculateCAEPFDigit(value.slice(0, 13), validators))
 
