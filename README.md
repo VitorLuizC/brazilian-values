@@ -67,6 +67,7 @@ const document = formatToCNPJ(value);
 - [`formatToCapitalized`](#formatToCapitalized)
 - [`formatToCEP`](#formatToCEP)
 - [`formatToCNPJ`](#formatToCNPJ)
+- [`formatToCAEPF`](#formatToCAEPF)
 - [`formatToCPF`](#formatToCPF)
 - [`formatToCPFOrCNPJ`](#formatToCPFOrCNPJ)
 - [`formatToDate`](#formatToDate)
@@ -90,6 +91,7 @@ const document = formatToCNPJ(value);
 
 - [`isCEP`](#isCEP)
 - [`isCNPJ`](#isCNPJ)
+- [`isCAEPF`](#isCAEPF)
 - [`isCPF`](#isCPF)
 - [`isCPFOrCNPJ`](#isCPFOrCNPJ)
 - [`isDate`](#isDate)
@@ -165,6 +167,21 @@ formatToCNPJ('32284981000138')
 
 formatToCNPJ('00.0.000.00.00--00-00')
 //=> '00.000.000/0000-00'
+```
+
+#### `formatToCAEPF`
+
+Formata uma `string` que contém números em CAEPF.
+
+```js
+formatToCAEPF('128781')
+//=> '128.781'
+
+formatToCAEPF('32284981000150')
+//=> '322.849.810/001-50'
+
+formatToCAEPF('00.0.000.00.00--00-00')
+//=> '000.000.000/000-00'
 ```
 
 #### `formatToCPF`
@@ -389,6 +406,27 @@ isCNPJ('411407182')
 //=> false
 
 isCNPJ('11.111.111/1111-11')
+//=> false
+```
+
+#### `isCAEPF`
+
+Verifica se é um CAEPF válido.
+
+```js
+isCAEPF('45723174000122')
+//=> true
+
+isCAEPF('457.231.740/001-22')
+//=> false
+
+isCAEPF('45.723.174/0001-22')
+//=> false
+
+isCAEPF('411407182')
+//=> false
+
+isCAEPF('111.111.111/111-11')
 //=> false
 ```
 
