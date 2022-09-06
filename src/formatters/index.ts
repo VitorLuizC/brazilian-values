@@ -1,4 +1,5 @@
 export { default as formatToBRL } from './formatToBRL';
+export { default as formatToCAEPF } from './formatToCAEPF';
 export { default as formatToCapitalized } from './formatToCapitalized';
 export { default as formatToCEP } from './formatToCEP';
 export { default as formatToCNPJ } from './formatToCNPJ';
