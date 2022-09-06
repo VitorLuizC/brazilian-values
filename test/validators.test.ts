@@ -8,6 +8,7 @@ import {
   isPhone,
   isCPFOrCNPJ,
 } from '../src/brazilian-values';
+import isCAEPF from '../src/validators/isCAEPF';
 
 test('isCEP', (context) => {
  context.true(isCEP('50.833-000'));
@@ -25,6 +26,15 @@ test('isCNPJ', (context) => {
   context.false(isCNPJ('41142260007182'));
   context.false(isCNPJ('19.981.127/0001-10'));
   context.false(isCNPJ('64.637.agsvs009/0001-90'));
+});
+
+test('isCAEPF', (context) => {
+  context.true(isCAEPF('41142260000101'));
+  context.true(isCAEPF('457.231.740/001-22'));
+  context.false(isCAEPF('45.723.174/0001-22'));
+  context.false(isCAEPF('41142260007182'));
+  context.false(isCAEPF('19.981.127/0001-10'));
+  context.false(isCAEPF('64.637.agsvs009/0001-90'));
 });
 
 test('isCPF', (context) => {
