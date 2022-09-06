@@ -1,7 +1,7 @@
 /**
  * Numbers used to check a document or something containing numbers.
  */
-type CheckSums = [ number, number ];
+export type CheckSums = [ number, number ];
 
 /**
  * Generate check sums. Multiply numbers to validators and sum them to generate
