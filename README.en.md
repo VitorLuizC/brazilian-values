@@ -65,6 +65,7 @@ const document = formatToCNPJ(value);
   <summary>Formatters</summary>
 
 - [`formatToBRL`](#formatToBRL)
+- [`formatToCAEPF`](#formatToCAEPF)
 - [`formatToCapitalized`](#formatToCapitalized)
 - [`formatToCEP`](#formatToCEP)
 - [`formatToCNPJ`](#formatToCNPJ)
@@ -89,6 +90,7 @@ const document = formatToCNPJ(value);
 <details>
   <summary>Validators</summary>
 
+- [`isCAEPF`](#isCAEPF)
 - [`isCEP`](#isCEP)
 - [`isCNPJ`](#isCNPJ)
 - [`isCPF`](#isCPF)
@@ -113,6 +115,21 @@ formatToBRL('9211928.18203')
 
 formatToBRL(-18.49)
 //=> 'R$ -18,49'
+```
+
+#### `formatToCAEPF`
+
+Formats a text containing numbers to CAEPF.
+
+```js
+formatToCAEPF('128781')
+//=> '128.781'
+
+formatToCAEPF('32284981000150')
+//=> '322.849.810/001-50'
+
+formatToCAEPF('00.0.000.00.00--00-00')
+//=> '000.000.000/000-00'
 ```
 
 #### `formatToCapitalized`
@@ -352,9 +369,30 @@ parseToNumber('19.898,1298')
 
 ### Validators
 
+#### `isCAEPF`
+
+Validates if value is a CAEPF.
+
+```js
+isCAEPF('45723174000122')
+//=> true
+
+isCAEPF('457.231.740/001-22')
+//=> false
+
+isCAEPF('45.723.174/0001-22')
+//=> false
+
+isCAEPF('411407182')
+//=> false
+
+isCAEPF('111.111.111/111-11')
+//=> false
+```
+
 #### `isCEP`
 
-Validates if valur is a CEP.
+Validates if value is a CEP.
 
 ```js
 isCEP('50.833-000')
