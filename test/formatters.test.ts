@@ -1,6 +1,7 @@
 import test from 'ava';
 import {
   formatToBRL,
+  formatToCAEPF,
   formatToCEP,
   formatToCNPJ,
   formatToCPF,
@@ -9,13 +10,12 @@ import {
   formatToDate,
   formatToDateTime,
   formatToGenericPhone,
+  formatToHidden,
   formatToList,
   formatToNumber,
   formatToPhone,
   formatToRG
 } from '../src/brazilian-values';
-import formatToCAEPF from '../src/formatters/formatToCAEPF';
-import formatToHidden from '../src/formatters/formatToHidden';
 
 test('formatToBRL', (context) => {
   context.is(formatToBRL(1200.504), 'R$ 1.200,50');
