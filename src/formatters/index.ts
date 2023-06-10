@@ -8,7 +8,7 @@ export { default as formatToCapitalized } from './formatToCapitalized';
 export { default as formatToDate } from './formatToDate';
 export { default as formatToDateTime } from './formatToDateTime';
 export { default as formatToGenericPhone } from './formatToGenericPhone';
-export { default as formatToHidden } from './formatToHidden';
+export { default as formatToHiddenDigits, FormatToHiddenDigitsOptions } from './formatToHiddenDigits';
 export { default as formatToList } from './formatToList';
 export { default as formatToNumber } from './formatToNumber';
 export { default as formatToPhone } from './formatToPhone';

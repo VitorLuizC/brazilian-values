@@ -10,7 +10,7 @@ import {
   formatToDate,
   formatToDateTime,
   formatToGenericPhone,
-  formatToHidden,
+  formatToHiddenDigits,
   formatToList,
   formatToNumber,
   formatToPhone,
@@ -145,10 +145,10 @@ test('formatToCAEPF', (context) => {
   context.is(formatToCAEPF('123.456.789/001-99'), '123.456.789/001-99')
 })
 
-test('formatToHidden', (context) => {
-  context.is(formatToHidden('00.000-000'), '**.*00-000');
-  context.is(formatToHidden('03/04/2002', { hider: '-' }), '--/-4/2002');
-  context.is(formatToHidden('111.111.111-11', { range: [4, 9] }), '111.***.***-11');
-  context.is(formatToHidden('12.345.678-9', { hider: '#', range: 5 }), '##.###.678-9');
-  context.is(formatToHidden('52.715.348/0001-69', { hider: '@', range: -9 }), '52.715.@@@/@@@@-@@');
+test('formatToHiddenDigits', (context) => {
+  context.is(formatToHiddenDigits('00.000-000'), '**.*00-000');
+  context.is(formatToHiddenDigits('03/04/2002', { hider: '-' }), '--/-4/2002');
+  context.is(formatToHiddenDigits('111.111.111-11', { range: [4, 9] }), '111.***.***-11');
+  context.is(formatToHiddenDigits('12.345.678-9', { hider: '#', range: 5 }), '##.###.678-9');
+  context.is(formatToHiddenDigits('52.715.348/0001-69', { hider: '@', range: -9 }), '52.715.@@@/@@@@-@@');
 });
