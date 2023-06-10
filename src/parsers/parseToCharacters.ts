@@ -2,7 +2,7 @@
 const DIGIT = /^\d$/;
 
 export type DigitCharacterNode = {
-  kind: "digit";
+  kind: 'digit';
 
   /** The digit number. */
   digit: number;
@@ -10,12 +10,12 @@ export type DigitCharacterNode = {
 };
 
 export type OtherCharacterNode = {
-  kind: "other";
+  kind: 'other';
   character: string;
 };
 
 export type RootCharacterNode = {
-  kind: "root";
+  kind: 'root';
   digits: number;
   children: (DigitCharacterNode | OtherCharacterNode)[];
 };
@@ -29,17 +29,17 @@ const parseToCharacters = (value: string): RootCharacterNode => {
 
   return {
     digits,
-    kind: "root",
-    children: value.split("").map((character, index) =>
+    kind: 'root',
+    children: value.split('').map((character, index) =>
       DIGIT.test(character)
         ? {
             character,
-            kind: "digit",
+            kind: 'digit',
             digit: ++digits, // It returns the incremented value of 'digits'.
           }
         : {
             character,
-            kind: "other",
+            kind: 'other',
           }
     ),
   };

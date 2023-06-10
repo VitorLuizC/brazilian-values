@@ -146,11 +146,9 @@ test('formatToCAEPF', (context) => {
 })
 
 test('formatToHidden', (context) => {
-  context.is(formatToHidden('32.284.981/0001-38'), '**.*84.981/0001-38');
-  context.is(formatToHidden('32.284.981/0001-38', { hider: '-' }), '--.-84.981/0001-38');
-  context.is(formatToHidden('32.284.981/0001-38', { range: 10 }), '**.***.***/**01-38');
-  context.is(formatToHidden('32.284.981/0001-38', { range: 5, hider: '-' }), '--.---.981/0001-38');
-  context.is(formatToHidden('366.418.768-70'), '***.418.768-70');
-  context.is(formatToHidden('366.418.768-70', { range: 6 }), '***.***.768-70');
-  context.is(formatToHidden('(21) 9 8480-0000', { range: 7 }), '(**) * ****-0000');
+  context.is(formatToHidden('00.000-000'), '**.*00-000');
+  context.is(formatToHidden('03/04/2002', { hider: '-' }), '--/-4/2002');
+  context.is(formatToHidden('111.111.111-11', { range: [4, 9] }), '111.***.***-11');
+  context.is(formatToHidden('12.345.678-9', { hider: '#', range: 5 }), '##.###.678-9');
+  context.is(formatToHidden('52.715.348/0001-69', { hider: '@', range: -9 }), '52.715.@@@/@@@@-@@');
 });
