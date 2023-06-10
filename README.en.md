@@ -77,6 +77,7 @@ const document = formatToCNPJ(value);
 - [`formatToNumber`](#formatToNumber)
 - [`formatToPhone`](#formatToPhone)
 - [`formatToRG`](#formatToRG)
+- [`formatToHidden`](#formatToHidden)
 </details>
 
 <details>
@@ -307,6 +308,28 @@ formatToRG('00.00.0000-0', 'RJ')
 
 formatToRG('MG-14.808.688', 'MG')
 //=> 'MG-14.808.688'
+```
+
+#### `formatToHidden`
+
+Formats a `string` with digits by replacing digits within the range by the hider
+character.
+
+```js
+formatToHidden('00.000-000')
+//=> '**.*00-000'
+
+formatToHidden('03/04/2002', { hider: '-' })
+//=> '--/-4/2002'
+
+formatToHidden('111.111.111-11', { range: [4, 9] })
+//=> '111.***.***-11'
+
+formatToHidden('12.345.678-9', { hider: '#', range: 5 })
+//=> '##.###.678-9'
+
+formatToHidden('52.715.348/0001-69', { hider: '@', range: -9 })
+//=> '52.715.@@@/@@@@-@@'
 ```
 
 ### Parsers
