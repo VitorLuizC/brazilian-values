@@ -27,21 +27,23 @@ export type RootCharacterNode = {
 const parseToCharacters = (value: string): RootCharacterNode => {
   let digits = 0;
 
+  const children = value.split('').map((character: string): DigitCharacterNode | OtherCharacterNode => {
+    if (DIGIT.test(character))
+      return {
+        character,
+        kind: 'digit',
+        digit: ++digits, // It returns the incremented value of 'digits'.
+      };
+    return {
+      character,
+      kind: 'other',
+    };
+  });
+
   return {
     digits,
+    children,
     kind: 'root',
-    children: value.split('').map((character, index) =>
-      DIGIT.test(character)
-        ? {
-            character,
-            kind: 'digit',
-            digit: ++digits, // It returns the incremented value of 'digits'.
-          }
-        : {
-            character,
-            kind: 'other',
-          }
-    ),
   };
 };
 

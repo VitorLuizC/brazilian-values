@@ -8,7 +8,7 @@ export const normalizeRange = (
 
   if (range >= 0) return [0, range];
 
-  return [limit - Math.abs(range), limit];
+  return [limit + 1 - Math.abs(range), limit];
 };
 
 export const within = (
