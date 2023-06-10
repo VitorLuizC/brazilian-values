@@ -1,20 +1,21 @@
 import test from 'ava';
 import {
   formatToBRL,
+  formatToCAEPF,
   formatToCEP,
-  formatToCPFOrCNPJ,
   formatToCNPJ,
-  formatToCapitalized,
   formatToCPF,
+  formatToCPFOrCNPJ,
+  formatToCapitalized,
   formatToDate,
   formatToDateTime,
+  formatToGenericPhone,
+  formatToHidden,
   formatToList,
   formatToNumber,
   formatToPhone,
-  formatToRG,
-  formatToGenericPhone
+  formatToRG
 } from '../src/brazilian-values';
-import formatToCAEPF from '../src/formatters/formatToCAEPF';
 
 test('formatToBRL', (context) => {
   context.is(formatToBRL(1200.504), 'R$ 1.200,50');
@@ -143,3 +144,13 @@ test('formatToCAEPF', (context) => {
   context.is(formatToCAEPF('00.000.0.0--0-0000.00'), '000.000.000/000-00')
   context.is(formatToCAEPF('123.456.789/001-99'), '123.456.789/001-99')
 })
+
+test('formatToHidden', (context) => {
+  context.is(formatToHidden('32.284.981/0001-38'), '**.*84.981/0001-38');
+  context.is(formatToHidden('32.284.981/0001-38', { hider: '-' }), '--.-84.981/0001-38');
+  context.is(formatToHidden('32.284.981/0001-38', { range: 10 }), '**.***.***/**01-38');
+  context.is(formatToHidden('32.284.981/0001-38', { range: 5, hider: '-' }), '--.---.981/0001-38');
+  context.is(formatToHidden('366.418.768-70'), '***.418.768-70');
+  context.is(formatToHidden('366.418.768-70', { range: 6 }), '***.***.768-70');
+  context.is(formatToHidden('(21) 9 8480-0000', { range: 7 }), '(**) * ****-0000');
+});
