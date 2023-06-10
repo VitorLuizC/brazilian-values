@@ -25,14 +25,17 @@ type Options = {
  */
 const formatToHidden = (
   value: string,
-  { range = 3, hider = "*" }: Options = {}
-) => {
-  const valueArray = value.split("");
-  let countNaN = 0;
-  for (let i = 0; i < range + countNaN; i++) {
-    isNaN(parseInt(valueArray[i])) ? countNaN++ : (valueArray[i] = hider);
-  }
-  return valueArray.join("");
+  options: FormatToHiddenOptions = {},
+): string => {
+  const characters = parseToCharacters(value);
+  const range = normalizeRange(options.range ?? 3, characters.digits);
+  return characters.children
+    .map((node) => {
+      if (node.kind === "digit" && within(range, node.digit))
+        return options.hider ?? "*";
+      return node.character;
+    })
+    .join("");
 };
 
 export default formatToHidden;
