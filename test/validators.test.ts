@@ -80,8 +80,8 @@ test('isDDD', (context) => {
 });
 
 test('isPhone', (context) => {
-  context.true(isPhone('+55 (11) 9 8273-1182'));
-  context.true(isPhone('11 9 8273 1182'));
+  context.true(isPhone('+55 (11) 98273-1182'));
+  context.true(isPhone('11 98273 1182'));
   context.true(isPhone('1139723768'));
   context.false(isPhone('(23) 3972-3768'));
   context.false(isPhone('(13) 6 5093-2093'));

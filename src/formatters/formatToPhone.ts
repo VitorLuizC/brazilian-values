@@ -10,7 +10,7 @@ import mapToNumeric from '../helpers/mapToNumeric';
  * //=> '(11) 9716-26'
  *
  * formatToPhone('11971626799')
- * //=> '(11) 9 7162-6799'
+ * //=> '(11) 97162-6799'
  * ```
  * @param value
  */
@@ -21,7 +21,7 @@ const formatToPhone = (
     .replace(/(\d{1,2})/, '($1')
     .replace(/(\(\d{2})(\d{1,4})/, '$1) $2')
     .replace(/( \d{4})(\d{1,4})/, '$1-$2')
-    .replace(/( \d{1})(\d{3})(?:-)(\d{1})(\d{4})/, '$1 $2$3-$4')
+    .replace(/( \d{4})(?:-)(\d{1})(\d{4})/, '$1$2-$3')
 );
 
 export default formatToPhone;
