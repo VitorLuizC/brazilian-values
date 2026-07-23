@@ -77,6 +77,11 @@ test('formatToCNPJ', (context) => {
   context.is(formatToCNPJ('128781'), '12.878.1');
   context.is(formatToCNPJ('32284981000138'), '32.284.981/0001-38');
   context.is(formatToCNPJ('00.0.000.00.00--00-00'), '00.000.000/0000-00');
+  context.is(formatToCNPJ('15.216.260/0001-76'), '15.216.260/0001-76');
+  context.is(formatToCNPJ('6A3EDMWP000168'), '6A.3ED.MWP/0001-68');
+  context.is(formatToCNPJ('Q2.GRO.WP7/0001-85'), 'Q2.GRO.WP7/0001-85');
+  context.is(formatToCNPJ('1A2B3C4D5E6F78'), '1A.2B3.C4D/5E6F-78');
+  context.is(formatToCNPJ('1A.2B3.C4D/5E6F-78'), '1A.2B3.C4D/5E6F-78');
 });
 
 test('formatToCPF', (context) => {
@@ -91,6 +96,8 @@ test('formatToCPFOrCNPJ', (context) => {
   context.is(formatToCPFOrCNPJ('366.418.768-70'), '366.418.768-70');
   context.is(formatToCPFOrCNPJ('32284981000138'), '32.284.981/0001-38');
   context.is(formatToCPFOrCNPJ('00.0.000.00.00--00-00'), '00.000.000/0000-00');
+  context.is(formatToCPFOrCNPJ('6A3EDMWP000168'), '6A.3ED.MWP/0001-68');
+  context.is(formatToCPFOrCNPJ('1A2B3C4D5E6F78'), '1A.2B3.C4D/5E6F-78');
 });
 
 test('formatToDate', (context) => {

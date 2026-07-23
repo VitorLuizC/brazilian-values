@@ -38,7 +38,7 @@ const PATTERNS = [CPF_PATTERN, CNPJ_PATTERN];
 const isCPFOrCNPJ = (value: string): boolean => {
   const matches = PATTERNS.map((pattern) => pattern.test(value));
 
-  if (!matches.includes(true)) return false;
+  if (matches.indexOf(true) === -1) return false;
 
   return matches[0] ? isCPF(value) : isCNPJ(value);
 };

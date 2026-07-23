@@ -2,12 +2,13 @@ import formatToCNPJ from './formatToCNPJ';
 import formatToCPF from './formatToCPF';
 
 /**
- * Check if a `string` value can be formatted to CPF.
+ * Check if a `string` value can be formatted to CPF (digits-only, max 11; else CNPJ).
  * @param value - A `string` value of a CPF or CNPJ.
  */
 const canFormatToCPF = (
   value: string,
-): boolean => (value.match(/\d/g)?.length ?? 0) <= 11
+): boolean =>
+  (value.replace(/\D/g, '').length <= 11) && !/[/A-Za-z]/.test(value)
 
 /**
  * Formats step-by-step a `string` value to CPF or CNPJ depending on its length.

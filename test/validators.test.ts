@@ -23,9 +23,14 @@ test('isCEP', (context) => {
 test('isCNPJ', (context) => {
   context.true(isCNPJ('41142260000189'));
   context.true(isCNPJ('45.723.174/0001-10'));
+  context.true(isCNPJ('15.216.260/0001-76'));
+  context.true(isCNPJ('6A3EDMWP000168'));
+  context.true(isCNPJ('D7YDDI5H000162'));
+  context.true(isCNPJ('Q2.GRO.WP7/0001-85'));
   context.false(isCNPJ('41142260007182'));
   context.false(isCNPJ('19.981.127/0001-10'));
   context.false(isCNPJ('64.637.agsvs009/0001-90'));
+  context.false(isCNPJ('1A2B3C4D5E6F99'));
 });
 
 test('isCAEPF', (context) => {
@@ -52,6 +57,9 @@ test('isCPF', (context) => {
 test('isCPFOrCNPJ', (context) => {
   context.true(isCPFOrCNPJ("41142260000189"));
   context.true(isCPFOrCNPJ("45.723.174/0001-10"));
+  context.true(isCPFOrCNPJ("15.216.260/0001-76"));
+  context.true(isCPFOrCNPJ("6A3EDMWP000168"));
+  context.true(isCPFOrCNPJ("Q2.GRO.WP7/0001-85"));
   context.false(isCPFOrCNPJ("41142260007182"));
   context.false(isCPFOrCNPJ("19.981.127/0001-10"));
   context.false(isCPFOrCNPJ("64.637.agsvs009/0001-90"));
