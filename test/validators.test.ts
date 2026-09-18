@@ -31,6 +31,7 @@ test('isCNPJ', (context) => {
   context.false(isCNPJ('19.981.127/0001-10'));
   context.false(isCNPJ('64.637.agsvs009/0001-90'));
   context.false(isCNPJ('1A2B3C4D5E6F99'));
+  context.false(isCNPJ('4.11422.60000189'));
 });
 
 test('isCAEPF', (context) => {
@@ -79,6 +80,7 @@ test('isDate', (context) => {
   context.false(isDate('28/13/9017'));
   context.false(isDate('00/00/0000'));
   context.false(isDate('31/02/2018'));
+  context.false(isDate('03/08/201712:30:00'));
 });
 
 test('isDDD', (context) => {
@@ -94,4 +96,5 @@ test('isPhone', (context) => {
   context.false(isPhone('(23) 3972-3768'));
   context.false(isPhone('(13) 6 5093-2093'));
   context.false(isPhone('(81) 555 178'));
+  context.false(isPhone('11 98273|1182'));
 });
