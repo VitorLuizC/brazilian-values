@@ -4,7 +4,7 @@ import isDDD from './isDDD';
  * Pattern for common brazilian telephone number formats, optionally with DDI,
  * DDD and the ninth digit.
  */
-const PHONE_PATTERN = /^(\+55)? ?\(?(\d{2})?\)? ?9?\d{4}[-| ]?\d{4}$/;
+const PHONE_PATTERN = /^(\+55)? ?\(?(\d{2})?\)? ?9?\d{4}[- ]?\d{4}$/;
 
 /**
  * Check if value is a valid brazilian phone number. It can check a wide

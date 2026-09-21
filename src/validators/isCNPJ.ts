@@ -59,7 +59,7 @@ export const CNPJ_PATTERN = /^([A-Z\d]{12}\d{2}|[A-Z\d]{2}\.[A-Z\d]{3}\.[A-Z\d]{
  * @param value - A text containing a CNPJ.
  */
 const isCNPJ = (value: string): boolean => {
-  if (REGEX_INVALID_CHARACTERS.test(value))
+  if (!CNPJ_PATTERN.test(value))
     return false
 
   const raw = removeMask(value)
